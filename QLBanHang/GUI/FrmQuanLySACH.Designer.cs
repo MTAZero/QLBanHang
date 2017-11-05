@@ -71,7 +71,7 @@
             this.btnTimKiem.Location = new System.Drawing.Point(433, 8);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(125, 27);
-            this.btnTimKiem.TabIndex = 2;
+            this.btnTimKiem.TabIndex = 10;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
@@ -119,7 +119,7 @@
             this.btnXoa.Location = new System.Drawing.Point(5, 51);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(372, 42);
-            this.btnXoa.TabIndex = 12;
+            this.btnXoa.TabIndex = 8;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -133,7 +133,7 @@
             this.btnSua.Location = new System.Drawing.Point(197, 3);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(180, 42);
-            this.btnSua.TabIndex = 11;
+            this.btnSua.TabIndex = 7;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -147,7 +147,7 @@
             this.btnThem.Location = new System.Drawing.Point(3, 5);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(188, 42);
-            this.btnThem.TabIndex = 10;
+            this.btnThem.TabIndex = 6;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -187,7 +187,7 @@
             this.cbxNhaXuatBan.Location = new System.Drawing.Point(109, 251);
             this.cbxNhaXuatBan.Name = "cbxNhaXuatBan";
             this.cbxNhaXuatBan.Size = new System.Drawing.Size(190, 23);
-            this.cbxNhaXuatBan.TabIndex = 17;
+            this.cbxNhaXuatBan.TabIndex = 5;
             // 
             // label4
             // 
@@ -204,7 +204,7 @@
             this.txtTacGia.Location = new System.Drawing.Point(109, 132);
             this.txtTacGia.Name = "txtTacGia";
             this.txtTacGia.Size = new System.Drawing.Size(205, 23);
-            this.txtTacGia.TabIndex = 14;
+            this.txtTacGia.TabIndex = 3;
             // 
             // txtGhiChu
             // 
@@ -213,7 +213,7 @@
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(251, 53);
-            this.txtGhiChu.TabIndex = 13;
+            this.txtGhiChu.TabIndex = 4;
             // 
             // label3
             // 
@@ -239,7 +239,7 @@
             this.txtTenMH.Location = new System.Drawing.Point(109, 85);
             this.txtTenMH.Name = "txtTenMH";
             this.txtTenMH.Size = new System.Drawing.Size(251, 23);
-            this.txtTenMH.TabIndex = 3;
+            this.txtTenMH.TabIndex = 2;
             // 
             // txtMASACH
             // 
@@ -247,7 +247,7 @@
             this.txtMASACH.Location = new System.Drawing.Point(109, 41);
             this.txtMASACH.Name = "txtMASACH";
             this.txtMASACH.Size = new System.Drawing.Size(205, 23);
-            this.txtMASACH.TabIndex = 2;
+            this.txtMASACH.TabIndex = 1;
             // 
             // label12
             // 
@@ -272,7 +272,7 @@
             this.txtTimKiem.Location = new System.Drawing.Point(89, 11);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(338, 22);
-            this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.TabIndex = 9;
             // 
             // panel1
             // 
