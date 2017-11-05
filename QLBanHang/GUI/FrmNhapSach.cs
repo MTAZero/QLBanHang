@@ -11,15 +11,15 @@ using System.Windows.Forms;
 
 namespace QLBanHang.GUI
 {
-    public partial class FrmXuatHang : Form
+    public partial class FrmNhapSACH : Form
     {
-        private QLBanSach_DbContext db = Service.DBService.db;
-        private int indexHOADONBAN = 0, indexHOADONBAN1 = 0;
-        private int indexCHITIETXUAT = 0, indexCHITIETXUAT1 = 0;
+        private QLBanSACH_DbContext db = Service.DBService.db;
+        private int indexPhieuNhap = 0, indexPhieuNhap1 = 0;
+        private int indexChiTietNhap = 0, indexChiTietNhap1 = 0;
         private NHANVIEN nv = new NHANVIEN();
 
         #region constructor
-        public FrmXuatHang(NHANVIEN _nv)
+        public FrmNhapSACH(NHANVIEN _nv)
         {
             InitializeComponent();
             Service.DBService.Reload();
@@ -30,8 +30,8 @@ namespace QLBanHang.GUI
         #region Form chính
         private void FrmNhapHang_Load(object sender, EventArgs e)
         {
-            LoadHOADONBAN();
-            LoadCHITIETXUAT();
+            LoadPhieuNhap();
+            LoadChiTietNhap();
         }
         #endregion
 
@@ -47,52 +47,52 @@ namespace QLBanHang.GUI
 
             dateNgayNhap.Value = DateTime.Now;
 
-            groupThongTinHoaDonBan.Enabled = false;
+            groupThongTinPhieuNhap.Enabled = false;
 
         }
 
-        private void LoadDgvHOADONBAN()
+        private void LoadDgvPhieuNhap()
         {
             int i = 0;
-            var dataHOADONBAN = db.HOADONBANs.ToList()
+            var dataPhieuNhap = db.PHIEUNHAPs.ToList()
                                 .Select(p => new
                                 {
                                     ID = p.ID,
                                     STT = ++i,
                                     Ngay = ((DateTime)p.NGAY).ToString("dd/MM/yyyy"),
                                     NhanVien = db.NHANVIENs.Where(z => z.ID == p.NHANVIENID).FirstOrDefault().TEN,
+                                    DiaDiem = p.DIADIEM,
                                     TongTien = p.TONGTIEN
                                 })
                                 .ToList();
-            dgvHoaDonBan.DataSource = dataHOADONBAN;
+            dgvPhieuNhap.DataSource = dataPhieuNhap;
 
             // thêm index 
-            indexHOADONBAN = indexHOADONBAN1;
+            indexPhieuNhap = indexPhieuNhap1;
             try
             {
-                dgvHoaDonBan.Rows[indexHOADONBAN].Cells["STTPhieuNhap"].Selected = true;
-                dgvHoaDonBan.Select();
+                dgvPhieuNhap.Rows[indexPhieuNhap].Cells["STTPhieuNhap"].Selected = true;
+                dgvPhieuNhap.Select();
             }
             catch { }
 
-            LoadDgvCHITIETXUAT();
+            LoadDgvChiTietNhap();
         }
 
-        private void LoadHOADONBAN()
+        private void LoadPhieuNhap()
         {
             LoadInitControl();
-            LoadDgvHOADONBAN();
+            LoadDgvPhieuNhap();
         }
         #endregion
 
         #region Hàm chức năng
 
-        private void UpdateDetailHOADONBAN()
+        private void UpdateDetailPhieuNhap()
         {
-            ClearControlHOADONBAN();
-            HOADONBAN tg = getHOADONBANByID();
+            ClearControlPhieuNhap();
+            PHIEUNHAP tg = getPhieuNhapByID();
             if (tg.ID == 0) return;
-
 
             int TongTienCu = (int) tg.TONGTIEN;
 
@@ -102,56 +102,64 @@ namespace QLBanHang.GUI
                 {
 
                     int cnt = 0;
-                    cnt = db.CHITIETXUATs.Where(p => p.HOADONBANID == tg.ID).ToList().Count;
+                    cnt = db.CHITIETNHAPs.Where(p => p.PHIEUNHAPID == tg.ID).ToList().Count;
                     if (cnt == 0) tg.TONGTIEN = 0;
 
                     
-                    tg.TONGTIEN = db.CHITIETXUATs.Where(p => p.HOADONBANID == tg.ID).Sum(p => p.THANHTIEN).Value;
+                    tg.TONGTIEN = db.CHITIETNHAPs.Where(p => p.PHIEUNHAPID == tg.ID).Sum(p => p.THANHTIEN).Value;
                     
                 }
                 catch { tg.TONGTIEN = 0; }
 
-                if (TongTienCu != tg.TONGTIEN) LoadDgvHOADONBAN();
+                if (TongTienCu != tg.TONGTIEN) LoadDgvPhieuNhap();
                 db.SaveChanges();
 
                 cbxNhanVien.SelectedValue = tg.NHANVIENID;
                 dateNgayNhap.Value = (DateTime)tg.NGAY;
+                txtDiaDiem.Text = tg.DIADIEM;
                 txtTongTien.Text = tg.TONGTIEN.ToString();
+                
 
-                indexHOADONBAN1 = indexHOADONBAN;
-                indexHOADONBAN = dgvHoaDonBan.SelectedRows[0].Index;
+                indexPhieuNhap1 = indexPhieuNhap;
+                indexPhieuNhap = dgvPhieuNhap.SelectedRows[0].Index;
 
-
-                LoadDgvCHITIETXUAT();
+                
+                LoadDgvChiTietNhap();
             }
             catch { }
         }
 
-        private void ClearControlHOADONBAN()
+        private void ClearControlPhieuNhap()
         {
             try
             {
                 cbxNhanVien.SelectedIndex = 0;
                 dateNgayNhap.Value = DateTime.Now;
+                txtDiaDiem.Text = "";
                 txtTongTien.Text = "";
             }
             catch { }
         }
 
-        private bool CheckHOADONBAN()
+        private bool CheckPhieuNhap()
         {
+            if (txtDiaDiem.Text == "")
+            {
+                MessageBox.Show("Địa điểm không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
 
             return true;
         }
 
-        private HOADONBAN getHOADONBANByID()
+        private PHIEUNHAP getPhieuNhapByID()
         {
-            HOADONBAN ans = new HOADONBAN();
+            PHIEUNHAP ans = new PHIEUNHAP();
 
             try
             {
-                int id = (int)dgvHoaDonBan.SelectedRows[0].Cells["IDPhieuNhap"].Value;
-                HOADONBAN z = db.HOADONBANs.Where(p => p.ID == id).FirstOrDefault();
+                int id = (int)dgvPhieuNhap.SelectedRows[0].Cells["IDPhieuNhap"].Value;
+                PHIEUNHAP z = db.PHIEUNHAPs.Where(p => p.ID == id).FirstOrDefault();
 
                 if (z != null) ans = z;
             }
@@ -160,12 +168,13 @@ namespace QLBanHang.GUI
             return ans;
         }
 
-        private HOADONBAN getHOADONBANByForm()
+        private PHIEUNHAP getPhieuNhapByForm()
         {
-            HOADONBAN ans = new HOADONBAN();
+            PHIEUNHAP ans = new PHIEUNHAP();
 
             ans.NHANVIENID = (int)cbxNhanVien.SelectedValue;
             ans.NGAY = dateNgayNhap.Value;
+            ans.DIADIEM = txtDiaDiem.Text;
             ans.TONGTIEN = 0;
             //ans.TONGTIEN = Int32.Parse(txtTongTien.Text);
 
@@ -176,52 +185,52 @@ namespace QLBanHang.GUI
 
         #region Sự kiện ngầm
 
-        private void dgvHOADONBAN_SelectionChanged(object sender, EventArgs e)
+        private void dgvPhieuNhap_SelectionChanged(object sender, EventArgs e)
         {
-            UpdateDetailHOADONBAN();
+            UpdateDetailPhieuNhap();
         }
 
         #endregion
 
         #region Sự kiện
-        private void btnThemHOADONBAN_Click(object sender, EventArgs e)
+        private void btnThemPhieuNhap_Click(object sender, EventArgs e)
         {
-            if (btnThemHoaDonBan.Text == "Thêm")
+            if (btnThemPhieuNhap.Text == "Thêm")
             {
 
-                btnThemHoaDonBan.Text = "Lưu";
-                btnSuaHoaDonBan.Enabled = false;
-                btnXoaHoaDonBan.Text = "Hủy";
+                btnThemPhieuNhap.Text = "Lưu";
+                btnSuaPhieuNhap.Enabled = false;
+                btnXoaPhieuNhap.Text = "Hủy";
 
-                groupThongTinHoaDonBan.Enabled = true;
-                dgvHoaDonBan.Enabled = false;
+                groupThongTinPhieuNhap.Enabled = true;
+                dgvPhieuNhap.Enabled = false;
 
-                panelChiTietXuat.Enabled = false;
+                panelChiTietNhap.Enabled = false;
 
-                ClearControlHOADONBAN();
+                ClearControlPhieuNhap();
 
                 return;
             }
 
-            if (btnThemHoaDonBan.Text == "Lưu")
+            if (btnThemPhieuNhap.Text == "Lưu")
             {
-                if (CheckHOADONBAN())
+                if (CheckPhieuNhap())
                 {
 
-                    btnThemHoaDonBan.Text = "Thêm";
-                    btnSuaHoaDonBan.Enabled = true;
-                    btnXoaHoaDonBan.Text = "Xóa";
+                    btnThemPhieuNhap.Text = "Thêm";
+                    btnSuaPhieuNhap.Enabled = true;
+                    btnXoaPhieuNhap.Text = "Xóa";
 
-                    groupThongTinHoaDonBan.Enabled = false;
-                    dgvHoaDonBan.Enabled = true;
+                    groupThongTinPhieuNhap.Enabled = false;
+                    dgvPhieuNhap.Enabled = true;
 
-                    panelChiTietXuat.Enabled = true;
+                    panelChiTietNhap.Enabled = true;
 
 
                     try
                     {
-                        HOADONBAN tg = getHOADONBANByForm();
-                        db.HOADONBANs.Add(tg);
+                        PHIEUNHAP tg = getPhieuNhapByForm();
+                        db.PHIEUNHAPs.Add(tg);
                         db.SaveChanges();
                         MessageBox.Show("Thêm thông tin phiếu nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -231,52 +240,53 @@ namespace QLBanHang.GUI
                     }
 
 
-                    LoadDgvHOADONBAN();
+                    LoadDgvPhieuNhap();
                 }
 
                 return;
             }
         }
 
-        private void btnSuaHOADONBAN_Click(object sender, EventArgs e)
+        private void btnSuaPhieuNhap_Click(object sender, EventArgs e)
         {
-            HOADONBAN tg = getHOADONBANByID();
+            PHIEUNHAP tg = getPhieuNhapByID();
             if (tg.ID == 0)
             {
                 MessageBox.Show("Chưa có phiếu nhập nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (btnSuaHoaDonBan.Text == "Sửa")
+            if (btnSuaPhieuNhap.Text == "Sửa")
             {
-                btnSuaHoaDonBan.Text = "Lưu";
-                btnThemHoaDonBan.Enabled = false;
-                btnXoaHoaDonBan.Text = "Hủy";
+                btnSuaPhieuNhap.Text = "Lưu";
+                btnThemPhieuNhap.Enabled = false;
+                btnXoaPhieuNhap.Text = "Hủy";
 
-                groupThongTinHoaDonBan.Enabled = true;
-                dgvHoaDonBan.Enabled = false;
+                groupThongTinPhieuNhap.Enabled = true;
+                dgvPhieuNhap.Enabled = false;
 
-                panelChiTietXuat.Enabled = false;
+                panelChiTietNhap.Enabled = false;
 
                 return;
             }
 
-            if (btnSuaHoaDonBan.Text == "Lưu")
+            if (btnSuaPhieuNhap.Text == "Lưu")
             {
-                if (CheckHOADONBAN())
+                if (CheckPhieuNhap())
                 {
-                    btnSuaHoaDonBan.Text = "Sửa";
-                    btnThemHoaDonBan.Enabled = true;
-                    btnXoaHoaDonBan.Text = "Xóa";
+                    btnSuaPhieuNhap.Text = "Sửa";
+                    btnThemPhieuNhap.Enabled = true;
+                    btnXoaPhieuNhap.Text = "Xóa";
 
-                    groupThongTinHoaDonBan.Enabled = false;
-                    dgvHoaDonBan.Enabled = true;
+                    groupThongTinPhieuNhap.Enabled = false;
+                    dgvPhieuNhap.Enabled = true;
 
-                    panelChiTietXuat.Enabled = true;
+                    panelChiTietNhap.Enabled = true;
 
-                    HOADONBAN tgs = getHOADONBANByForm();
+                    PHIEUNHAP tgs = getPhieuNhapByForm();
                     tg.NHANVIENID = tgs.NHANVIENID;
                     tg.NGAY = tgs.NGAY;
+                    tg.DIADIEM = tgs.DIADIEM;
                     tg.TONGTIEN = tgs.TONGTIEN;
 
                     try
@@ -289,18 +299,18 @@ namespace QLBanHang.GUI
                         MessageBox.Show("Sửa thông tin phiếu nhập thất bại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                    LoadDgvHOADONBAN();
+                    LoadDgvPhieuNhap();
                 }
 
                 return;
             }
         }
 
-        private void btnXoaHOADONBAN_Click(object sender, EventArgs e)
+        private void btnXoaPhieuNhap_Click(object sender, EventArgs e)
         {
-            if (btnXoaHoaDonBan.Text == "Xóa")
+            if (btnXoaPhieuNhap.Text == "Xóa")
             {
-                HOADONBAN tg = getHOADONBANByID();
+                PHIEUNHAP tg = getPhieuNhapByID();
                 if (tg.ID == 0)
                 {
                     MessageBox.Show("Chưa có phiếu nhập nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -312,7 +322,7 @@ namespace QLBanHang.GUI
 
                 try
                 {
-                    db.HOADONBANs.Remove(tg);
+                    db.PHIEUNHAPs.Remove(tg);
                     db.SaveChanges();
                     MessageBox.Show("Xóa phiếu nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -321,26 +331,26 @@ namespace QLBanHang.GUI
                     MessageBox.Show("Xóa phiếu nhập thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                LoadDgvHOADONBAN();
+                LoadDgvPhieuNhap();
 
                 return;
             }
 
-            if (btnXoaHoaDonBan.Text == "Hủy")
+            if (btnXoaPhieuNhap.Text == "Hủy")
             {
-                btnXoaHoaDonBan.Text = "Xóa";
-                btnThemHoaDonBan.Text = "Thêm";
-                btnSuaHoaDonBan.Text = "Sửa";
+                btnXoaPhieuNhap.Text = "Xóa";
+                btnThemPhieuNhap.Text = "Thêm";
+                btnSuaPhieuNhap.Text = "Sửa";
 
-                btnThemHoaDonBan.Enabled = true;
-                btnSuaHoaDonBan.Enabled = true;
+                btnThemPhieuNhap.Enabled = true;
+                btnSuaPhieuNhap.Enabled = true;
 
-                groupThongTinHoaDonBan.Enabled = false;
-                dgvHoaDonBan.Enabled = true;
+                groupThongTinPhieuNhap.Enabled = false;
+                dgvPhieuNhap.Enabled = true;
 
-                panelChiTietXuat.Enabled = true;
+                panelChiTietNhap.Enabled = true;
 
-                UpdateDetailHOADONBAN();
+                UpdateDetailPhieuNhap();
 
                 return;
             }
@@ -350,86 +360,87 @@ namespace QLBanHang.GUI
 
         #endregion
 
-        #region Chi tiết bán
+        #region Chi tiết nhập
 
         #region Load
-        private void LoadInitControlCHITIETXUAT()
+        private void LoadInitControlChiTietNhap()
         {
             // cbx Nhân viên
             cbxSACH.DataSource = db.SACHes.ToList();
             cbxSACH.ValueMember = "ID";
             cbxSACH.DisplayMember = "TEN";
 
-            groupThongTinChiTietBan.Enabled = false;
+            groupThongTinChiTietNhap.Enabled = false;
 
         }
 
-        private void LoadDgvCHITIETXUAT()
+        private void LoadDgvChiTietNhap()
         {
 
-            int idHOADONBAN = 0;
+            int idPhieuNhap = 0;
             try
             {
-                idHOADONBAN = (int)dgvHoaDonBan.SelectedRows[0].Cells["IDPhieuNhap"].Value;
+                idPhieuNhap = (int)dgvPhieuNhap.SelectedRows[0].Cells["IDPhieuNhap"].Value;
             }
             catch
             {
             }
 
             int i = 0;
-            var dataCHITIETXUAT = db.CHITIETXUATs.ToList()
-                                  .Where(p => p.HOADONBANID == idHOADONBAN)
+            var dataChiTietNhap = db.CHITIETNHAPs.ToList()
+                                  .Where(p=>p.SACHID != null)
+                                  .Where(p => p.PHIEUNHAPID == idPhieuNhap)
                                   .Select(p => new
                                   {
                                       ID = p.ID,
                                       STT = ++i,
                                       SACH = db.SACHes.Where(z=>z.ID == p.SACHID).FirstOrDefault().TEN,
                                       SoLuong = p.SOLUONG,
-                                      DonGia = p.GIABAN,
+                                      DonGia = p.DONGIA,
                                       ThanhTien = p.THANHTIEN
                                   })
                                   .ToList();
-            dgvChiTietBan.DataSource = dataCHITIETXUAT;
+            dgvChiTietNhap.DataSource = dataChiTietNhap;
 
             // thêm index 
-            indexCHITIETXUAT = indexCHITIETXUAT1;
+            indexChiTietNhap = indexChiTietNhap1;
             try
             {
-                dgvChiTietBan.Rows[indexCHITIETXUAT].Cells["STTChiTietNhap"].Selected = true;
-                dgvChiTietBan.Select();
+                dgvChiTietNhap.Rows[indexChiTietNhap].Cells["STTChiTietNhap"].Selected = true;
+                dgvChiTietNhap.Select();
             }
             catch { }
         }
 
-        private void LoadCHITIETXUAT()
+        private void LoadChiTietNhap()
         {
-            LoadInitControlCHITIETXUAT();
-            LoadDgvCHITIETXUAT();
+            LoadInitControlChiTietNhap();
+            LoadDgvChiTietNhap();
         }
         #endregion
 
         #region Hàm chức năng
 
-        private void UpdateDetailChiTietBan()
+        private void UpdateDetailChiTietNhap()
         {
-            ClearControlCHITIETBAN();
-            CHITIETXUAT tg = getChiTietBanByID();
+            ClearControlChiTietNhap();
+            CHITIETNHAP tg = getChiTietNhapByID();
             if (tg.ID == 0) return;
 
             try
             {
                 cbxSACH.SelectedValue = (int) tg.SACHID;
                 txtSoLuong.Text = tg.SOLUONG.ToString();
-                txtDonGia.Text = tg.GIABAN.ToString();
+                txtDonGia.Text = tg.DONGIA.ToString();
                 txtThanhTien.Text = tg.THANHTIEN.ToString();
 
-                indexCHITIETXUAT1 = indexCHITIETXUAT;
-                indexCHITIETXUAT = dgvChiTietBan.SelectedRows[0].Index;
+                indexChiTietNhap1 = indexChiTietNhap;
+                indexChiTietNhap = dgvChiTietNhap.SelectedRows[0].Index;
             }
             catch { }
         }
 
-        private void ClearControlCHITIETBAN()
+        private void ClearControlChiTietNhap()
         {
             try
             {
@@ -441,7 +452,7 @@ namespace QLBanHang.GUI
             catch { }
         }
 
-        private bool CheckChiTietBan()
+        private bool CheckChiTietNhap()
         {
             // số lượng
             try
@@ -449,24 +460,11 @@ namespace QLBanHang.GUI
                 int k = Int32.Parse(txtSoLuong.Text);
                 if (k == 0) k = 3 / k;
             }
-            catch {
+            catch
+            {
                 MessageBox.Show("Số lượng phải là số nguyên dương", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            // check hàng trong kho
-            try
-            {
-                CHITIETXUAT tg = getChiTietBanByForm();
-                int k = Int32.Parse(txtSoLuong.Text);
-                int sl = (int) db.KHOes.Where(p => p.SACHID == tg.SACHID).FirstOrDefault().SOLUONG;
-                if (k > sl)
-                {
-                    MessageBox.Show("Không đủ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-            }
-            catch { }
 
             // đơn giá
             try
@@ -482,14 +480,14 @@ namespace QLBanHang.GUI
             return true;
         }
 
-        private CHITIETXUAT getChiTietBanByID()
+        private CHITIETNHAP getChiTietNhapByID()
         {
-            CHITIETXUAT ans = new CHITIETXUAT();
+            CHITIETNHAP ans = new CHITIETNHAP();
 
             try
             {
-                int id = (int)dgvChiTietBan.SelectedRows[0].Cells["IDChiTietNhap"].Value;
-                CHITIETXUAT z = db.CHITIETXUATs.Where(p => p.ID == id).FirstOrDefault();
+                int id = (int)dgvChiTietNhap.SelectedRows[0].Cells["IDChiTietNhap"].Value;
+                CHITIETNHAP z = db.CHITIETNHAPs.Where(p => p.ID == id).FirstOrDefault();
 
                 if (z != null) ans = z;
             }
@@ -498,20 +496,20 @@ namespace QLBanHang.GUI
             return ans;
         }
 
-        private CHITIETXUAT getChiTietBanByForm()
+        private CHITIETNHAP getChiTietNhapByForm()
         {
-            CHITIETXUAT ans = new CHITIETXUAT();
+            CHITIETNHAP ans = new CHITIETNHAP();
 
             try
             {
-                int idHOADONBAN;
+                int idPhieuNhap;
                 ans.SACHID = (int) cbxSACH.SelectedValue;
                 ans.SOLUONG = Int32.Parse(txtSoLuong.Text);
-                ans.GIABAN = Int32.Parse(txtDonGia.Text);
-                ans.THANHTIEN = ans.SOLUONG * ans.GIABAN;
+                ans.DONGIA = Int32.Parse(txtDonGia.Text);
+                ans.THANHTIEN = ans.SOLUONG * ans.DONGIA;
 
-                idHOADONBAN = (int)dgvHoaDonBan.SelectedRows[0].Cells["IDPhieuNhap"].Value;
-                ans.HOADONBANID = idHOADONBAN;
+                idPhieuNhap = (int)dgvPhieuNhap.SelectedRows[0].Cells["IDPhieuNhap"].Value;
+                ans.PHIEUNHAPID = idPhieuNhap;
             }
             catch { }
 
@@ -524,7 +522,7 @@ namespace QLBanHang.GUI
 
         private void dgvChiTietNhap_SelectionChanged(object sender, EventArgs e)
         {
-            UpdateDetailChiTietBan();
+            UpdateDetailChiTietNhap();
         }
 
         private void cbxSACH_SelectedIndexChanged(object sender, EventArgs e)
@@ -532,7 +530,7 @@ namespace QLBanHang.GUI
             try
             {
                 int id = (int) cbxSACH.SelectedValue;
-                //txtDonViTinh.Text = db.SACHes.Where(p => p.ID == id).FirstOrDefault().DONVITINH;
+                txtTacGia.Text = db.SACHes.Where(p => p.ID == id).FirstOrDefault().TACGIA;
             }
             catch { }
         }
@@ -540,45 +538,50 @@ namespace QLBanHang.GUI
         #endregion
 
         #region Sự kiện
-        private void btnThemChiTietBan_Click(object sender, EventArgs e)
+        private void btnThemChiTietNhap_Click(object sender, EventArgs e)
         {
-            if (btnThemChiTietBan.Text == "Thêm")
+            if (btnThemChiTietNhap.Text == "Thêm")
             {
 
-                btnThemChiTietBan.Text = "Lưu";
-                btnSuaChiTietBan.Enabled = false;
-                btnXoaChiTietBan.Text = "Hủy";
+                btnThemChiTietNhap.Text = "Lưu";
+                btnSuaChiTietNhap.Enabled = false;
+                btnXoaChiTietNhap.Text = "Hủy";
 
-                groupThongTinChiTietBan.Enabled = true;
-                dgvChiTietBan.Enabled = false;
+                groupThongTinChiTietNhap.Enabled = true;
+                dgvChiTietNhap.Enabled = false;
 
-                panelHoaDonBan.Enabled = false;
+                panelPhieuNhap.Enabled = false;
 
-                ClearControlCHITIETBAN();
+                ClearControlChiTietNhap();
 
                 return;
             }
 
-            if (btnThemChiTietBan.Text == "Lưu")
+            if (btnThemChiTietNhap.Text == "Lưu")
             {
-                if (CheckChiTietBan())
+                if (CheckChiTietNhap())
                 {
 
-                    btnThemChiTietBan.Text = "Thêm";
-                    btnSuaChiTietBan.Enabled = true;
-                    btnXoaChiTietBan.Text = "Xóa";
+                    btnThemChiTietNhap.Text = "Thêm";
+                    btnSuaChiTietNhap.Enabled = true;
+                    btnXoaChiTietNhap.Text = "Xóa";
 
-                    groupThongTinChiTietBan.Enabled = false;
-                    dgvChiTietBan.Enabled = true;
+                    groupThongTinChiTietNhap.Enabled = false;
+                    dgvChiTietNhap.Enabled = true;
 
-                    panelHoaDonBan.Enabled = true;
+                    panelPhieuNhap.Enabled = true;
 
 
                     try
                     {
-                        CHITIETXUAT tg = getChiTietBanByForm();
-                        db.CHITIETXUATs.Add(tg);
+                        CHITIETNHAP tg = getChiTietNhapByForm();
+                        db.CHITIETNHAPs.Add(tg);
                         db.SaveChanges();
+
+                        KHO kho = db.KHOes.Where(p => p.SACHID == tg.SACHID).FirstOrDefault();
+                        kho.SOLUONG += tg.SOLUONG;
+                        db.SaveChanges();
+
                         MessageBox.Show("Thêm thông tin Chi tiết nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -587,54 +590,54 @@ namespace QLBanHang.GUI
                     }
 
 
-                    LoadDgvCHITIETXUAT();
-                    UpdateDetailHOADONBAN();
+                    LoadDgvChiTietNhap();
+                    UpdateDetailPhieuNhap();
                 }
 
                 return;
             }
         }
 
-        private void btnSuaChiTietBan_Click(object sender, EventArgs e)
+        private void btnSuaChiTietNhap_Click(object sender, EventArgs e)
         {
-            CHITIETXUAT tg = getChiTietBanByID();
+            CHITIETNHAP tg = getChiTietNhapByID();
             if (tg.ID == 0)
             {
                 MessageBox.Show("Chưa có Chi tiết nhập nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (btnSuaChiTietBan.Text == "Sửa")
+            if (btnSuaChiTietNhap.Text == "Sửa")
             {
-                btnSuaChiTietBan.Text = "Lưu";
-                btnThemChiTietBan.Enabled = false;
-                btnXoaChiTietBan.Text = "Hủy";
+                btnSuaChiTietNhap.Text = "Lưu";
+                btnThemChiTietNhap.Enabled = false;
+                btnXoaChiTietNhap.Text = "Hủy";
 
-                groupThongTinChiTietBan.Enabled = true;
-                dgvChiTietBan.Enabled = false;
+                groupThongTinChiTietNhap.Enabled = true;
+                dgvChiTietNhap.Enabled = false;
 
-                panelHoaDonBan.Enabled = false;
+                panelPhieuNhap.Enabled = false;
 
                 return;
             }
 
-            if (btnSuaChiTietBan.Text == "Lưu")
+            if (btnSuaChiTietNhap.Text == "Lưu")
             {
-                if (CheckChiTietBan())
+                if (CheckChiTietNhap())
                 {
-                    btnSuaChiTietBan.Text = "Sửa";
-                    btnThemChiTietBan.Enabled = true;
-                    btnXoaChiTietBan.Text = "Xóa";
+                    btnSuaChiTietNhap.Text = "Sửa";
+                    btnThemChiTietNhap.Enabled = true;
+                    btnXoaChiTietNhap.Text = "Xóa";
 
-                    groupThongTinChiTietBan.Enabled = false;
-                    dgvChiTietBan.Enabled = true;
+                    groupThongTinChiTietNhap.Enabled = false;
+                    dgvChiTietNhap.Enabled = true;
 
-                    panelHoaDonBan.Enabled = true;
+                    panelPhieuNhap.Enabled = true;
 
-                    CHITIETXUAT tgs = getChiTietBanByForm();
+                    CHITIETNHAP tgs = getChiTietNhapByForm();
                     tg.SACHID = tgs.SACHID;
                     tg.SOLUONG = tgs.SOLUONG;
-                    tg.GIABAN = tgs.GIABAN;
+                    tg.DONGIA = tgs.DONGIA;
                     tg.THANHTIEN = tgs.THANHTIEN;
 
                     try
@@ -647,21 +650,20 @@ namespace QLBanHang.GUI
                         MessageBox.Show("Sửa thông tin Chi tiết nhập thất bại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                    
+                    LoadDgvChiTietNhap();
 
-                    UpdateDetailHOADONBAN();
-                    LoadDgvCHITIETXUAT();
+                    UpdateDetailPhieuNhap();
                 }
 
                 return;
             }
         }
 
-        private void btnXoaChiTietBan_Click(object sender, EventArgs e)
+        private void btnXoaChiTietNhap_Click(object sender, EventArgs e)
         {
-            if (btnXoaChiTietBan.Text == "Xóa")
+            if (btnXoaChiTietNhap.Text == "Xóa")
             {
-                CHITIETXUAT tg = getChiTietBanByID();
+                CHITIETNHAP tg = getChiTietNhapByID();
                 if (tg.ID == 0)
                 {
                     MessageBox.Show("Chưa có Chi tiết nhập nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -673,7 +675,7 @@ namespace QLBanHang.GUI
 
                 try
                 {
-                    db.CHITIETXUATs.Remove(tg);
+                    db.CHITIETNHAPs.Remove(tg);
                     db.SaveChanges();
                     MessageBox.Show("Xóa Chi tiết nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -682,27 +684,27 @@ namespace QLBanHang.GUI
                     MessageBox.Show("Xóa Chi tiết nhập thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                LoadDgvCHITIETXUAT();
-                UpdateDetailHOADONBAN();
+                LoadDgvChiTietNhap();
+                UpdateDetailPhieuNhap();
 
                 return;
             }
 
-            if (btnXoaChiTietBan.Text == "Hủy")
+            if (btnXoaChiTietNhap.Text == "Hủy")
             {
-                btnXoaChiTietBan.Text = "Xóa";
-                btnThemChiTietBan.Text = "Thêm";
-                btnSuaChiTietBan.Text = "Sửa";
+                btnXoaChiTietNhap.Text = "Xóa";
+                btnThemChiTietNhap.Text = "Thêm";
+                btnSuaChiTietNhap.Text = "Sửa";
 
-                btnThemChiTietBan.Enabled = true;
-                btnSuaChiTietBan.Enabled = true;
+                btnThemChiTietNhap.Enabled = true;
+                btnSuaChiTietNhap.Enabled = true;
 
-                groupThongTinChiTietBan.Enabled = false;
-                dgvChiTietBan.Enabled = true;
+                groupThongTinChiTietNhap.Enabled = false;
+                dgvChiTietNhap.Enabled = true;
 
-                panelHoaDonBan.Enabled = true;
+                panelPhieuNhap.Enabled = true;
 
-                UpdateDetailChiTietBan();
+                UpdateDetailChiTietNhap();
                 
 
                 return;

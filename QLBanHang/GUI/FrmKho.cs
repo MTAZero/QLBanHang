@@ -13,7 +13,7 @@ namespace QLBanHang.GUI
 {
     public partial class FrmKho : Form
     {
-        private QLBanSach_DbContext db = Service.DBService.db;
+        private QLBanSACH_DbContext db = Service.DBService.db;
 
         #region constructor
         public FrmKho()
@@ -36,9 +36,10 @@ namespace QLBanHang.GUI
                               {
                                   STT = ++i,
                                   SACH = db.SACHes.Where(z => z.ID == p.SACHID).FirstOrDefault().TEN,
+                                  TacGia = db.SACHes.Where(z=>z.ID == p.SACHID).FirstOrDefault().TACGIA,
                                   SoLuong = p.SOLUONG
                               })
-                              .Where(p => p.SACH.Contains(keyword))
+                              .Where(p => p.SACH.Contains(keyword) || p.TacGia.Contains(keyword))
                               .ToList();
 
             dgvSACH.DataSource = dataSACH;

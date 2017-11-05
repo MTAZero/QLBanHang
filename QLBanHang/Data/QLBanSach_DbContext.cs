@@ -5,10 +5,10 @@ namespace QLBanHang.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class QLBanSach_DbContext : DbContext
+    public partial class QLBanSACH_DbContext : DbContext
     {
-        public QLBanSach_DbContext()
-            : base("name=QLBanSach_DbContext")
+        public QLBanSACH_DbContext()
+            : base("name=QLBanSACH_DbContext")
         {
         }
 

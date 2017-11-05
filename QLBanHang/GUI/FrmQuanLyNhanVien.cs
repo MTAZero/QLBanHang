@@ -13,7 +13,7 @@ namespace QLBanHang.GUI
 {
     public partial class FrmQuanLyNhanVien : Form
     {
-        private QLBanSach_DbContext db = Service.DBService.db;
+        private QLBanSACH_DbContext db = Service.DBService.db;
         private int index = 0, index1 = 0;
 
         #region constructor

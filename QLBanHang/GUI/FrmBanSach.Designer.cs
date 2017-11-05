@@ -1,6 +1,6 @@
 ﻿namespace QLBanHang.GUI
 {
-    partial class FrmXuatHang
+    partial class FrmBanSACH
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelChiTietXuat = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvChiTietBan = new System.Windows.Forms.DataGridView();
@@ -47,7 +47,7 @@
             this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
-            this.txtDonViTinh = new System.Windows.Forms.Label();
+            this.txtTacGia = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cbxSACH = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -137,8 +137,8 @@
             this.dgvChiTietBan.ReadOnly = true;
             this.dgvChiTietBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvChiTietBan.RowHeadersWidth = 25;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvChiTietBan.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvChiTietBan.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvChiTietBan.RowTemplate.Height = 30;
             this.dgvChiTietBan.RowTemplate.ReadOnly = true;
             this.dgvChiTietBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -255,7 +255,7 @@
             this.groupThongTinChiTietBan.Controls.Add(this.txtThanhTien);
             this.groupThongTinChiTietBan.Controls.Add(this.txtDonGia);
             this.groupThongTinChiTietBan.Controls.Add(this.txtSoLuong);
-            this.groupThongTinChiTietBan.Controls.Add(this.txtDonViTinh);
+            this.groupThongTinChiTietBan.Controls.Add(this.txtTacGia);
             this.groupThongTinChiTietBan.Controls.Add(this.label7);
             this.groupThongTinChiTietBan.Controls.Add(this.cbxSACH);
             this.groupThongTinChiTietBan.Controls.Add(this.label6);
@@ -296,14 +296,14 @@
             this.txtSoLuong.Size = new System.Drawing.Size(190, 23);
             this.txtSoLuong.TabIndex = 12;
             // 
-            // txtDonViTinh
+            // txtTacGia
             // 
-            this.txtDonViTinh.AutoSize = true;
-            this.txtDonViTinh.Location = new System.Drawing.Point(239, 75);
-            this.txtDonViTinh.Name = "txtDonViTinh";
-            this.txtDonViTinh.Size = new System.Drawing.Size(40, 16);
-            this.txtDonViTinh.TabIndex = 11;
-            this.txtDonViTinh.Text = "Chiếc";
+            this.txtTacGia.AutoSize = true;
+            this.txtTacGia.Location = new System.Drawing.Point(239, 75);
+            this.txtTacGia.Name = "txtTacGia";
+            this.txtTacGia.Size = new System.Drawing.Size(40, 16);
+            this.txtTacGia.TabIndex = 11;
+            this.txtTacGia.Text = "Chiếc";
             // 
             // label7
             // 
@@ -421,8 +421,8 @@
             this.dgvHoaDonBan.ReadOnly = true;
             this.dgvHoaDonBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvHoaDonBan.RowHeadersWidth = 25;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHoaDonBan.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHoaDonBan.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHoaDonBan.RowTemplate.Height = 30;
             this.dgvHoaDonBan.RowTemplate.ReadOnly = true;
             this.dgvHoaDonBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -609,7 +609,7 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Ngày : ";
             // 
-            // FrmXuatHang
+            // FrmBanSACH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -617,7 +617,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmXuatHang";
+            this.Name = "FrmBanSACH";
             this.Text = "FrmQuanLyNhanVien";
             this.Load += new System.EventHandler(this.FrmNhapHang_Load);
             this.panelChiTietXuat.ResumeLayout(false);
@@ -664,7 +664,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxSACH;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label txtDonViTinh;
+        private System.Windows.Forms.Label txtTacGia;
         private System.Windows.Forms.TextBox txtThanhTien;
         private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.TextBox txtSoLuong;

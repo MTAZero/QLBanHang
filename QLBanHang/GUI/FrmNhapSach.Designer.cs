@@ -1,6 +1,6 @@
 ﻿namespace QLBanHang.GUI
 {
-    partial class FrmNhapHang
+    partial class FrmNhapSACH
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
-            this.txtDonViTinh = new System.Windows.Forms.Label();
+            this.txtTacGia = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cbxSACH = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -257,7 +257,7 @@
             this.groupThongTinChiTietNhap.Controls.Add(this.txtThanhTien);
             this.groupThongTinChiTietNhap.Controls.Add(this.txtDonGia);
             this.groupThongTinChiTietNhap.Controls.Add(this.txtSoLuong);
-            this.groupThongTinChiTietNhap.Controls.Add(this.txtDonViTinh);
+            this.groupThongTinChiTietNhap.Controls.Add(this.txtTacGia);
             this.groupThongTinChiTietNhap.Controls.Add(this.label7);
             this.groupThongTinChiTietNhap.Controls.Add(this.cbxSACH);
             this.groupThongTinChiTietNhap.Controls.Add(this.label6);
@@ -298,14 +298,14 @@
             this.txtSoLuong.Size = new System.Drawing.Size(190, 23);
             this.txtSoLuong.TabIndex = 12;
             // 
-            // txtDonViTinh
+            // txtTacGia
             // 
-            this.txtDonViTinh.AutoSize = true;
-            this.txtDonViTinh.Location = new System.Drawing.Point(239, 75);
-            this.txtDonViTinh.Name = "txtDonViTinh";
-            this.txtDonViTinh.Size = new System.Drawing.Size(40, 16);
-            this.txtDonViTinh.TabIndex = 11;
-            this.txtDonViTinh.Text = "Chiếc";
+            this.txtTacGia.AutoSize = true;
+            this.txtTacGia.Location = new System.Drawing.Point(239, 75);
+            this.txtTacGia.Name = "txtTacGia";
+            this.txtTacGia.Size = new System.Drawing.Size(40, 16);
+            this.txtTacGia.TabIndex = 11;
+            this.txtTacGia.Text = "Chiếc";
             // 
             // label7
             // 
@@ -631,7 +631,7 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Ngày : ";
             // 
-            // FrmNhapHang
+            // FrmNhapSACH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -639,7 +639,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmNhapHang";
+            this.Name = "FrmNhapSACH";
             this.Text = "FrmQuanLyNhanVien";
             this.Load += new System.EventHandler(this.FrmNhapHang_Load);
             this.panelChiTietNhap.ResumeLayout(false);
@@ -688,7 +688,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxSACH;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label txtDonViTinh;
+        private System.Windows.Forms.Label txtTacGia;
         private System.Windows.Forms.TextBox txtThanhTien;
         private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.TextBox txtSoLuong;

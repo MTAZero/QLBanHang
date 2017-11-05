@@ -13,7 +13,7 @@ namespace QLBanHang.GUI
 {
     public partial class FrmMain : Form
     {
-        private QLBanSach_DbContext db = Service.DBService.db;
+        private QLBanSACH_DbContext db = Service.DBService.db;
         private NHANVIEN nv = new NHANVIEN();
 
         #region constructor
@@ -37,7 +37,7 @@ namespace QLBanHang.GUI
                 btnQLKho.Enabled = true;
                 btnXuatHang.Enabled = true;
                 btnNhapHang.Enabled = true;
-                btnQuanLyNXB.Enabled = true;
+                btnQuanLySACH.Enabled = true;
                 return;
             }
 
@@ -46,7 +46,7 @@ namespace QLBanHang.GUI
                 // phan quyen nhan vien
                 btnQLNhanVien.Enabled = false;
                 btnQLSACH.Enabled = false;
-                btnQuanLyNXB.Enabled = false;
+                btnQuanLySACH.Enabled = false;
                 btnQLKho.Enabled = true;
                 btnXuatHang.Enabled = true;
                 btnNhapHang.Enabled = true;
@@ -91,7 +91,7 @@ namespace QLBanHang.GUI
 
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
-            FrmNhapHang form = new FrmNhapHang(nv);
+            FrmNhapSACH form = new FrmNhapSACH(nv);
             form.TopLevel = false;
             form.Dock = DockStyle.Fill;
             panelMain.Controls.Clear();
@@ -101,7 +101,7 @@ namespace QLBanHang.GUI
 
         private void btnXuatHang_Click(object sender, EventArgs e)
         {
-            FrmXuatHang form = new FrmXuatHang(nv);
+            FrmBanSACH form = new FrmBanSACH(nv);
             form.TopLevel = false;
             form.Dock = DockStyle.Fill;
             panelMain.Controls.Clear();
@@ -122,6 +122,16 @@ namespace QLBanHang.GUI
             if (rs == DialogResult.Cancel) return;
 
             this.Close();
+        }
+
+        private void btnQuanLySACH_Click(object sender, EventArgs e)
+        {
+            FrmQuanLySACH form = new FrmQuanLySACH();
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(form);
+            form.Show();
         }
     }
 }

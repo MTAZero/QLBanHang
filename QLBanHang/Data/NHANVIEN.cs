@@ -30,11 +30,11 @@ namespace QLBanHang.Data
 
         public string DIACHI { get; set; }
 
+        public int? QUYEN { get; set; }
+
         public string MATKHAU { get; set; }
 
         public string TAIKHOAN { get; set; }
-
-        public int? QUYEN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADONBAN> HOADONBANs { get; set; }

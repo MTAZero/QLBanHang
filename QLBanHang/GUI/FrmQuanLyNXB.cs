@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace QLBanHang.GUI
 {
-    public partial class FrmQuanLySACH : Form
+    public partial class FrmQuanLyNXB : Form
     {
         private QLBanSACH_DbContext db = Service.DBService.db;
         private int index = 0, index1 = 0;
 
         #region constructor
-        public FrmQuanLySACH()
+        public FrmQuanLyNXB()
         {
             InitializeComponent();
         }
@@ -28,37 +28,31 @@ namespace QLBanHang.GUI
         private void LoadControl()
         {
             groupThongTin.Enabled = false;
-
-            cbxNhaXuatBan.DataSource = db.NXBs.ToList();
-            cbxNhaXuatBan.ValueMember = "ID";
-            cbxNhaXuatBan.DisplayMember = "TENNXB";
         }
 
         private void LoadDgvNhanVien()
         {
             int i = 0;
             string keyword = txtTimKiem.Text;
-            var dbNV = db.SACHes.ToList()
+            var dbNV = db.NXBs.ToList()
                        .Select(p=> new
                        {
                            ID = p.ID,
                            STT = ++i,
-                           TenMH = p.TEN,
-                           TacGia = p.TACGIA,
-                           TenNXB = db.NXBs.Where(z=>z.ID == p.NXBID).FirstOrDefault().TENNXB
+                           TEN = p.TENNXB
                        })
                        .ToList();
 
-            dgvSACH.DataSource = dbNV
-                                    .Where(p => p.TenMH.Contains(keyword) || p.TacGia.Contains(keyword) || p.TenNXB.Contains(keyword))
+            dgvNXB.DataSource = dbNV
+                                    .Where(p => p.TEN.Contains(keyword))
                                     .ToList();
 
             // cập nhật index 
             index = index1;
             try
             {
-                dgvSACH.Rows[index].Cells["STT"].Selected = true;
-                dgvSACH.Select();
+                dgvNXB.Rows[index].Cells["STT"].Selected = true;
+                dgvNXB.Select();
             }
             catch { }
         }
@@ -75,11 +69,11 @@ namespace QLBanHang.GUI
         
         private void ClearControl()
         {
-            txtMASACH.Text = "";
-            txtTenMH.Text = "";
-            txtTacGia.Text = "";
-            txtGhiChu.Text = "";
-            cbxNhaXuatBan.SelectedIndex = 0;
+            txtTenNXB.Text = "";
+            //txtTenMH.Text = "";
+            //txtTacGia.Text = "";
+            //txtGhiChu.Text = "";
+            //cbxNhaXuatBan.SelectedIndex = 0;
         }
 
         private void UpdateDetail()
@@ -92,14 +86,14 @@ namespace QLBanHang.GUI
                 if (tg == null || tg.ID == 0) return;
 
                 // cập nhật trên giao diện
-                txtMASACH.Text = tg.MASACH;
-                txtTenMH.Text = tg.TEN;
-                txtGhiChu.Text = tg.GHICHU;
-                txtTacGia.Text = tg.TACGIA;
-                cbxNhaXuatBan.SelectedValue = tg.NXBID;
+                txtTenNXB.Text = tg.MASACH;
+                //txtTenMH.Text = tg.TEN;
+                //txtGhiChu.Text = tg.GHICHU;
+                //txtTacGia.Text = tg.TACGIA;
+                //cbxNhaXuatBan.SelectedValue = tg.NXBID;
 
                 index1 = index;
-                index = dgvSACH.SelectedRows[0].Index;
+                index = dgvNXB.SelectedRows[0].Index;
             }
             catch { }
             
@@ -109,7 +103,7 @@ namespace QLBanHang.GUI
         {
             try
             {
-                int id = (int)dgvSACH.SelectedRows[0].Cells["ID"].Value;
+                int id = (int)dgvNXB.SelectedRows[0].Cells["ID"].Value;
                 SACH nhanvien = db.SACHes.Where(p => p.ID == id).FirstOrDefault();
                 return (nhanvien != null) ? nhanvien : new SACH();
             }
@@ -122,24 +116,24 @@ namespace QLBanHang.GUI
         private SACH getSACHByForm()
         {
             SACH ans = new SACH();
-            ans.MASACH = txtMASACH.Text;
-            ans.TEN = txtTenMH.Text;
-            ans.TACGIA = txtTacGia.Text;
-            ans.GHICHU = txtGhiChu.Text;
-            ans.NXBID = (int) cbxNhaXuatBan.SelectedValue;
+            ans.MASACH = txtTenNXB.Text;
+            //ans.TEN = txtTenMH.Text;
+            //ans.TACGIA = txtTacGia.Text;
+            //ans.GHICHU = txtGhiChu.Text;
+            //ans.NXBID = (int) cbxNhaXuatBan.SelectedValue;
 
             return ans;
         }
 
         private bool Check()
         {
-            if (txtMASACH.Text == "")
+            if (txtTenNXB.Text == "")
             {
                 MessageBox.Show("Mã sách không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            int cnt = db.SACHes.Where(p => p.MASACH == txtMASACH.Text).ToList().Count;
+            int cnt = db.SACHes.Where(p => p.MASACH == txtTenNXB.Text).ToList().Count;
             if (cnt > 0)
             {
                 bool ok = false;
@@ -147,7 +141,7 @@ namespace QLBanHang.GUI
                 {
                     // Nếu là sửa
                     SACH tg = getSACHByID();
-                    if (tg.MASACH == txtMASACH.Text) ok = true;
+                    if (tg.MASACH == txtTenNXB.Text) ok = true;
                 }
 
                 if (!ok)
@@ -158,11 +152,11 @@ namespace QLBanHang.GUI
             }
 
 
-            if (txtTenMH.Text == "")
-            {
-                MessageBox.Show("Tên đầu sách không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            //if (txtTenMH.Text == "")
+            //{
+            //    MessageBox.Show("Tên đầu sách không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
 
             return true;
         }
@@ -192,7 +186,7 @@ namespace QLBanHang.GUI
                 btnXoa.Text = "Hủy";
 
                 groupThongTin.Enabled = true;
-                dgvSACH.Enabled = false;
+                dgvNXB.Enabled = false;
 
                 btnTimKiem.Enabled = false;
                 txtTimKiem.Enabled = false;
@@ -212,7 +206,7 @@ namespace QLBanHang.GUI
                     btnXoa.Text = "Xóa";
 
                     groupThongTin.Enabled = false;
-                    dgvSACH.Enabled = true;
+                    dgvNXB.Enabled = true;
 
                     btnTimKiem.Enabled = true;
                     txtTimKiem.Enabled = true;
@@ -260,7 +254,7 @@ namespace QLBanHang.GUI
                 btnXoa.Text = "Hủy";
 
                 groupThongTin.Enabled = true;
-                dgvSACH.Enabled = false;
+                dgvNXB.Enabled = false;
 
                 btnTimKiem.Enabled = false;
                 txtTimKiem.Enabled = false;
@@ -276,7 +270,7 @@ namespace QLBanHang.GUI
                     btnXoa.Text = "Xóa";
 
                     groupThongTin.Enabled = false;
-                    dgvSACH.Enabled = true;
+                    dgvNXB.Enabled = true;
 
                     btnTimKiem.Enabled = true;
                     txtTimKiem.Enabled = true;
@@ -350,7 +344,7 @@ namespace QLBanHang.GUI
                 btnSua.Enabled = true;
 
                 groupThongTin.Enabled = false;
-                dgvSACH.Enabled = true;
+                dgvNXB.Enabled = true;
 
                 btnTimKiem.Enabled = true;
                 txtTimKiem.Enabled = true;

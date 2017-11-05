@@ -13,7 +13,7 @@ namespace QLBanHang.Service
 {
     public static class DBService
     {
-        public static QLBanSach_DbContext db = new QLBanSach_DbContext();
+        public static QLBanSACH_DbContext db = new QLBanSACH_DbContext();
 
         public static void Reload()
         {
