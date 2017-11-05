@@ -356,9 +356,9 @@ namespace QLBanHang.GUI
         private void LoadInitControlCHITIETXUAT()
         {
             // cbx Nhân viên
-            cbxMatHang.DataSource = db.MATHANGs.ToList();
-            cbxMatHang.ValueMember = "ID";
-            cbxMatHang.DisplayMember = "TEN";
+            cbxSACH.DataSource = db.SACHes.ToList();
+            cbxSACH.ValueMember = "ID";
+            cbxSACH.DisplayMember = "TEN";
 
             groupThongTinChiTietBan.Enabled = false;
 
@@ -383,7 +383,7 @@ namespace QLBanHang.GUI
                                   {
                                       ID = p.ID,
                                       STT = ++i,
-                                      MatHang = db.MATHANGs.Where(z=>z.ID == p.MATHANGID).FirstOrDefault().TEN,
+                                      SACH = db.SACHes.Where(z=>z.ID == p.SACHID).FirstOrDefault().TEN,
                                       SoLuong = p.SOLUONG,
                                       DonGia = p.GIABAN,
                                       ThanhTien = p.THANHTIEN
@@ -418,7 +418,7 @@ namespace QLBanHang.GUI
 
             try
             {
-                cbxMatHang.SelectedValue = (int) tg.MATHANGID;
+                cbxSACH.SelectedValue = (int) tg.SACHID;
                 txtSoLuong.Text = tg.SOLUONG.ToString();
                 txtDonGia.Text = tg.GIABAN.ToString();
                 txtThanhTien.Text = tg.THANHTIEN.ToString();
@@ -433,7 +433,7 @@ namespace QLBanHang.GUI
         {
             try
             {
-                cbxMatHang.SelectedIndex = 0;
+                cbxSACH.SelectedIndex = 0;
                 txtSoLuong.Text = "";
                 txtDonGia.Text = "";
                 txtThanhTien.Text = "";
@@ -459,7 +459,7 @@ namespace QLBanHang.GUI
             {
                 CHITIETXUAT tg = getChiTietBanByForm();
                 int k = Int32.Parse(txtSoLuong.Text);
-                int sl = (int) db.KHOes.Where(p => p.MATHANGID == tg.MATHANGID).FirstOrDefault().SOLUONG;
+                int sl = (int) db.KHOes.Where(p => p.SACHID == tg.SACHID).FirstOrDefault().SOLUONG;
                 if (k > sl)
                 {
                     MessageBox.Show("Không đủ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -505,7 +505,7 @@ namespace QLBanHang.GUI
             try
             {
                 int idHOADONBAN;
-                ans.MATHANGID = (int) cbxMatHang.SelectedValue;
+                ans.SACHID = (int) cbxSACH.SelectedValue;
                 ans.SOLUONG = Int32.Parse(txtSoLuong.Text);
                 ans.GIABAN = Int32.Parse(txtDonGia.Text);
                 ans.THANHTIEN = ans.SOLUONG * ans.GIABAN;
@@ -527,12 +527,12 @@ namespace QLBanHang.GUI
             UpdateDetailChiTietBan();
         }
 
-        private void cbxMatHang_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxSACH_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                int id = (int) cbxMatHang.SelectedValue;
-                txtDonViTinh.Text = db.MATHANGs.Where(p => p.ID == id).FirstOrDefault().DONVITINH;
+                int id = (int) cbxSACH.SelectedValue;
+                //txtDonViTinh.Text = db.SACHes.Where(p => p.ID == id).FirstOrDefault().DONVITINH;
             }
             catch { }
         }
@@ -632,7 +632,7 @@ namespace QLBanHang.GUI
                     panelHoaDonBan.Enabled = true;
 
                     CHITIETXUAT tgs = getChiTietBanByForm();
-                    tg.MATHANGID = tgs.MATHANGID;
+                    tg.SACHID = tgs.SACHID;
                     tg.SOLUONG = tgs.SOLUONG;
                     tg.GIABAN = tgs.GIABAN;
                     tg.THANHTIEN = tgs.THANHTIEN;

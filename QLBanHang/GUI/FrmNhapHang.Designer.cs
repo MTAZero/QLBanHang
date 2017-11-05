@@ -35,7 +35,7 @@
             this.dgvChiTietNhap = new System.Windows.Forms.DataGridView();
             this.IDChiTietNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STTChiTietNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MatHangChiTietNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SACHChiTietNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongChiTietNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DonGiaChiTietNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThanhTienChiTietNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +49,7 @@
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.txtDonViTinh = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cbxMatHang = new System.Windows.Forms.ComboBox();
+            this.cbxSACH = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -126,7 +126,7 @@
             this.dgvChiTietNhap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDChiTietNhap,
             this.STTChiTietNhap,
-            this.MatHangChiTietNhap,
+            this.SACHChiTietNhap,
             this.SoLuongChiTietNhap,
             this.DonGiaChiTietNhap,
             this.ThanhTienChiTietNhap});
@@ -164,13 +164,13 @@
             this.STTChiTietNhap.Name = "STTChiTietNhap";
             this.STTChiTietNhap.ReadOnly = true;
             // 
-            // MatHangChiTietNhap
+            // SACHChiTietNhap
             // 
-            this.MatHangChiTietNhap.DataPropertyName = "MatHang";
-            this.MatHangChiTietNhap.FillWeight = 30F;
-            this.MatHangChiTietNhap.HeaderText = "Mặt hàng";
-            this.MatHangChiTietNhap.Name = "MatHangChiTietNhap";
-            this.MatHangChiTietNhap.ReadOnly = true;
+            this.SACHChiTietNhap.DataPropertyName = "SACH";
+            this.SACHChiTietNhap.FillWeight = 30F;
+            this.SACHChiTietNhap.HeaderText = "Mặt hàng";
+            this.SACHChiTietNhap.Name = "SACHChiTietNhap";
+            this.SACHChiTietNhap.ReadOnly = true;
             // 
             // SoLuongChiTietNhap
             // 
@@ -259,7 +259,7 @@
             this.groupThongTinChiTietNhap.Controls.Add(this.txtSoLuong);
             this.groupThongTinChiTietNhap.Controls.Add(this.txtDonViTinh);
             this.groupThongTinChiTietNhap.Controls.Add(this.label7);
-            this.groupThongTinChiTietNhap.Controls.Add(this.cbxMatHang);
+            this.groupThongTinChiTietNhap.Controls.Add(this.cbxSACH);
             this.groupThongTinChiTietNhap.Controls.Add(this.label6);
             this.groupThongTinChiTietNhap.Controls.Add(this.label5);
             this.groupThongTinChiTietNhap.Controls.Add(this.label4);
@@ -316,17 +316,17 @@
             this.label7.TabIndex = 10;
             this.label7.Text = "Thành tiền :";
             // 
-            // cbxMatHang
+            // cbxSACH
             // 
-            this.cbxMatHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbxMatHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxMatHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxMatHang.FormattingEnabled = true;
-            this.cbxMatHang.Location = new System.Drawing.Point(242, 30);
-            this.cbxMatHang.Name = "cbxMatHang";
-            this.cbxMatHang.Size = new System.Drawing.Size(190, 23);
-            this.cbxMatHang.TabIndex = 9;
-            this.cbxMatHang.SelectedIndexChanged += new System.EventHandler(this.cbxMatHang_SelectedIndexChanged);
+            this.cbxSACH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbxSACH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSACH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxSACH.FormattingEnabled = true;
+            this.cbxSACH.Location = new System.Drawing.Point(242, 30);
+            this.cbxSACH.Name = "cbxSACH";
+            this.cbxSACH.Size = new System.Drawing.Size(190, 23);
+            this.cbxSACH.TabIndex = 9;
+            this.cbxSACH.SelectedIndexChanged += new System.EventHandler(this.cbxSACH_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -686,7 +686,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxMatHang;
+        private System.Windows.Forms.ComboBox cbxSACH;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label txtDonViTinh;
         private System.Windows.Forms.TextBox txtThanhTien;
@@ -703,7 +703,7 @@
         private System.Windows.Forms.DataGridView dgvChiTietNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDChiTietNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn STTChiTietNhap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MatHangChiTietNhap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SACHChiTietNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongChiTietNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGiaChiTietNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTienChiTietNhap;

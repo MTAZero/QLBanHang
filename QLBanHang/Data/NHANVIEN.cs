@@ -32,6 +32,8 @@ namespace QLBanHang.Data
 
         public string MATKHAU { get; set; }
 
+        public string TAIKHOAN { get; set; }
+
         public int? QUYEN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

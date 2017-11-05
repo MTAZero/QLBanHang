@@ -25,35 +25,34 @@ namespace QLBanHang.GUI
         #endregion
 
         #region LoadForm
-        private void LoadDgvMatHang()
+        private void LoadDgvSACH()
         {
 
             string keyword = txtTimKiem.Text;
 
             int i = 0;
-            var dataMatHang = db.KHOes.ToList()
+            var dataSACH = db.KHOes.ToList()
                               .Select(p => new
                               {
                                   STT = ++i,
-                                  MatHang = db.MATHANGs.Where(z => z.ID == p.MATHANGID).FirstOrDefault().TEN,
-                                  DonViTinh = db.MATHANGs.Where(z => z.ID == p.MATHANGID).FirstOrDefault().DONVITINH,
+                                  SACH = db.SACHes.Where(z => z.ID == p.SACHID).FirstOrDefault().TEN,
                                   SoLuong = p.SOLUONG
                               })
-                              .Where(p => p.MatHang.Contains(keyword) || p.DonViTinh.Contains(keyword))
+                              .Where(p => p.SACH.Contains(keyword))
                               .ToList();
 
-            dgvMatHang.DataSource = dataMatHang;
+            dgvSACH.DataSource = dataSACH;
         }
         private void FrmKho_Load(object sender, EventArgs e)
         {
-            LoadDgvMatHang();
+            LoadDgvSACH();
         }
         #endregion
 
         #region sự kiện
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            LoadDgvMatHang();
+            LoadDgvSACH();
         }
         #endregion
     }

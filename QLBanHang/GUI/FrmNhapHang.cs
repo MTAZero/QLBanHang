@@ -365,9 +365,9 @@ namespace QLBanHang.GUI
         private void LoadInitControlChiTietNhap()
         {
             // cbx Nhân viên
-            cbxMatHang.DataSource = db.MATHANGs.ToList();
-            cbxMatHang.ValueMember = "ID";
-            cbxMatHang.DisplayMember = "TEN";
+            cbxSACH.DataSource = db.SACHes.ToList();
+            cbxSACH.ValueMember = "ID";
+            cbxSACH.DisplayMember = "TEN";
 
             groupThongTinChiTietNhap.Enabled = false;
 
@@ -392,7 +392,7 @@ namespace QLBanHang.GUI
                                   {
                                       ID = p.ID,
                                       STT = ++i,
-                                      MatHang = db.MATHANGs.Where(z=>z.ID == p.MATHANGID).FirstOrDefault().TEN,
+                                      SACH = db.SACHes.Where(z=>z.ID == p.SACHID).FirstOrDefault().TEN,
                                       SoLuong = p.SOLUONG,
                                       DonGia = p.DONGIA,
                                       ThanhTien = p.THANHTIEN
@@ -427,7 +427,7 @@ namespace QLBanHang.GUI
 
             try
             {
-                cbxMatHang.SelectedValue = (int) tg.MATHANGID;
+                cbxSACH.SelectedValue = (int) tg.SACHID;
                 txtSoLuong.Text = tg.SOLUONG.ToString();
                 txtDonGia.Text = tg.DONGIA.ToString();
                 txtThanhTien.Text = tg.THANHTIEN.ToString();
@@ -442,7 +442,7 @@ namespace QLBanHang.GUI
         {
             try
             {
-                cbxMatHang.SelectedIndex = 0;
+                cbxSACH.SelectedIndex = 0;
                 txtSoLuong.Text = "";
                 txtDonGia.Text = "";
                 txtThanhTien.Text = "";
@@ -501,7 +501,7 @@ namespace QLBanHang.GUI
             try
             {
                 int idPhieuNhap;
-                ans.MATHANGID = (int) cbxMatHang.SelectedValue;
+                ans.SACHID = (int) cbxSACH.SelectedValue;
                 ans.SOLUONG = Int32.Parse(txtSoLuong.Text);
                 ans.DONGIA = Int32.Parse(txtDonGia.Text);
                 ans.THANHTIEN = ans.SOLUONG * ans.DONGIA;
@@ -523,12 +523,11 @@ namespace QLBanHang.GUI
             UpdateDetailChiTietNhap();
         }
 
-        private void cbxMatHang_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxSACH_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                int id = (int) cbxMatHang.SelectedValue;
-                txtDonViTinh.Text = db.MATHANGs.Where(p => p.ID == id).FirstOrDefault().DONVITINH;
+                int id = (int) cbxSACH.SelectedValue;
             }
             catch { }
         }
@@ -628,7 +627,7 @@ namespace QLBanHang.GUI
                     panelPhieuNhap.Enabled = true;
 
                     CHITIETNHAP tgs = getChiTietNhapByForm();
-                    tg.MATHANGID = tgs.MATHANGID;
+                    tg.SACHID = tgs.SACHID;
                     tg.SOLUONG = tgs.SOLUONG;
                     tg.DONGIA = tgs.DONGIA;
                     tg.THANHTIEN = tgs.THANHTIEN;

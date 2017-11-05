@@ -55,7 +55,7 @@
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.panelTimKiem = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtQueQuan = new System.Windows.Forms.TextBox();
+            this.txtDIACHI = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbxQuyen = new System.Windows.Forms.ComboBox();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -164,7 +164,7 @@
             this.groupThongTin.BackColor = System.Drawing.Color.White;
             this.groupThongTin.Controls.Add(this.cbxQuyen);
             this.groupThongTin.Controls.Add(this.label7);
-            this.groupThongTin.Controls.Add(this.txtQueQuan);
+            this.groupThongTin.Controls.Add(this.txtDIACHI);
             this.groupThongTin.Controls.Add(this.label6);
             this.groupThongTin.Controls.Add(this.txtTaiKhoan);
             this.groupThongTin.Controls.Add(this.txtSDT);
@@ -382,14 +382,14 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Quê quán :";
             // 
-            // txtQueQuan
+            // txtDIACHI
             // 
-            this.txtQueQuan.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQueQuan.Location = new System.Drawing.Point(109, 321);
-            this.txtQueQuan.Multiline = true;
-            this.txtQueQuan.Name = "txtQueQuan";
-            this.txtQueQuan.Size = new System.Drawing.Size(251, 53);
-            this.txtQueQuan.TabIndex = 13;
+            this.txtDIACHI.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDIACHI.Location = new System.Drawing.Point(109, 321);
+            this.txtDIACHI.Multiline = true;
+            this.txtDIACHI.Name = "txtDIACHI";
+            this.txtDIACHI.Size = new System.Drawing.Size(251, 53);
+            this.txtDIACHI.TabIndex = 13;
             // 
             // label7
             // 
@@ -514,7 +514,7 @@
         private System.Windows.Forms.DateTimePicker dateNgaySinh;
         private System.Windows.Forms.TextBox txtTaiKhoan;
         private System.Windows.Forms.TextBox txtSDT;
-        private System.Windows.Forms.TextBox txtQueQuan;
+        private System.Windows.Forms.TextBox txtDIACHI;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbxQuyen;
         private System.Windows.Forms.Label label7;

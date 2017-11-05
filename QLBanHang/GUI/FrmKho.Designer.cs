@@ -35,7 +35,7 @@
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvMatHang = new System.Windows.Forms.DataGridView();
+            this.dgvSACH = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +44,7 @@
             this.panel1.SuspendLayout();
             this.panelTimKiem.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMatHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSACH)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -99,7 +99,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox1.Controls.Add(this.dgvMatHang);
+            this.groupBox1.Controls.Add(this.dgvSACH);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 54);
@@ -109,35 +109,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách mặt hàng";
             // 
-            // dgvMatHang
+            // dgvSACH
             // 
-            this.dgvMatHang.AllowUserToResizeColumns = false;
-            this.dgvMatHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMatHang.BackgroundColor = System.Drawing.Color.Silver;
-            this.dgvMatHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvMatHang.ColumnHeadersHeight = 30;
-            this.dgvMatHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvSACH.AllowUserToResizeColumns = false;
+            this.dgvSACH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSACH.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgvSACH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvSACH.ColumnHeadersHeight = 30;
+            this.dgvSACH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.STT,
             this.TenMH,
             this.DonViTinh,
             this.SoLuong});
-            this.dgvMatHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMatHang.EnableHeadersVisualStyles = false;
-            this.dgvMatHang.GridColor = System.Drawing.Color.Black;
-            this.dgvMatHang.Location = new System.Drawing.Point(3, 19);
-            this.dgvMatHang.MultiSelect = false;
-            this.dgvMatHang.Name = "dgvMatHang";
-            this.dgvMatHang.ReadOnly = true;
-            this.dgvMatHang.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvMatHang.RowHeadersWidth = 25;
+            this.dgvSACH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSACH.EnableHeadersVisualStyles = false;
+            this.dgvSACH.GridColor = System.Drawing.Color.Black;
+            this.dgvSACH.Location = new System.Drawing.Point(3, 19);
+            this.dgvSACH.MultiSelect = false;
+            this.dgvSACH.Name = "dgvSACH";
+            this.dgvSACH.ReadOnly = true;
+            this.dgvSACH.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvSACH.RowHeadersWidth = 25;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvMatHang.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvMatHang.RowTemplate.Height = 30;
-            this.dgvMatHang.RowTemplate.ReadOnly = true;
-            this.dgvMatHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMatHang.Size = new System.Drawing.Size(1128, 621);
-            this.dgvMatHang.TabIndex = 3;
+            this.dgvSACH.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvSACH.RowTemplate.Height = 30;
+            this.dgvSACH.RowTemplate.ReadOnly = true;
+            this.dgvSACH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSACH.Size = new System.Drawing.Size(1128, 621);
+            this.dgvSACH.TabIndex = 3;
             // 
             // ID
             // 
@@ -157,7 +157,7 @@
             // 
             // TenMH
             // 
-            this.TenMH.DataPropertyName = "MatHang";
+            this.TenMH.DataPropertyName = "SACH";
             this.TenMH.FillWeight = 30F;
             this.TenMH.HeaderText = "Tên mặt hàng";
             this.TenMH.Name = "TenMH";
@@ -193,7 +193,7 @@
             this.panelTimKiem.ResumeLayout(false);
             this.panelTimKiem.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMatHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSACH)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,7 +206,7 @@
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgvMatHang;
+        private System.Windows.Forms.DataGridView dgvSACH;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMH;

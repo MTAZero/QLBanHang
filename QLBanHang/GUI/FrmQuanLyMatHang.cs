@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace QLBanHang.GUI
 {
-    public partial class FrmQuanLyMatHang : Form
+    public partial class FrmQuanLySACH : Form
     {
         private QLBanSach_DbContext db = Service.DBService.db;
         private int index = 0, index1 = 0;
 
         #region constructor
-        public FrmQuanLyMatHang()
+        public FrmQuanLySACH()
         {
             InitializeComponent();
         }
@@ -34,27 +34,27 @@ namespace QLBanHang.GUI
         {
             int i = 0;
             string keyword = txtTimKiem.Text;
-            var dbNV = db.MATHANGs.ToList()
+            var dbNV = db.SACHes.ToList()
                        .Select(p=> new
                        {
                            ID = p.ID,
                            STT = ++i,
                            TenMH = p.TEN,
-                           DonViTinh = p.DONVITINH,
+                           //DonViTinh = p.DONVITINH,
                            GhiChu = p.GHICHU
                        })
                        .ToList();
 
-            dgvMatHang.DataSource = dbNV
-                                    .Where(p => p.TenMH.Contains(keyword) || p.DonViTinh.Contains(keyword))
+            dgvSACH.DataSource = dbNV
+                                    .Where(p => p.TenMH.Contains(keyword))
                                     .ToList();
 
             // cập nhật index 
             index = index1;
             try
             {
-                dgvMatHang.Rows[index].Cells["STT"].Selected = true;
-                dgvMatHang.Select();
+                dgvSACH.Rows[index].Cells["STT"].Selected = true;
+                dgvSACH.Select();
             }
             catch { }
         }
@@ -71,7 +71,7 @@ namespace QLBanHang.GUI
         
         private void ClearControl()
         {
-            txtMaMH.Text = "";
+            txtMASACH.Text = "";
             txtTenMH.Text = "";
             txtDVT.Text = "";
             txtGhiChu.Text = "";
@@ -82,43 +82,42 @@ namespace QLBanHang.GUI
             ClearControl();
             try
             {
-                MATHANG tg = getMatHangByID();
+                SACH tg = getSACHByID();
 
                 if (tg == null || tg.ID == 0) return;
 
                 // cập nhật trên giao diện
-                txtMaMH.Text = tg.MAMH;
+                //txtMASACH.Text = tg.MASACH;
                 txtTenMH.Text = tg.TEN;
-                txtDVT.Text = tg.DONVITINH;
                 txtGhiChu.Text = tg.GHICHU;
 
                 index1 = index;
-                index = dgvMatHang.SelectedRows[0].Index;
+                index = dgvSACH.SelectedRows[0].Index;
             }
             catch { }
             
         }
 
-        private MATHANG getMatHangByID()
+        private SACH getSACHByID()
         {
             try
             {
-                int id = (int)dgvMatHang.SelectedRows[0].Cells["ID"].Value;
-                MATHANG nhanvien = db.MATHANGs.Where(p => p.ID == id).FirstOrDefault();
-                return (nhanvien != null) ? nhanvien : new MATHANG();
+                int id = (int)dgvSACH.SelectedRows[0].Cells["ID"].Value;
+                SACH nhanvien = db.SACHes.Where(p => p.ID == id).FirstOrDefault();
+                return (nhanvien != null) ? nhanvien : new SACH();
             }
             catch
             {
-                return new MATHANG();
+                return new SACH();
             }
         }
 
-        private MATHANG getMatHangByForm()
+        private SACH getSACHByForm()
         {
-            MATHANG ans = new MATHANG();
-            ans.MAMH = txtMaMH.Text;
+            SACH ans = new SACH();
+            ans.MASACH = txtMASACH.Text;
             ans.TEN = txtTenMH.Text;
-            ans.DONVITINH = txtDVT.Text;
+            //ans.DONVITINH = txtDVT.Text;
             ans.GHICHU = txtGhiChu.Text;
 
             return ans;
@@ -126,21 +125,21 @@ namespace QLBanHang.GUI
 
         private bool Check()
         {
-            if (txtMaMH.Text == "")
+            if (txtMASACH.Text == "")
             {
                 MessageBox.Show("Mã mặt hàng không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            int cnt = db.MATHANGs.Where(p => p.MAMH == txtMaMH.Text).ToList().Count;
+            int cnt = db.SACHes.Where(p => p.MASACH == txtMASACH.Text).ToList().Count;
             if (cnt > 0)
             {
                 bool ok = false;
                 if (btnSua.Text == "Lưu")
                 {
                     // Nếu là sửa
-                    MATHANG tg = getMatHangByID();
-                    if (tg.MAMH == txtMaMH.Text) ok = true;
+                    SACH tg = getSACHByID();
+                    if (tg.MASACH == txtMASACH.Text) ok = true;
                 }
 
                 if (!ok)
@@ -158,11 +157,11 @@ namespace QLBanHang.GUI
             }
 
 
-            if (txtDVT.Text == "")
-            {
-                MessageBox.Show("Đơn vị tính không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            //if (txtDVT.Text == "")
+            //{
+            //    MessageBox.Show("Đơn vị tính không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
 
             return true;
         }
@@ -192,7 +191,7 @@ namespace QLBanHang.GUI
                 btnXoa.Text = "Hủy";
 
                 groupThongTin.Enabled = true;
-                dgvMatHang.Enabled = false;
+                dgvSACH.Enabled = false;
 
                 btnTimKiem.Enabled = false;
                 txtTimKiem.Enabled = false;
@@ -212,15 +211,15 @@ namespace QLBanHang.GUI
                     btnXoa.Text = "Xóa";
 
                     groupThongTin.Enabled = false;
-                    dgvMatHang.Enabled = true;
+                    dgvSACH.Enabled = true;
 
                     btnTimKiem.Enabled = true;
                     txtTimKiem.Enabled = true;
 
                     try
                     {
-                        MATHANG tg = getMatHangByForm();
-                        db.MATHANGs.Add(tg);
+                        SACH tg = getSACHByForm();
+                        db.SACHes.Add(tg);
                         db.SaveChanges();
                         MessageBox.Show("Thêm thông tin mặt hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -238,7 +237,7 @@ namespace QLBanHang.GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            MATHANG tg = getMatHangByID();
+            SACH tg = getSACHByID();
             if (tg.ID == 0)
             {
                 MessageBox.Show("Chưa có mặt hàng nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -252,7 +251,7 @@ namespace QLBanHang.GUI
                 btnXoa.Text = "Hủy";
 
                 groupThongTin.Enabled = true;
-                dgvMatHang.Enabled = false;
+                dgvSACH.Enabled = false;
 
                 btnTimKiem.Enabled = false;
                 txtTimKiem.Enabled = false;
@@ -268,15 +267,15 @@ namespace QLBanHang.GUI
                     btnXoa.Text = "Xóa";
 
                     groupThongTin.Enabled = false;
-                    dgvMatHang.Enabled = true;
+                    dgvSACH.Enabled = true;
 
                     btnTimKiem.Enabled = true;
                     txtTimKiem.Enabled = true;
 
-                    MATHANG tgs = getMatHangByForm();
-                    tg.MAMH = tgs.MAMH;
+                    SACH tgs = getSACHByForm();
+                    tg.MASACH = tgs.MASACH;
                     tg.TEN = tgs.TEN;
-                    tg.DONVITINH = tgs.DONVITINH;
+                    //tg.DONVITINH = tgs.DONVITINH;
                     tg.GHICHU = tgs.GHICHU;
                     
                     try
@@ -302,7 +301,7 @@ namespace QLBanHang.GUI
         {
             if (btnXoa.Text == "Xóa")
             {
-                MATHANG tg = getMatHangByID();
+                SACH tg = getSACHByID();
                 if (tg.ID == 0)
                 {
                     MessageBox.Show("Chưa có mặt hàng nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -314,7 +313,7 @@ namespace QLBanHang.GUI
 
                 try 
                 {
-                    db.MATHANGs.Remove(tg);
+                    db.SACHes.Remove(tg);
                     db.SaveChanges();
                     MessageBox.Show("Xóa mặt hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -338,7 +337,7 @@ namespace QLBanHang.GUI
                 btnSua.Enabled = true;
 
                 groupThongTin.Enabled = false;
-                dgvMatHang.Enabled = true;
+                dgvSACH.Enabled = true;
 
                 btnTimKiem.Enabled = true;
                 txtTimKiem.Enabled = true;

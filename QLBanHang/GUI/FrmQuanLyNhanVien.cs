@@ -77,7 +77,7 @@ namespace QLBanHang.GUI
             txtHoVaTen.Text = "";
             cbxGioiTinh.SelectedIndex = 0;
             txtSDT.Text = "";
-            txtQueQuan.Text = "";
+            txtDIACHI.Text = "";
             dateNgaySinh.Value = DateTime.Now;
             txtTaiKhoan.Text = "";
             cbxQuyen.SelectedIndex = 0;
@@ -97,7 +97,7 @@ namespace QLBanHang.GUI
                 txtHoVaTen.Text = nhanvien.TEN;
                 cbxGioiTinh.SelectedIndex = (int)nhanvien.GIOITINH;
                 txtSDT.Text = nhanvien.SDT;
-                txtQueQuan.Text = nhanvien.QUEQUAN;
+                txtDIACHI.Text = nhanvien.DIACHI;
                 dateNgaySinh.Value = (DateTime)nhanvien.NGAYSINH;
                 txtTaiKhoan.Text = nhanvien.TAIKHOAN;
                 cbxQuyen.SelectedIndex = (int) nhanvien.QUYEN;
@@ -130,7 +130,7 @@ namespace QLBanHang.GUI
             ans.TEN = txtHoVaTen.Text;
             ans.GIOITINH = cbxGioiTinh.SelectedIndex;
             ans.SDT = txtSDT.Text;
-            ans.QUEQUAN = txtQueQuan.Text;
+            ans.DIACHI = txtDIACHI.Text;
             ans.TAIKHOAN = txtTaiKhoan.Text;
             ans.NGAYSINH = dateNgaySinh.Value;
             ans.QUYEN = cbxQuyen.SelectedIndex;
@@ -179,7 +179,7 @@ namespace QLBanHang.GUI
                 return false;
             }
 
-            if (txtQueQuan.Text == "")
+            if (txtDIACHI.Text == "")
             {
                 MessageBox.Show("Quê quán của nhân viên không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -298,7 +298,7 @@ namespace QLBanHang.GUI
                     tg.MANV = tgs.MANV;
                     tg.TEN = tgs.TEN;
                     tg.GIOITINH = tgs.GIOITINH;
-                    tg.QUEQUAN = tgs.QUEQUAN;
+                    tg.DIACHI = tgs.DIACHI;
                     tg.NGAYSINH = tgs.NGAYSINH;
                     tg.QUYEN = tgs.QUYEN;
                     

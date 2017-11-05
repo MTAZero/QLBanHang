@@ -39,7 +39,7 @@
             this.btnQLKho = new System.Windows.Forms.Button();
             this.btnXuatHang = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
-            this.btnQLMatHang = new System.Windows.Forms.Button();
+            this.btnQLSACH = new System.Windows.Forms.Button();
             this.btnQLNhanVien = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -113,7 +113,7 @@
             this.PanelMenu.Controls.Add(this.btnQLKho);
             this.PanelMenu.Controls.Add(this.btnXuatHang);
             this.PanelMenu.Controls.Add(this.btnDong);
-            this.PanelMenu.Controls.Add(this.btnQLMatHang);
+            this.PanelMenu.Controls.Add(this.btnQLSACH);
             this.PanelMenu.Controls.Add(this.btnQLNhanVien);
             this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelMenu.Location = new System.Drawing.Point(0, 0);
@@ -206,26 +206,26 @@
             this.btnDong.UseVisualStyleBackColor = false;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
-            // btnQLMatHang
+            // btnQLSACH
             // 
-            this.btnQLMatHang.BackColor = System.Drawing.Color.White;
-            this.btnQLMatHang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnQLMatHang.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnQLMatHang.FlatAppearance.BorderSize = 2;
-            this.btnQLMatHang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnQLMatHang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnQLMatHang.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQLMatHang.ForeColor = System.Drawing.Color.Black;
-            this.btnQLMatHang.Image = ((System.Drawing.Image)(resources.GetObject("btnQLMatHang.Image")));
-            this.btnQLMatHang.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnQLMatHang.Location = new System.Drawing.Point(2, 109);
-            this.btnQLMatHang.Name = "btnQLMatHang";
-            this.btnQLMatHang.Size = new System.Drawing.Size(213, 100);
-            this.btnQLMatHang.TabIndex = 3;
-            this.btnQLMatHang.Text = "QUẢN LÝ MẶT HÀNG";
-            this.btnQLMatHang.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnQLMatHang.UseVisualStyleBackColor = false;
-            this.btnQLMatHang.Click += new System.EventHandler(this.btnQLMatHang_Click);
+            this.btnQLSACH.BackColor = System.Drawing.Color.White;
+            this.btnQLSACH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQLSACH.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnQLSACH.FlatAppearance.BorderSize = 2;
+            this.btnQLSACH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnQLSACH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnQLSACH.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLSACH.ForeColor = System.Drawing.Color.Black;
+            this.btnQLSACH.Image = ((System.Drawing.Image)(resources.GetObject("btnQLSACH.Image")));
+            this.btnQLSACH.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnQLSACH.Location = new System.Drawing.Point(2, 109);
+            this.btnQLSACH.Name = "btnQLSACH";
+            this.btnQLSACH.Size = new System.Drawing.Size(213, 100);
+            this.btnQLSACH.TabIndex = 3;
+            this.btnQLSACH.Text = "QUẢN LÝ MẶT HÀNG";
+            this.btnQLSACH.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnQLSACH.UseVisualStyleBackColor = false;
+            this.btnQLSACH.Click += new System.EventHandler(this.btnQLSACH_Click);
             // 
             // btnQLNhanVien
             // 
@@ -278,7 +278,7 @@
         private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.Button btnNhapHang;
         private System.Windows.Forms.Button btnQLKho;
-        private System.Windows.Forms.Button btnQLMatHang;
+        private System.Windows.Forms.Button btnQLSACH;
         private System.Windows.Forms.Button btnQLNhanVien;
         private System.Windows.Forms.LinkLabel txtDoiMatKhau;
     }

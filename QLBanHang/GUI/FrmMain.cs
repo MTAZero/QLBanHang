@@ -33,7 +33,7 @@ namespace QLBanHang.GUI
             {
                 // phan quyen admin
                 btnQLNhanVien.Enabled = true;
-                btnQLMatHang.Enabled = true;
+                btnQLSACH.Enabled = true;
                 btnQLKho.Enabled = true;
                 btnXuatHang.Enabled = true;
                 btnNhapHang.Enabled = true;
@@ -44,7 +44,7 @@ namespace QLBanHang.GUI
             {
                 // phan quyen nhan vien
                 btnQLNhanVien.Enabled = false;
-                btnQLMatHang.Enabled = false;
+                btnQLSACH.Enabled = false;
                 btnQLKho.Enabled = true;
                 btnXuatHang.Enabled = true;
                 btnNhapHang.Enabled = true;
@@ -68,9 +68,9 @@ namespace QLBanHang.GUI
             form.Show();
         }
 
-        private void btnQLMatHang_Click(object sender, EventArgs e)
+        private void btnQLSACH_Click(object sender, EventArgs e)
         {
-            FrmQuanLyMatHang form = new FrmQuanLyMatHang();
+            FrmQuanLySACH form = new FrmQuanLySACH();
             form.TopLevel = false;
             form.Dock = DockStyle.Fill;
             panelMain.Controls.Clear();
