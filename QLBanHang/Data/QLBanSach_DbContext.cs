@@ -5,10 +5,10 @@ namespace QLBanHang.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class QLBanHangDbContext : DbContext
+    public partial class QLBanSach_DbContext : DbContext
     {
-        public QLBanHangDbContext()
-            : base("name=QLBanHangDbContext")
+        public QLBanSach_DbContext()
+            : base("name=QLBanSach_DbContext")
         {
         }
 
@@ -16,9 +16,10 @@ namespace QLBanHang.Data
         public virtual DbSet<CHITIETXUAT> CHITIETXUATs { get; set; }
         public virtual DbSet<HOADONBAN> HOADONBANs { get; set; }
         public virtual DbSet<KHO> KHOes { get; set; }
-        public virtual DbSet<MATHANG> MATHANGs { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
+        public virtual DbSet<NXB> NXBs { get; set; }
         public virtual DbSet<PHIEUNHAP> PHIEUNHAPs { get; set; }
+        public virtual DbSet<SACH> SACHes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -14,7 +14,7 @@ namespace QLBanHang.GUI
 {
     public partial class FrmLogin : Form
     {
-        private QLBanHangDbContext db = DBService.db;
+        private QLBanSach_DbContext db = DBService.db;
         
         #region Constructor
         public FrmLogin()

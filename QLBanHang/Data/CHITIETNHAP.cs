@@ -13,7 +13,7 @@ namespace QLBanHang.Data
 
         public int? PHIEUNHAPID { get; set; }
 
-        public int? MATHANGID { get; set; }
+        public int? SACHID { get; set; }
 
         public int? SOLUONG { get; set; }
 
@@ -21,8 +21,8 @@ namespace QLBanHang.Data
 
         public int? THANHTIEN { get; set; }
 
-        public virtual MATHANG MATHANG { get; set; }
-
         public virtual PHIEUNHAP PHIEUNHAP { get; set; }
+
+        public virtual SACH SACH { get; set; }
     }
 }

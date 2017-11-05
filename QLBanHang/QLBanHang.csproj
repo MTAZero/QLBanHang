@@ -61,10 +61,11 @@
     <Compile Include="Data\CHITIETXUAT.cs" />
     <Compile Include="Data\HOADONBAN.cs" />
     <Compile Include="Data\KHO.cs" />
-    <Compile Include="Data\MATHANG.cs" />
     <Compile Include="Data\NHANVIEN.cs" />
+    <Compile Include="Data\NXB.cs" />
     <Compile Include="Data\PHIEUNHAP.cs" />
-    <Compile Include="Data\QLBanHangDbContext.cs" />
+    <Compile Include="Data\QLBanSach_DbContext.cs" />
+    <Compile Include="Data\SACH.cs" />
     <Compile Include="GUI\FrmDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>

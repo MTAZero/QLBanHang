@@ -6,11 +6,11 @@ namespace QLBanHang.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("MATHANG")]
-    public partial class MATHANG
+    [Table("SACH")]
+    public partial class SACH
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MATHANG()
+        public SACH()
         {
             CHITIETNHAPs = new HashSet<CHITIETNHAP>();
             CHITIETXUATs = new HashSet<CHITIETXUAT>();
@@ -19,13 +19,15 @@ namespace QLBanHang.Data
 
         public int ID { get; set; }
 
-        public string MAMH { get; set; }
+        public string MASACH { get; set; }
 
         public string TEN { get; set; }
 
-        public string DONVITINH { get; set; }
+        public string TACGIA { get; set; }
 
         public string GHICHU { get; set; }
+
+        public int? NXBID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETNHAP> CHITIETNHAPs { get; set; }
@@ -35,5 +37,7 @@ namespace QLBanHang.Data
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KHO> KHOes { get; set; }
+
+        public virtual NXB NXB { get; set; }
     }
 }

@@ -11,10 +11,10 @@ namespace QLBanHang.Data
     {
         public int ID { get; set; }
 
-        public int? MATHANGID { get; set; }
+        public int? SACHID { get; set; }
 
         public int? SOLUONG { get; set; }
 
-        public virtual MATHANG MATHANG { get; set; }
+        public virtual SACH SACH { get; set; }
     }
 }

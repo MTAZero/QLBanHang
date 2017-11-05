@@ -13,7 +13,7 @@ namespace QLBanHang.Data
 
         public int? HOADONBANID { get; set; }
 
-        public int? MATHANGID { get; set; }
+        public int? SACHID { get; set; }
 
         public int? SOLUONG { get; set; }
 
@@ -23,6 +23,6 @@ namespace QLBanHang.Data
 
         public virtual HOADONBAN HOADONBAN { get; set; }
 
-        public virtual MATHANG MATHANG { get; set; }
+        public virtual SACH SACH { get; set; }
     }
 }

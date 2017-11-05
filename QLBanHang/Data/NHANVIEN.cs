@@ -26,11 +26,9 @@ namespace QLBanHang.Data
 
         public int? GIOITINH { get; set; }
 
-        public string QUEQUAN { get; set; }
-
         public string SDT { get; set; }
 
-        public string TAIKHOAN { get; set; }
+        public string DIACHI { get; set; }
 
         public string MATKHAU { get; set; }
 

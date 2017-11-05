@@ -13,7 +13,7 @@ namespace QLBanHang.GUI
 {
     public partial class FrmXuatHang : Form
     {
-        private QLBanHangDbContext db = Service.DBService.db;
+        private QLBanSach_DbContext db = Service.DBService.db;
         private int indexHOADONBAN = 0, indexHOADONBAN1 = 0;
         private int indexCHITIETXUAT = 0, indexCHITIETXUAT1 = 0;
         private NHANVIEN nv = new NHANVIEN();
