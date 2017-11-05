@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace QLBanHang.GUI
 {
-    public partial class FrmQuanLyNhanVien : Form
+    public partial class FrmQuanLyMatHang : Form
     {
         private QLBanHangDbContext db = Service.DBService.db;
         private int index = 0, index1 = 0;
 
         #region constructor
-        public FrmQuanLyNhanVien()
+        public FrmQuanLyMatHang()
         {
             InitializeComponent();
         }
@@ -27,7 +27,6 @@ namespace QLBanHang.GUI
 
         private void LoadControl()
         {
-            cbxGioiTinh.SelectedIndex = 0;
             groupThongTin.Enabled = false;
         }
 
@@ -35,28 +34,27 @@ namespace QLBanHang.GUI
         {
             int i = 0;
             string keyword = txtTimKiem.Text;
-            var dbNV = db.NHANVIENs.ToList()
+            var dbNV = db.MATHANGs.ToList()
                        .Select(p=> new
                        {
                            ID = p.ID,
                            STT = ++i,
-                           HoTen = p.TEN,
-                           NgaySinh = ((DateTime)p.NGAYSINH).ToString("dd/MM/yyyy") ,
-                           GioiTinh = (p.GIOITINH == 0) ? "Nữ" : "Nam",
-                           Quyen = (p.QUYEN == 1) ? "Quản trị" : "Nhân viên"
+                           TenMH = p.TEN,
+                           DonViTinh = p.DONVITINH,
+                           GhiChu = p.GHICHU
                        })
-                       .OrderByDescending(p=>p.Quyen)
                        .ToList();
 
-            dgvNhanVien.DataSource = dbNV.Where(p => p.HoTen.Contains(keyword) || p.GioiTinh.Contains(keyword) || p.Quyen.Contains(keyword) || p.NgaySinh.Contains(keyword))
+            dgvMatHang.DataSource = dbNV
+                                    .Where(p => p.TenMH.Contains(keyword) || p.DonViTinh.Contains(keyword))
                                     .ToList();
 
             // cập nhật index 
             index = index1;
             try
             {
-                dgvNhanVien.Rows[index].Cells["STT"].Selected = true;
-                dgvNhanVien.Select();
+                dgvMatHang.Rows[index].Cells["STT"].Selected = true;
+                dgvMatHang.Select();
             }
             catch { }
         }
@@ -73,14 +71,10 @@ namespace QLBanHang.GUI
         
         private void ClearControl()
         {
-            txtMaNhanVien.Text = "";
-            txtHoVaTen.Text = "";
-            cbxGioiTinh.SelectedIndex = 0;
-            txtSDT.Text = "";
-            txtQueQuan.Text = "";
-            dateNgaySinh.Value = DateTime.Now;
-            txtTaiKhoan.Text = "";
-            cbxQuyen.SelectedIndex = 0;
+            txtMaMH.Text = "";
+            txtTenMH.Text = "";
+            txtDVT.Text = "";
+            txtGhiChu.Text = "";
         }
 
         private void UpdateDetail()
@@ -88,100 +82,85 @@ namespace QLBanHang.GUI
             ClearControl();
             try
             {
-                NHANVIEN nhanvien = getNhanVienByID();
+                MATHANG tg = getMatHangByID();
 
-                if (nhanvien == null || nhanvien.ID == 0) return;
+                if (tg == null || tg.ID == 0) return;
 
                 // cập nhật trên giao diện
-                txtMaNhanVien.Text = nhanvien.MANV;
-                txtHoVaTen.Text = nhanvien.TEN;
-                cbxGioiTinh.SelectedIndex = (int)nhanvien.GIOITINH;
-                txtSDT.Text = nhanvien.SDT;
-                txtQueQuan.Text = nhanvien.QUEQUAN;
-                dateNgaySinh.Value = (DateTime)nhanvien.NGAYSINH;
-                txtTaiKhoan.Text = nhanvien.TAIKHOAN;
-                cbxQuyen.SelectedIndex = (int) nhanvien.QUYEN;
+                txtMaMH.Text = tg.MAMH;
+                txtTenMH.Text = tg.TEN;
+                txtDVT.Text = tg.DONVITINH;
+                txtGhiChu.Text = tg.GHICHU;
 
                 index1 = index;
-                index = dgvNhanVien.SelectedRows[0].Index;
+                index = dgvMatHang.SelectedRows[0].Index;
             }
             catch { }
             
         }
 
-        private NHANVIEN getNhanVienByID()
+        private MATHANG getMatHangByID()
         {
             try
             {
-                int id = (int)dgvNhanVien.SelectedRows[0].Cells["ID"].Value;
-                NHANVIEN nhanvien = db.NHANVIENs.Where(p => p.ID == id).FirstOrDefault();
-                return (nhanvien != null) ? nhanvien : new NHANVIEN();
+                int id = (int)dgvMatHang.SelectedRows[0].Cells["ID"].Value;
+                MATHANG nhanvien = db.MATHANGs.Where(p => p.ID == id).FirstOrDefault();
+                return (nhanvien != null) ? nhanvien : new MATHANG();
             }
             catch
             {
-                return new NHANVIEN();
+                return new MATHANG();
             }
         }
 
-        private NHANVIEN getNhanVienByForm()
+        private MATHANG getMatHangByForm()
         {
-            NHANVIEN ans = new NHANVIEN();
-            ans.MANV = txtMaNhanVien.Text;
-            ans.TEN = txtHoVaTen.Text;
-            ans.GIOITINH = cbxGioiTinh.SelectedIndex;
-            ans.SDT = txtSDT.Text;
-            ans.QUEQUAN = txtQueQuan.Text;
-            ans.TAIKHOAN = txtTaiKhoan.Text;
-            ans.NGAYSINH = dateNgaySinh.Value;
-            ans.QUYEN = cbxQuyen.SelectedIndex;
-            ans.MATKHAU = "1";
+            MATHANG ans = new MATHANG();
+            ans.MAMH = txtMaMH.Text;
+            ans.TEN = txtTenMH.Text;
+            ans.DONVITINH = txtDVT.Text;
+            ans.GHICHU = txtGhiChu.Text;
 
             return ans;
         }
 
         private bool Check()
         {
-            if (txtMaNhanVien.Text == "")
+            if (txtMaMH.Text == "")
             {
-                MessageBox.Show("Mã nhân viên không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Mã mặt hàng không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            int cnt = db.NHANVIENs.Where(p => p.MANV == txtMaNhanVien.Text).ToList().Count;
+            int cnt = db.MATHANGs.Where(p => p.MAMH == txtMaMH.Text).ToList().Count;
             if (cnt > 0)
             {
                 bool ok = false;
                 if (btnSua.Text == "Lưu")
                 {
                     // Nếu là sửa
-                    NHANVIEN nv = getNhanVienByID();
-                    if (nv.MANV == txtMaNhanVien.Text) ok = true;
+                    MATHANG tg = getMatHangByID();
+                    if (tg.MAMH == txtMaMH.Text) ok = true;
                 }
 
                 if (!ok)
                 {
-                    MessageBox.Show("Mã nhân viên đã được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Mã mặt hàng đã được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
 
 
-            if (txtHoVaTen.Text == "")
+            if (txtTenMH.Text == "")
             {
-                MessageBox.Show("Họ và tên nhân viên không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tên mặt hàng không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
 
-            if (txtTaiKhoan.Text == "")
+            if (txtDVT.Text == "")
             {
-                MessageBox.Show("Tài khoản của nhân viên không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (txtQueQuan.Text == "")
-            {
-                MessageBox.Show("Quê quán của nhân viên không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đơn vị tính không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -213,7 +192,7 @@ namespace QLBanHang.GUI
                 btnXoa.Text = "Hủy";
 
                 groupThongTin.Enabled = true;
-                dgvNhanVien.Enabled = false;
+                dgvMatHang.Enabled = false;
 
                 btnTimKiem.Enabled = false;
                 txtTimKiem.Enabled = false;
@@ -233,17 +212,17 @@ namespace QLBanHang.GUI
                     btnXoa.Text = "Xóa";
 
                     groupThongTin.Enabled = false;
-                    dgvNhanVien.Enabled = true;
+                    dgvMatHang.Enabled = true;
 
                     btnTimKiem.Enabled = true;
                     txtTimKiem.Enabled = true;
 
                     try
                     {
-                        NHANVIEN tg = getNhanVienByForm();
-                        db.NHANVIENs.Add(tg);
+                        MATHANG tg = getMatHangByForm();
+                        db.MATHANGs.Add(tg);
                         db.SaveChanges();
-                        MessageBox.Show("Thêm thông tin nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thêm thông tin mặt hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex) {
                         MessageBox.Show("Thêm thông tin mặt hàng thất bại\n"+ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -259,10 +238,10 @@ namespace QLBanHang.GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            NHANVIEN tg = getNhanVienByID();
+            MATHANG tg = getMatHangByID();
             if (tg.ID == 0)
             {
-                MessageBox.Show("Chưa có nhân viên nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa có mặt hàng nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -273,7 +252,7 @@ namespace QLBanHang.GUI
                 btnXoa.Text = "Hủy";
 
                 groupThongTin.Enabled = true;
-                dgvNhanVien.Enabled = false;
+                dgvMatHang.Enabled = false;
 
                 btnTimKiem.Enabled = false;
                 txtTimKiem.Enabled = false;
@@ -289,27 +268,25 @@ namespace QLBanHang.GUI
                     btnXoa.Text = "Xóa";
 
                     groupThongTin.Enabled = false;
-                    dgvNhanVien.Enabled = true;
+                    dgvMatHang.Enabled = true;
 
                     btnTimKiem.Enabled = true;
                     txtTimKiem.Enabled = true;
 
-                    NHANVIEN tgs = getNhanVienByForm();
-                    tg.MANV = tgs.MANV;
+                    MATHANG tgs = getMatHangByForm();
+                    tg.MAMH = tgs.MAMH;
                     tg.TEN = tgs.TEN;
-                    tg.GIOITINH = tgs.GIOITINH;
-                    tg.QUEQUAN = tgs.QUEQUAN;
-                    tg.NGAYSINH = tgs.NGAYSINH;
-                    tg.QUYEN = tgs.QUYEN;
+                    tg.DONVITINH = tgs.DONVITINH;
+                    tg.GHICHU = tgs.GHICHU;
                     
                     try
                     {
                         db.SaveChanges();
-                        MessageBox.Show("Sửa thông tin nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Sửa thông tin mặt hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Sửa thông tin nhân viên thất bại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Sửa thông tin mặt hàng thất bại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                     
@@ -325,25 +302,25 @@ namespace QLBanHang.GUI
         {
             if (btnXoa.Text == "Xóa")
             {
-                NHANVIEN tg = getNhanVienByID();
+                MATHANG tg = getMatHangByID();
                 if (tg.ID == 0)
                 {
-                    MessageBox.Show("Chưa có nhân viên nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Chưa có mặt hàng nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                DialogResult rs = MessageBox.Show("Bạn có chắc chắn xóa thông tin nhân viên này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult rs = MessageBox.Show("Bạn có chắc chắn xóa thông tin mặt hàng này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (rs == DialogResult.Cancel) return;
 
                 try 
                 {
-                    db.NHANVIENs.Remove(tg);
+                    db.MATHANGs.Remove(tg);
                     db.SaveChanges();
-                    MessageBox.Show("Xóa nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Xóa mặt hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch
                 {
-                    MessageBox.Show("Xóa nhân viên thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Xóa mặt hàng thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 LoadDgvNhanVien();
@@ -361,7 +338,7 @@ namespace QLBanHang.GUI
                 btnSua.Enabled = true;
 
                 groupThongTin.Enabled = false;
-                dgvNhanVien.Enabled = true;
+                dgvMatHang.Enabled = true;
 
                 btnTimKiem.Enabled = true;
                 txtTimKiem.Enabled = true;
