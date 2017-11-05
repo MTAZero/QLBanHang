@@ -227,6 +227,12 @@ namespace QLBanHang.GUI
                         db.SACHes.Add(tg);
                         db.SaveChanges();
 
+                        KHO kho = new KHO();
+                        kho.SACHID = tg.ID;
+                        kho.SOLUONG = 0;
+                        db.KHOes.Add(kho);
+                        db.SaveChanges();
+
                         MessageBox.Show("Thêm thông tin sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex) {
@@ -318,6 +324,11 @@ namespace QLBanHang.GUI
 
                 try 
                 {
+                    db.KHOes.RemoveRange(db.KHOes.Where(p => p.SACHID == tg.ID));
+                    db.CHITIETNHAPs.RemoveRange(db.CHITIETNHAPs.Where(p => p.SACHID == tg.ID));
+                    db.CHITIETXUATs.RemoveRange(db.CHITIETXUATs.Where(p => p.SACHID == tg.ID));
+                    db.SaveChanges();
+
                     db.SACHes.Remove(tg);
                     db.SaveChanges();
 

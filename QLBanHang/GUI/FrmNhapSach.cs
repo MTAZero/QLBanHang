@@ -322,6 +322,9 @@ namespace QLBanHang.GUI
 
                 try
                 {
+                    db.CHITIETNHAPs.RemoveRange(db.CHITIETNHAPs.Where(p => p.PHIEUNHAPID == tg.ID));
+                    db.SaveChanges();
+
                     db.PHIEUNHAPs.Remove(tg);
                     db.SaveChanges();
                     MessageBox.Show("Xóa phiếu nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

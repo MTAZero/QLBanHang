@@ -122,6 +122,21 @@ namespace QLBanHang.GUI
             return true;
         }
 
+        private void XoaSach(SACH tg)
+        {
+            try
+            {
+                db.KHOes.RemoveRange(db.KHOes.Where(p => p.SACHID == tg.ID));
+                db.CHITIETNHAPs.RemoveRange(db.CHITIETNHAPs.Where(p => p.SACHID == tg.ID));
+                db.CHITIETXUATs.RemoveRange(db.CHITIETXUATs.Where(p => p.SACHID == tg.ID));
+                db.SaveChanges();
+
+                db.SACHes.Remove(tg);
+                db.SaveChanges();
+            }
+            catch { }
+        }
+
         #endregion
 
         #region sự kiện ngầm
@@ -266,6 +281,9 @@ namespace QLBanHang.GUI
 
                 try 
                 {
+
+                    var listSach = db.SACHes.Where(p => p.NXBID == tg.ID).ToList();
+                    foreach (var item in listSach) XoaSach(item);
 
                     db.NXBs.Remove(tg);
                     db.SaveChanges();

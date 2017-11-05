@@ -357,6 +357,26 @@ namespace QLBanHang.GUI
 
                 try 
                 {
+                    var listCTN =
+                            from ctn in db.CHITIETNHAPs.ToList()
+                            from pn in db.PHIEUNHAPs.Where(p => p.ID == ctn.PHIEUNHAPID).ToList()
+                            from nv in db.NHANVIENs.Where(p => p.ID == pn.NHANVIENID && p.ID == tg.ID)
+                            select ctn;
+
+                    var listCTX =
+                            from ctn in db.CHITIETXUATs.ToList()
+                            from pn in db.HOADONBANs.Where(p => p.ID == ctn.HOADONBANID).ToList()
+                            from nv in db.NHANVIENs.Where(p => p.ID == pn.NHANVIENID && p.ID == tg.ID)
+                            select ctn;
+
+                    db.CHITIETNHAPs.RemoveRange(listCTN);
+                    db.CHITIETXUATs.RemoveRange(listCTX);
+                    db.SaveChanges();
+
+                    db.PHIEUNHAPs.RemoveRange(db.PHIEUNHAPs.Where(p => p.NHANVIENID == tg.ID));
+                    db.HOADONBANs.RemoveRange(db.HOADONBANs.Where(p => p.NHANVIENID == tg.ID));
+                    db.SaveChanges();
+
                     db.NHANVIENs.Remove(tg);
                     db.SaveChanges();
                     MessageBox.Show("Xóa nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

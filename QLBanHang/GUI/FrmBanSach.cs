@@ -312,8 +312,14 @@ namespace QLBanHang.GUI
 
                 try
                 {
+
+                    db.CHITIETXUATs.RemoveRange(db.CHITIETXUATs.Where(p => p.HOADONBANID == tg.ID));
+                    db.SaveChanges();
+
                     db.HOADONBANs.Remove(tg);
                     db.SaveChanges();
+
+                    
                     MessageBox.Show("Xóa phiếu nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch
