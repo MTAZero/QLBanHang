@@ -51,12 +51,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSACH = new System.Windows.Forms.DataGridView();
-            this.panelTimKiem = new System.Windows.Forms.Panel();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSACH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelTimKiem = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupThongTin.SuspendLayout();
@@ -196,7 +196,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 16);
             this.label4.TabIndex = 15;
-            this.label4.Text = "SACH : ";
+            this.label4.Text = "NXB : ";
             // 
             // txtTacGia
             // 
@@ -312,7 +312,7 @@
             this.STT,
             this.TenMH,
             this.TacGia,
-            this.TenSACH});
+            this.TenNXB});
             this.dgvSACH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSACH.EnableHeadersVisualStyles = false;
             this.dgvSACH.GridColor = System.Drawing.Color.Black;
@@ -330,18 +330,6 @@
             this.dgvSACH.Size = new System.Drawing.Size(744, 621);
             this.dgvSACH.TabIndex = 3;
             this.dgvSACH.SelectionChanged += new System.EventHandler(this.dgvNhanVien_SelectionChanged);
-            // 
-            // panelTimKiem
-            // 
-            this.panelTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTimKiem.Controls.Add(this.btnTimKiem);
-            this.panelTimKiem.Controls.Add(this.txtTimKiem);
-            this.panelTimKiem.Controls.Add(this.label1);
-            this.panelTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTimKiem.Location = new System.Drawing.Point(0, 0);
-            this.panelTimKiem.Name = "panelTimKiem";
-            this.panelTimKiem.Size = new System.Drawing.Size(1134, 54);
-            this.panelTimKiem.TabIndex = 0;
             // 
             // ID
             // 
@@ -375,13 +363,25 @@
             this.TacGia.Name = "TacGia";
             this.TacGia.ReadOnly = true;
             // 
-            // TenSACH
+            // TenNXB
             // 
-            this.TenSACH.DataPropertyName = "TenSACH";
-            this.TenSACH.FillWeight = 30F;
-            this.TenSACH.HeaderText = "Tên nhà xuất bản";
-            this.TenSACH.Name = "TenSACH";
-            this.TenSACH.ReadOnly = true;
+            this.TenNXB.DataPropertyName = "TenNXB";
+            this.TenNXB.FillWeight = 30F;
+            this.TenNXB.HeaderText = "Tên nhà xuất bản";
+            this.TenNXB.Name = "TenNXB";
+            this.TenNXB.ReadOnly = true;
+            // 
+            // panelTimKiem
+            // 
+            this.panelTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTimKiem.Controls.Add(this.btnTimKiem);
+            this.panelTimKiem.Controls.Add(this.txtTimKiem);
+            this.panelTimKiem.Controls.Add(this.label1);
+            this.panelTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTimKiem.Location = new System.Drawing.Point(0, 0);
+            this.panelTimKiem.Name = "panelTimKiem";
+            this.panelTimKiem.Size = new System.Drawing.Size(1134, 54);
+            this.panelTimKiem.TabIndex = 0;
             // 
             // FrmQuanLySACH
             // 
@@ -436,6 +436,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TacGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenSACH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNXB;
     }
 }

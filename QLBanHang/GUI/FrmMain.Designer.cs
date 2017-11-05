@@ -37,7 +37,7 @@
             this.txtTTNhanVien = new System.Windows.Forms.Label();
             this.PanelMenu = new System.Windows.Forms.Panel();
             this.btnQLKho = new System.Windows.Forms.Button();
-            this.btnQLSACH = new System.Windows.Forms.Button();
+            this.btnQLNXB = new System.Windows.Forms.Button();
             this.btnQuanLySACH = new System.Windows.Forms.Button();
             this.btnNhapHang = new System.Windows.Forms.Button();
             this.btnXuatHang = new System.Windows.Forms.Button();
@@ -124,7 +124,7 @@
             this.PanelMenu.BackColor = System.Drawing.Color.White;
             this.PanelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelMenu.Controls.Add(this.btnQLKho);
-            this.PanelMenu.Controls.Add(this.btnQLSACH);
+            this.PanelMenu.Controls.Add(this.btnQLNXB);
             this.PanelMenu.Controls.Add(this.btnQuanLySACH);
             this.PanelMenu.Controls.Add(this.btnNhapHang);
             this.PanelMenu.Controls.Add(this.btnXuatHang);
@@ -157,27 +157,27 @@
             this.btnQLKho.UseVisualStyleBackColor = false;
             this.btnQLKho.Click += new System.EventHandler(this.btnQLKho_Click);
             // 
-            // btnQLSACH
+            // btnQLNXB
             // 
-            this.btnQLSACH.BackColor = System.Drawing.Color.White;
-            this.btnQLSACH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnQLSACH.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnQLSACH.FlatAppearance.BorderSize = 2;
-            this.btnQLSACH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnQLSACH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnQLSACH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnQLSACH.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQLSACH.ForeColor = System.Drawing.Color.Black;
-            this.btnQLSACH.Image = ((System.Drawing.Image)(resources.GetObject("btnQLSACH.Image")));
-            this.btnQLSACH.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnQLSACH.Location = new System.Drawing.Point(2, 215);
-            this.btnQLSACH.Name = "btnQLSACH";
-            this.btnQLSACH.Size = new System.Drawing.Size(213, 100);
-            this.btnQLSACH.TabIndex = 3;
-            this.btnQLSACH.Text = "QUẢN LÝ ĐẦU SÁCH";
-            this.btnQLSACH.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnQLSACH.UseVisualStyleBackColor = false;
-            this.btnQLSACH.Click += new System.EventHandler(this.btnQLSACH_Click);
+            this.btnQLNXB.BackColor = System.Drawing.Color.White;
+            this.btnQLNXB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQLNXB.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnQLNXB.FlatAppearance.BorderSize = 2;
+            this.btnQLNXB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnQLNXB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnQLNXB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnQLNXB.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLNXB.ForeColor = System.Drawing.Color.Black;
+            this.btnQLNXB.Image = ((System.Drawing.Image)(resources.GetObject("btnQLNXB.Image")));
+            this.btnQLNXB.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnQLNXB.Location = new System.Drawing.Point(2, 215);
+            this.btnQLNXB.Name = "btnQLNXB";
+            this.btnQLNXB.Size = new System.Drawing.Size(213, 100);
+            this.btnQLNXB.TabIndex = 3;
+            this.btnQLNXB.Text = "QUẢN LÝ NXB";
+            this.btnQLNXB.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnQLNXB.UseVisualStyleBackColor = false;
+            this.btnQLNXB.Click += new System.EventHandler(this.btnQLSACH_Click);
             // 
             // btnQuanLySACH
             // 
@@ -196,7 +196,7 @@
             this.btnQuanLySACH.Name = "btnQuanLySACH";
             this.btnQuanLySACH.Size = new System.Drawing.Size(213, 100);
             this.btnQuanLySACH.TabIndex = 6;
-            this.btnQuanLySACH.Text = "QUẢN LÝ SACH";
+            this.btnQuanLySACH.Text = "QUẢN LÝ ĐẦU SÁCH";
             this.btnQuanLySACH.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnQuanLySACH.UseVisualStyleBackColor = false;
             this.btnQuanLySACH.Click += new System.EventHandler(this.btnQuanLySACH_Click);
@@ -298,7 +298,7 @@
         private System.Windows.Forms.Button btnQuanLySACH;
         private System.Windows.Forms.Button btnNhapHang;
         private System.Windows.Forms.Button btnQLKho;
-        private System.Windows.Forms.Button btnQLSACH;
+        private System.Windows.Forms.Button btnQLNXB;
         private System.Windows.Forms.Button btnQLNhanVien;
         private System.Windows.Forms.LinkLabel txtDoiMatKhau;
         private System.Windows.Forms.LinkLabel txtDangXuat;

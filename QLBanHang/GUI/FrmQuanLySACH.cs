@@ -75,11 +75,15 @@ namespace QLBanHang.GUI
         
         private void ClearControl()
         {
-            txtMASACH.Text = "";
-            txtTenMH.Text = "";
-            txtTacGia.Text = "";
-            txtGhiChu.Text = "";
-            cbxNhaXuatBan.SelectedIndex = 0;
+            try
+            {
+                txtMASACH.Text = "";
+                txtTenMH.Text = "";
+                txtTacGia.Text = "";
+                txtGhiChu.Text = "";
+                cbxNhaXuatBan.SelectedIndex = 0;
+            }
+            catch { }
         }
 
         private void UpdateDetail()
@@ -223,13 +227,6 @@ namespace QLBanHang.GUI
                         db.SACHes.Add(tg);
                         db.SaveChanges();
 
-                        KHO kho = new KHO();
-                        kho.SACHID = tg.ID;
-                        kho.SOLUONG = 0;
-
-                        db.KHOes.Add(kho);
-                        db.SaveChanges();
-
                         MessageBox.Show("Thêm thông tin sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex) {
@@ -321,9 +318,6 @@ namespace QLBanHang.GUI
 
                 try 
                 {
-                    db.KHOes.Remove(db.KHOes.Where(p => p.SACHID == tg.ID).FirstOrDefault());
-                    db.SaveChanges();
-
                     db.SACHes.Remove(tg);
                     db.SaveChanges();
 

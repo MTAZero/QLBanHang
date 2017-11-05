@@ -36,26 +36,24 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.groupThongTin = new System.Windows.Forms.GroupBox();
+            this.txtTenNXB = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvNXB = new System.Windows.Forms.DataGridView();
+            this.panelTimKiem = new System.Windows.Forms.Panel();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelTimKiem = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtTenNXB = new System.Windows.Forms.TextBox();
-            this.groupThongTin = new System.Windows.Forms.GroupBox();
+            this.TEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupThongTin.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNXB)).BeginInit();
             this.panelTimKiem.SuspendLayout();
-            this.groupThongTin.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTimKiem
@@ -144,6 +142,37 @@
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // groupThongTin
+            // 
+            this.groupThongTin.BackColor = System.Drawing.Color.White;
+            this.groupThongTin.Controls.Add(this.txtTenNXB);
+            this.groupThongTin.Controls.Add(this.label13);
+            this.groupThongTin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupThongTin.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupThongTin.Location = new System.Drawing.Point(0, 0);
+            this.groupThongTin.Name = "groupThongTin";
+            this.groupThongTin.Size = new System.Drawing.Size(382, 93);
+            this.groupThongTin.TabIndex = 1;
+            this.groupThongTin.TabStop = false;
+            this.groupThongTin.Text = "Chi tiết thông tin nhà xuất bản";
+            // 
+            // txtTenNXB
+            // 
+            this.txtTenNXB.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenNXB.Location = new System.Drawing.Point(135, 38);
+            this.txtTenNXB.Name = "txtTenNXB";
+            this.txtTenNXB.Size = new System.Drawing.Size(205, 23);
+            this.txtTenNXB.TabIndex = 2;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(12, 41);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(117, 16);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Tên nhà xuất bản : ";
+            // 
             // txtTimKiem
             // 
             this.txtTimKiem.Location = new System.Drawing.Point(89, 11);
@@ -187,9 +216,7 @@
             this.dgvNXB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.STT,
-            this.TenMH,
-            this.TacGia,
-            this.TenNXB});
+            this.TEN});
             this.dgvNXB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNXB.EnableHeadersVisualStyles = false;
             this.dgvNXB.GridColor = System.Drawing.Color.Black;
@@ -208,46 +235,6 @@
             this.dgvNXB.TabIndex = 3;
             this.dgvNXB.SelectionChanged += new System.EventHandler(this.dgvNhanVien_SelectionChanged);
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // STT
-            // 
-            this.STT.DataPropertyName = "STT";
-            this.STT.FillWeight = 7F;
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            // 
-            // TenMH
-            // 
-            this.TenMH.DataPropertyName = "TenMH";
-            this.TenMH.FillWeight = 30F;
-            this.TenMH.HeaderText = "Tên đầu sách";
-            this.TenMH.Name = "TenMH";
-            this.TenMH.ReadOnly = true;
-            // 
-            // TacGia
-            // 
-            this.TacGia.DataPropertyName = "TacGia";
-            this.TacGia.FillWeight = 15F;
-            this.TacGia.HeaderText = "Tác giả";
-            this.TacGia.Name = "TacGia";
-            this.TacGia.ReadOnly = true;
-            // 
-            // TenNXB
-            // 
-            this.TenNXB.DataPropertyName = "TenNXB";
-            this.TenNXB.FillWeight = 30F;
-            this.TenNXB.HeaderText = "Tên nhà xuất bản";
-            this.TenNXB.Name = "TenNXB";
-            this.TenNXB.ReadOnly = true;
-            // 
             // panelTimKiem
             // 
             this.panelTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -260,36 +247,28 @@
             this.panelTimKiem.Size = new System.Drawing.Size(1134, 54);
             this.panelTimKiem.TabIndex = 0;
             // 
-            // label13
+            // ID
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 41);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(117, 16);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Tên nhà xuất bản : ";
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
-            // txtTenNXB
+            // STT
             // 
-            this.txtTenNXB.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenNXB.Location = new System.Drawing.Point(135, 38);
-            this.txtTenNXB.Name = "txtTenNXB";
-            this.txtTenNXB.Size = new System.Drawing.Size(205, 23);
-            this.txtTenNXB.TabIndex = 2;
+            this.STT.DataPropertyName = "STT";
+            this.STT.FillWeight = 20F;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
             // 
-            // groupThongTin
+            // TEN
             // 
-            this.groupThongTin.BackColor = System.Drawing.Color.White;
-            this.groupThongTin.Controls.Add(this.txtTenNXB);
-            this.groupThongTin.Controls.Add(this.label13);
-            this.groupThongTin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupThongTin.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupThongTin.Location = new System.Drawing.Point(0, 0);
-            this.groupThongTin.Name = "groupThongTin";
-            this.groupThongTin.Size = new System.Drawing.Size(382, 93);
-            this.groupThongTin.TabIndex = 1;
-            this.groupThongTin.TabStop = false;
-            this.groupThongTin.Text = "Chi tiết thông tin nhà xuất bản";
+            this.TEN.DataPropertyName = "Ten";
+            this.TEN.HeaderText = "Tên nhà xuất bản";
+            this.TEN.Name = "TEN";
+            this.TEN.ReadOnly = true;
             // 
             // FrmQuanLyNXB
             // 
@@ -304,13 +283,13 @@
             this.Load += new System.EventHandler(this.FrmQuanLyNhanVien_Load);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.groupThongTin.ResumeLayout(false);
+            this.groupThongTin.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNXB)).EndInit();
             this.panelTimKiem.ResumeLayout(false);
             this.panelTimKiem.PerformLayout();
-            this.groupThongTin.ResumeLayout(false);
-            this.groupThongTin.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -329,13 +308,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvNXB;
         private System.Windows.Forms.Panel panelTimKiem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TacGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenNXB;
         private System.Windows.Forms.GroupBox groupThongTin;
         private System.Windows.Forms.TextBox txtTenNXB;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TEN;
     }
 }

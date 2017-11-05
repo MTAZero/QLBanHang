@@ -39,12 +39,12 @@ namespace QLBanHang.GUI
                        {
                            ID = p.ID,
                            STT = ++i,
-                           TEN = p.TENNXB
+                           Ten = p.TENNXB
                        })
                        .ToList();
 
             dgvNXB.DataSource = dbNV
-                                    .Where(p => p.TEN.Contains(keyword))
+                                    .Where(p => p.Ten.Contains(keyword))
                                     .ToList();
 
             // cập nhật index 
@@ -70,10 +70,6 @@ namespace QLBanHang.GUI
         private void ClearControl()
         {
             txtTenNXB.Text = "";
-            //txtTenMH.Text = "";
-            //txtTacGia.Text = "";
-            //txtGhiChu.Text = "";
-            //cbxNhaXuatBan.SelectedIndex = 0;
         }
 
         private void UpdateDetail()
@@ -81,16 +77,10 @@ namespace QLBanHang.GUI
             ClearControl();
             try
             {
-                SACH tg = getSACHByID();
+                NXB tg = getNXBByID();
 
                 if (tg == null || tg.ID == 0) return;
-
-                // cập nhật trên giao diện
-                txtTenNXB.Text = tg.MASACH;
-                //txtTenMH.Text = tg.TEN;
-                //txtGhiChu.Text = tg.GHICHU;
-                //txtTacGia.Text = tg.TACGIA;
-                //cbxNhaXuatBan.SelectedValue = tg.NXBID;
+                txtTenNXB.Text = tg.TENNXB;
 
                 index1 = index;
                 index = dgvNXB.SelectedRows[0].Index;
@@ -99,28 +89,24 @@ namespace QLBanHang.GUI
             
         }
 
-        private SACH getSACHByID()
+        private NXB getNXBByID()
         {
             try
             {
                 int id = (int)dgvNXB.SelectedRows[0].Cells["ID"].Value;
-                SACH nhanvien = db.SACHes.Where(p => p.ID == id).FirstOrDefault();
-                return (nhanvien != null) ? nhanvien : new SACH();
+                NXB nxb = db.NXBs.Where(p => p.ID == id).FirstOrDefault();
+                return (nxb != null) ? nxb : new NXB();
             }
             catch
             {
-                return new SACH();
+                return new NXB();
             }
         }
 
-        private SACH getSACHByForm()
+        private NXB getNXBByForm()
         {
-            SACH ans = new SACH();
-            ans.MASACH = txtTenNXB.Text;
-            //ans.TEN = txtTenMH.Text;
-            //ans.TACGIA = txtTacGia.Text;
-            //ans.GHICHU = txtGhiChu.Text;
-            //ans.NXBID = (int) cbxNhaXuatBan.SelectedValue;
+            NXB ans = new NXB();
+            ans.TENNXB = txtTenNXB.Text;
 
             return ans;
         }
@@ -129,34 +115,9 @@ namespace QLBanHang.GUI
         {
             if (txtTenNXB.Text == "")
             {
-                MessageBox.Show("Mã sách không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tên nhà xuất bản không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            int cnt = db.SACHes.Where(p => p.MASACH == txtTenNXB.Text).ToList().Count;
-            if (cnt > 0)
-            {
-                bool ok = false;
-                if (btnSua.Text == "Lưu")
-                {
-                    // Nếu là sửa
-                    SACH tg = getSACHByID();
-                    if (tg.MASACH == txtTenNXB.Text) ok = true;
-                }
-
-                if (!ok)
-                {
-                    MessageBox.Show("Mã sách đã được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-            }
-
-
-            //if (txtTenMH.Text == "")
-            //{
-            //    MessageBox.Show("Tên đầu sách không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
 
             return true;
         }
@@ -213,21 +174,15 @@ namespace QLBanHang.GUI
 
                     try
                     {
-                        SACH tg = getSACHByForm();
-                        db.SACHes.Add(tg);
+                        NXB tg = getNXBByForm();
+                        db.NXBs.Add(tg);
                         db.SaveChanges();
 
-                        KHO kho = new KHO();
-                        kho.SACHID = tg.ID;
-                        kho.SOLUONG = 0;
 
-                        db.KHOes.Add(kho);
-                        db.SaveChanges();
-
-                        MessageBox.Show("Thêm thông tin sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thêm thông tin nhà xuất bản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex) {
-                        MessageBox.Show("Thêm thông tin sách thất bại\n"+ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Thêm thông tin nhà xuất bản thất bại\n"+ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
 
@@ -240,10 +195,10 @@ namespace QLBanHang.GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            SACH tg = getSACHByID();
+            NXB tg = getNXBByID();
             if (tg.ID == 0)
             {
-                MessageBox.Show("Chưa có thông tin sách nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa có thông tin nhà xuất bản nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -275,21 +230,17 @@ namespace QLBanHang.GUI
                     btnTimKiem.Enabled = true;
                     txtTimKiem.Enabled = true;
 
-                    SACH tgs = getSACHByForm();
-                    tg.MASACH = tgs.MASACH;
-                    tg.TEN = tgs.TEN;
-                    tg.TACGIA = tgs.TACGIA;
-                    tg.GHICHU = tgs.GHICHU;
-                    tg.NXBID = tgs.NXBID;
+                    NXB tgs = getNXBByForm();
+                    tg.TENNXB = tgs.TENNXB;
                     
                     try
                     {
                         db.SaveChanges();
-                        MessageBox.Show("Sửa thông tin sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Sửa thông tin nhà xuất bản  thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Sửa thông tin sách thất bại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Sửa thông tin nhà xuất bản thất bại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                     LoadDgvNhanVien();
@@ -303,30 +254,28 @@ namespace QLBanHang.GUI
         {
             if (btnXoa.Text == "Xóa")
             {
-                SACH tg = getSACHByID();
+                NXB tg = getNXBByID();
                 if (tg.ID == 0)
                 {
-                    MessageBox.Show("Chưa có đầu sách nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Chưa có nhà xuất bản nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                DialogResult rs = MessageBox.Show("Bạn có chắc chắn xóa thông tin đầu sách này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult rs = MessageBox.Show("Bạn có chắc chắn xóa thông tin nhà xuất bản này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (rs == DialogResult.Cancel) return;
 
                 try 
                 {
-                    db.KHOes.Remove(db.KHOes.Where(p => p.SACHID == tg.ID).FirstOrDefault());
+
+                    db.NXBs.Remove(tg);
                     db.SaveChanges();
 
-                    db.SACHes.Remove(tg);
-                    db.SaveChanges();
 
-
-                    MessageBox.Show("Xóa thông tin đầu sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Xóa thông tin nhà xuất bản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch
                 {
-                    MessageBox.Show("Xóa thông tin đầu sách thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Xóa thông tin nhà xuất bản thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 LoadDgvNhanVien();
