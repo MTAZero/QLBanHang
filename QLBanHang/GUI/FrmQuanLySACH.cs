@@ -28,6 +28,10 @@ namespace QLBanHang.GUI
         private void LoadControl()
         {
             groupThongTin.Enabled = false;
+
+            cbxNhaXuatBan.DataSource = db.NXBs.ToList();
+            cbxNhaXuatBan.ValueMember = "ID";
+            cbxNhaXuatBan.DisplayMember = "TENNXB";
         }
 
         private void LoadDgvNhanVien()
@@ -40,8 +44,8 @@ namespace QLBanHang.GUI
                            ID = p.ID,
                            STT = ++i,
                            TenMH = p.TEN,
-                           //DonViTinh = p.DONVITINH,
-                           GhiChu = p.GHICHU
+                           TacGia = p.TACGIA,
+                           TenNXB = db.NXBs.Where(z=>z.ID == p.NXBID).FirstOrDefault().TENNXB
                        })
                        .ToList();
 
@@ -73,8 +77,9 @@ namespace QLBanHang.GUI
         {
             txtMASACH.Text = "";
             txtTenMH.Text = "";
-            txtDVT.Text = "";
+            txtTacGia.Text = "";
             txtGhiChu.Text = "";
+            cbxNhaXuatBan.SelectedIndex = 0;
         }
 
         private void UpdateDetail()
@@ -87,9 +92,11 @@ namespace QLBanHang.GUI
                 if (tg == null || tg.ID == 0) return;
 
                 // cập nhật trên giao diện
-                //txtMASACH.Text = tg.MASACH;
+                txtMASACH.Text = tg.MASACH;
                 txtTenMH.Text = tg.TEN;
                 txtGhiChu.Text = tg.GHICHU;
+                txtTacGia.Text = tg.TACGIA;
+                cbxNhaXuatBan.SelectedValue = tg.NXBID;
 
                 index1 = index;
                 index = dgvSACH.SelectedRows[0].Index;
@@ -117,8 +124,9 @@ namespace QLBanHang.GUI
             SACH ans = new SACH();
             ans.MASACH = txtMASACH.Text;
             ans.TEN = txtTenMH.Text;
-            //ans.DONVITINH = txtDVT.Text;
+            ans.TACGIA = txtTacGia.Text;
             ans.GHICHU = txtGhiChu.Text;
+            ans.NXBID = (int) cbxNhaXuatBan.SelectedValue;
 
             return ans;
         }
@@ -157,11 +165,8 @@ namespace QLBanHang.GUI
             }
 
 
-            //if (txtDVT.Text == "")
-            //{
-            //    MessageBox.Show("Đơn vị tính không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
+
+            
 
             return true;
         }
@@ -275,8 +280,9 @@ namespace QLBanHang.GUI
                     SACH tgs = getSACHByForm();
                     tg.MASACH = tgs.MASACH;
                     tg.TEN = tgs.TEN;
-                    //tg.DONVITINH = tgs.DONVITINH;
+                    tg.TACGIA = tgs.TACGIA;
                     tg.GHICHU = tgs.GHICHU;
+                    tg.NXBID = tgs.NXBID;
                     
                     try
                     {

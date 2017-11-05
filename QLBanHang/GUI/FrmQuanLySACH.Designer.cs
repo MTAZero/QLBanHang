@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -37,7 +37,9 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.groupThongTin = new System.Windows.Forms.GroupBox();
-            this.txtDVT = new System.Windows.Forms.TextBox();
+            this.cbxNhaXuatBan = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTacGia = new System.Windows.Forms.TextBox();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,14 +51,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSACH = new System.Windows.Forms.DataGridView();
+            this.panelTimKiem = new System.Windows.Forms.Panel();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelTimKiem = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbxNhanVien = new System.Windows.Forms.ComboBox();
+            this.TacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupThongTin.SuspendLayout();
@@ -155,9 +155,9 @@
             // groupThongTin
             // 
             this.groupThongTin.BackColor = System.Drawing.Color.White;
-            this.groupThongTin.Controls.Add(this.cbxNhanVien);
+            this.groupThongTin.Controls.Add(this.cbxNhaXuatBan);
             this.groupThongTin.Controls.Add(this.label4);
-            this.groupThongTin.Controls.Add(this.txtDVT);
+            this.groupThongTin.Controls.Add(this.txtTacGia);
             this.groupThongTin.Controls.Add(this.txtGhiChu);
             this.groupThongTin.Controls.Add(this.label3);
             this.groupThongTin.Controls.Add(this.label2);
@@ -174,13 +174,37 @@
             this.groupThongTin.TabStop = false;
             this.groupThongTin.Text = "Chi tiết thông tin mặt hàng";
             // 
-            // txtDVT
+            // cbxNhaXuatBan
             // 
-            this.txtDVT.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDVT.Location = new System.Drawing.Point(109, 132);
-            this.txtDVT.Name = "txtDVT";
-            this.txtDVT.Size = new System.Drawing.Size(205, 23);
-            this.txtDVT.TabIndex = 14;
+            this.cbxNhaXuatBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.cbxNhaXuatBan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxNhaXuatBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxNhaXuatBan.ForeColor = System.Drawing.Color.Black;
+            this.cbxNhaXuatBan.FormattingEnabled = true;
+            this.cbxNhaXuatBan.Items.AddRange(new object[] {
+            "a",
+            "b"});
+            this.cbxNhaXuatBan.Location = new System.Drawing.Point(109, 251);
+            this.cbxNhaXuatBan.Name = "cbxNhaXuatBan";
+            this.cbxNhaXuatBan.Size = new System.Drawing.Size(190, 23);
+            this.cbxNhaXuatBan.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 254);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 16);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "NXB : ";
+            // 
+            // txtTacGia
+            // 
+            this.txtTacGia.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTacGia.Location = new System.Drawing.Point(109, 132);
+            this.txtTacGia.Name = "txtTacGia";
+            this.txtTacGia.Size = new System.Drawing.Size(205, 23);
+            this.txtTacGia.TabIndex = 14;
             // 
             // txtGhiChu
             // 
@@ -287,8 +311,8 @@
             this.ID,
             this.STT,
             this.TenMH,
-            this.DonViTinh,
-            this.GhiChu});
+            this.TacGia,
+            this.TenNXB});
             this.dgvSACH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSACH.EnableHeadersVisualStyles = false;
             this.dgvSACH.GridColor = System.Drawing.Color.Black;
@@ -298,14 +322,26 @@
             this.dgvSACH.ReadOnly = true;
             this.dgvSACH.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvSACH.RowHeadersWidth = 25;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSACH.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSACH.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSACH.RowTemplate.Height = 30;
             this.dgvSACH.RowTemplate.ReadOnly = true;
             this.dgvSACH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSACH.Size = new System.Drawing.Size(744, 621);
             this.dgvSACH.TabIndex = 3;
             this.dgvSACH.SelectionChanged += new System.EventHandler(this.dgvNhanVien_SelectionChanged);
+            // 
+            // panelTimKiem
+            // 
+            this.panelTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTimKiem.Controls.Add(this.btnTimKiem);
+            this.panelTimKiem.Controls.Add(this.txtTimKiem);
+            this.panelTimKiem.Controls.Add(this.label1);
+            this.panelTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTimKiem.Location = new System.Drawing.Point(0, 0);
+            this.panelTimKiem.Name = "panelTimKiem";
+            this.panelTimKiem.Size = new System.Drawing.Size(1134, 54);
+            this.panelTimKiem.TabIndex = 0;
             // 
             // ID
             // 
@@ -331,57 +367,21 @@
             this.TenMH.Name = "TenMH";
             this.TenMH.ReadOnly = true;
             // 
-            // DonViTinh
+            // TacGia
             // 
-            this.DonViTinh.DataPropertyName = "DonViTinh";
-            this.DonViTinh.FillWeight = 15F;
-            this.DonViTinh.HeaderText = "Đơn vị tính";
-            this.DonViTinh.Name = "DonViTinh";
-            this.DonViTinh.ReadOnly = true;
+            this.TacGia.DataPropertyName = "TacGia";
+            this.TacGia.FillWeight = 15F;
+            this.TacGia.HeaderText = "Tác giả";
+            this.TacGia.Name = "TacGia";
+            this.TacGia.ReadOnly = true;
             // 
-            // GhiChu
+            // TenNXB
             // 
-            this.GhiChu.DataPropertyName = "GhiChu";
-            this.GhiChu.FillWeight = 30F;
-            this.GhiChu.HeaderText = "Ghi chú";
-            this.GhiChu.Name = "GhiChu";
-            this.GhiChu.ReadOnly = true;
-            // 
-            // panelTimKiem
-            // 
-            this.panelTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTimKiem.Controls.Add(this.btnTimKiem);
-            this.panelTimKiem.Controls.Add(this.txtTimKiem);
-            this.panelTimKiem.Controls.Add(this.label1);
-            this.panelTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTimKiem.Location = new System.Drawing.Point(0, 0);
-            this.panelTimKiem.Name = "panelTimKiem";
-            this.panelTimKiem.Size = new System.Drawing.Size(1134, 54);
-            this.panelTimKiem.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 254);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 16);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "NXB : ";
-            // 
-            // cbxNhanVien
-            // 
-            this.cbxNhanVien.BackColor = System.Drawing.Color.Gray;
-            this.cbxNhanVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxNhanVien.ForeColor = System.Drawing.Color.White;
-            this.cbxNhanVien.FormattingEnabled = true;
-            this.cbxNhanVien.Items.AddRange(new object[] {
-            "a",
-            "b"});
-            this.cbxNhanVien.Location = new System.Drawing.Point(109, 251);
-            this.cbxNhanVien.Name = "cbxNhanVien";
-            this.cbxNhanVien.Size = new System.Drawing.Size(190, 23);
-            this.cbxNhanVien.TabIndex = 17;
+            this.TenNXB.DataPropertyName = "TenNXB";
+            this.TenNXB.FillWeight = 30F;
+            this.TenNXB.HeaderText = "Tên nhà xuất bản";
+            this.TenNXB.Name = "TenNXB";
+            this.TenNXB.ReadOnly = true;
             // 
             // FrmQuanLySACH
             // 
@@ -429,13 +429,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtGhiChu;
-        private System.Windows.Forms.TextBox txtDVT;
+        private System.Windows.Forms.TextBox txtTacGia;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbxNhaXuatBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DonViTinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbxNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TacGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNXB;
     }
 }
