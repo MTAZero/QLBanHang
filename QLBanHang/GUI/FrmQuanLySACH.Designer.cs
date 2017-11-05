@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -55,6 +55,8 @@
             this.DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTimKiem = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbxNhanVien = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupThongTin.SuspendLayout();
@@ -103,7 +105,7 @@
             this.panel3.Controls.Add(this.btnSua);
             this.panel3.Controls.Add(this.btnThem);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 255);
+            this.panel3.Location = new System.Drawing.Point(0, 303);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(382, 102);
             this.panel3.TabIndex = 2;
@@ -153,6 +155,8 @@
             // groupThongTin
             // 
             this.groupThongTin.BackColor = System.Drawing.Color.White;
+            this.groupThongTin.Controls.Add(this.cbxNhanVien);
+            this.groupThongTin.Controls.Add(this.label4);
             this.groupThongTin.Controls.Add(this.txtDVT);
             this.groupThongTin.Controls.Add(this.txtGhiChu);
             this.groupThongTin.Controls.Add(this.label3);
@@ -165,7 +169,7 @@
             this.groupThongTin.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupThongTin.Location = new System.Drawing.Point(0, 0);
             this.groupThongTin.Name = "groupThongTin";
-            this.groupThongTin.Size = new System.Drawing.Size(382, 255);
+            this.groupThongTin.Size = new System.Drawing.Size(382, 303);
             this.groupThongTin.TabIndex = 1;
             this.groupThongTin.TabStop = false;
             this.groupThongTin.Text = "Chi tiết thông tin mặt hàng";
@@ -201,9 +205,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 135);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 16);
+            this.label2.Size = new System.Drawing.Size(61, 16);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Đơn vị tính : ";
+            this.label2.Text = "Tác giả : ";
             // 
             // txtTenMH
             // 
@@ -226,18 +230,18 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(12, 88);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 16);
+            this.label12.Size = new System.Drawing.Size(67, 16);
             this.label12.TabIndex = 0;
-            this.label12.Text = "Tên MH :";
+            this.label12.Text = "Tên sách :";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(12, 41);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(89, 16);
+            this.label13.Size = new System.Drawing.Size(63, 16);
             this.label13.TabIndex = 0;
-            this.label13.Text = "Mã mặt hàng :";
+            this.label13.Text = "Mã sách :";
             // 
             // txtTimKiem
             // 
@@ -294,8 +298,8 @@
             this.dgvSACH.ReadOnly = true;
             this.dgvSACH.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvSACH.RowHeadersWidth = 25;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSACH.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSACH.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvSACH.RowTemplate.Height = 30;
             this.dgvSACH.RowTemplate.ReadOnly = true;
             this.dgvSACH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -355,6 +359,30 @@
             this.panelTimKiem.Size = new System.Drawing.Size(1134, 54);
             this.panelTimKiem.TabIndex = 0;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 254);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 16);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "NXB : ";
+            // 
+            // cbxNhanVien
+            // 
+            this.cbxNhanVien.BackColor = System.Drawing.Color.Gray;
+            this.cbxNhanVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxNhanVien.ForeColor = System.Drawing.Color.White;
+            this.cbxNhanVien.FormattingEnabled = true;
+            this.cbxNhanVien.Items.AddRange(new object[] {
+            "a",
+            "b"});
+            this.cbxNhanVien.Location = new System.Drawing.Point(109, 251);
+            this.cbxNhanVien.Name = "cbxNhanVien";
+            this.cbxNhanVien.Size = new System.Drawing.Size(190, 23);
+            this.cbxNhanVien.TabIndex = 17;
+            // 
             // FrmQuanLySACH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -407,5 +435,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMH;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonViTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbxNhanVien;
     }
 }

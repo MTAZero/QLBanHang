@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelChiTietXuat = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvChiTietBan = new System.Windows.Forms.DataGridView();
@@ -137,8 +137,8 @@
             this.dgvChiTietBan.ReadOnly = true;
             this.dgvChiTietBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvChiTietBan.RowHeadersWidth = 25;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvChiTietBan.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvChiTietBan.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvChiTietBan.RowTemplate.Height = 30;
             this.dgvChiTietBan.RowTemplate.ReadOnly = true;
             this.dgvChiTietBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -349,9 +349,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(148, 75);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 16);
+            this.label4.Size = new System.Drawing.Size(61, 16);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Đơn vị tính : ";
+            this.label4.Text = "Tác giả : ";
             // 
             // label1
             // 
@@ -360,7 +360,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Mặt hàng :";
+            this.label1.Text = "Đầu sách :";
             // 
             // panel1
             // 
@@ -421,8 +421,8 @@
             this.dgvHoaDonBan.ReadOnly = true;
             this.dgvHoaDonBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvHoaDonBan.RowHeadersWidth = 25;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHoaDonBan.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHoaDonBan.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvHoaDonBan.RowTemplate.Height = 30;
             this.dgvHoaDonBan.RowTemplate.ReadOnly = true;
             this.dgvHoaDonBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

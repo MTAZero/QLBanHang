@@ -351,9 +351,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(148, 75);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 16);
+            this.label4.Size = new System.Drawing.Size(61, 16);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Đơn vị tính : ";
+            this.label4.Text = "Tác giả : ";
             // 
             // label1
             // 
@@ -362,7 +362,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Mặt hàng :";
+            this.label1.Text = "Đầu sách :";
             // 
             // panel1
             // 

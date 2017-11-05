@@ -179,11 +179,30 @@ namespace QLBanHang.GUI
                 return false;
             }
 
-            if (txtDIACHI.Text == "")
+            /// check trùng tài khoản
+            int id = 0;
+            try
             {
-                MessageBox.Show("Quê quán của nhân viên không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                id = (int) dgvNhanVien.SelectedRows[0].Cells["ID"].Value;
+            }
+            catch
+            {
+
+            }
+            cnt = db.NHANVIENs.Where(p => p.TAIKHOAN == txtTaiKhoan.Text && id != p.ID).ToList().Count;
+            if (cnt > 0)
+            {
+                MessageBox.Show("Tài khoản của nhân viên đã được sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
+            if (txtDIACHI.Text == "")
+            {
+                MessageBox.Show("Địa chỉ của nhân viên không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            
 
             return true;
         }
@@ -301,6 +320,7 @@ namespace QLBanHang.GUI
                     tg.DIACHI = tgs.DIACHI;
                     tg.NGAYSINH = tgs.NGAYSINH;
                     tg.QUYEN = tgs.QUYEN;
+                    tg.TAIKHOAN = tgs.TAIKHOAN;
                     
                     try
                     {

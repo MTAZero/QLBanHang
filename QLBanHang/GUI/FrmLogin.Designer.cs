@@ -51,7 +51,7 @@
             this.panel1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(376, 214);
+            this.panel1.Size = new System.Drawing.Size(386, 224);
             this.panel1.TabIndex = 0;
             // 
             // groupBox1
@@ -66,9 +66,9 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 46);
+            this.groupBox1.Location = new System.Drawing.Point(0, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(374, 166);
+            this.groupBox1.Size = new System.Drawing.Size(384, 168);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đăng nhập";
@@ -147,16 +147,16 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(374, 46);
+            this.label3.Size = new System.Drawing.Size(384, 54);
             this.label3.TabIndex = 3;
-            this.label3.Text = "HỆ THỐNG QUẢN LÝ BÁN HÀNG";
+            this.label3.Text = "HỆ THỐNG QUẢN LÝ BÁN SÁCH\r\nNHÀ SÁCH FAHASA\r\n";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 214);
+            this.ClientSize = new System.Drawing.Size(386, 224);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;

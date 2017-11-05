@@ -37,6 +37,7 @@ namespace QLBanHang.GUI
                 btnQLKho.Enabled = true;
                 btnXuatHang.Enabled = true;
                 btnNhapHang.Enabled = true;
+                btnQuanLyNXB.Enabled = true;
                 return;
             }
 
@@ -45,6 +46,7 @@ namespace QLBanHang.GUI
                 // phan quyen nhan vien
                 btnQLNhanVien.Enabled = false;
                 btnQLSACH.Enabled = false;
+                btnQuanLyNXB.Enabled = false;
                 btnQLKho.Enabled = true;
                 btnXuatHang.Enabled = true;
                 btnNhapHang.Enabled = true;
@@ -87,14 +89,6 @@ namespace QLBanHang.GUI
             form.Show();
         }
 
-        private void btnDong_Click(object sender, EventArgs e)
-        {
-            DialogResult rs = MessageBox.Show("Bạn có chắc chắn đăng xuất không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (rs == DialogResult.Cancel) return;
-
-            this.Close();
-        }
-
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
             FrmNhapHang form = new FrmNhapHang(nv);
@@ -114,14 +108,20 @@ namespace QLBanHang.GUI
             panelMain.Controls.Add(form);
             form.Show();
         }
-
         
-
         private void txtDoiMatKhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmDoiMatKhau form = new FrmDoiMatKhau(nv);
             form.ShowDialog();
         }
         #endregion
+
+        private void txtDangXuat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn đăng xuất không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (rs == DialogResult.Cancel) return;
+
+            this.Close();
+        }
     }
 }

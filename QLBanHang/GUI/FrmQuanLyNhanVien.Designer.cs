@@ -37,6 +37,10 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.groupThongTin = new System.Windows.Forms.GroupBox();
+            this.cbxQuyen = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDIACHI = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.dateNgaySinh = new System.Windows.Forms.DateTimePicker();
@@ -53,17 +57,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.panelTimKiem = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtDIACHI = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbxQuyen = new System.Windows.Forms.ComboBox();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelTimKiem = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupThongTin.SuspendLayout();
@@ -186,6 +186,47 @@
             this.groupThongTin.TabIndex = 1;
             this.groupThongTin.TabStop = false;
             this.groupThongTin.Text = "Chi tiết thông tin nhân viên";
+            // 
+            // cbxQuyen
+            // 
+            this.cbxQuyen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbxQuyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxQuyen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxQuyen.FormattingEnabled = true;
+            this.cbxQuyen.Items.AddRange(new object[] {
+            "Nhân viên",
+            "Quản trị"});
+            this.cbxQuyen.Location = new System.Drawing.Point(109, 393);
+            this.cbxQuyen.Name = "cbxQuyen";
+            this.cbxQuyen.Size = new System.Drawing.Size(150, 23);
+            this.cbxQuyen.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 396);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 16);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Quyền :";
+            // 
+            // txtDIACHI
+            // 
+            this.txtDIACHI.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDIACHI.Location = new System.Drawing.Point(109, 321);
+            this.txtDIACHI.Multiline = true;
+            this.txtDIACHI.Name = "txtDIACHI";
+            this.txtDIACHI.Size = new System.Drawing.Size(251, 53);
+            this.txtDIACHI.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 324);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 16);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Địa chỉ :";
             // 
             // txtTaiKhoan
             // 
@@ -361,59 +402,6 @@
             this.dgvNhanVien.TabIndex = 3;
             this.dgvNhanVien.SelectionChanged += new System.EventHandler(this.dgvNhanVien_SelectionChanged);
             // 
-            // panelTimKiem
-            // 
-            this.panelTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTimKiem.Controls.Add(this.btnTimKiem);
-            this.panelTimKiem.Controls.Add(this.txtTimKiem);
-            this.panelTimKiem.Controls.Add(this.label1);
-            this.panelTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTimKiem.Location = new System.Drawing.Point(0, 0);
-            this.panelTimKiem.Name = "panelTimKiem";
-            this.panelTimKiem.Size = new System.Drawing.Size(1134, 54);
-            this.panelTimKiem.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 324);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 16);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Quê quán :";
-            // 
-            // txtDIACHI
-            // 
-            this.txtDIACHI.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDIACHI.Location = new System.Drawing.Point(109, 321);
-            this.txtDIACHI.Multiline = true;
-            this.txtDIACHI.Name = "txtDIACHI";
-            this.txtDIACHI.Size = new System.Drawing.Size(251, 53);
-            this.txtDIACHI.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 396);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 16);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Quyền :";
-            // 
-            // cbxQuyen
-            // 
-            this.cbxQuyen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbxQuyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxQuyen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxQuyen.FormattingEnabled = true;
-            this.cbxQuyen.Items.AddRange(new object[] {
-            "Nhân viên",
-            "Quản trị"});
-            this.cbxQuyen.Location = new System.Drawing.Point(109, 393);
-            this.cbxQuyen.Name = "cbxQuyen";
-            this.cbxQuyen.Size = new System.Drawing.Size(150, 23);
-            this.cbxQuyen.TabIndex = 15;
-            // 
             // ID
             // 
             this.ID.DataPropertyName = "ID";
@@ -462,6 +450,18 @@
             this.Quyen.HeaderText = "Quyền";
             this.Quyen.Name = "Quyen";
             this.Quyen.ReadOnly = true;
+            // 
+            // panelTimKiem
+            // 
+            this.panelTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTimKiem.Controls.Add(this.btnTimKiem);
+            this.panelTimKiem.Controls.Add(this.txtTimKiem);
+            this.panelTimKiem.Controls.Add(this.label1);
+            this.panelTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTimKiem.Location = new System.Drawing.Point(0, 0);
+            this.panelTimKiem.Name = "panelTimKiem";
+            this.panelTimKiem.Size = new System.Drawing.Size(1134, 54);
+            this.panelTimKiem.TabIndex = 0;
             // 
             // FrmQuanLyNhanVien
             // 

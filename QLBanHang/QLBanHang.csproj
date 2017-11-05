@@ -96,11 +96,11 @@
     <Compile Include="GUI\FrmXuatHang.Designer.cs">
       <DependentUpon>FrmXuatHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FrmQuanLyMatHang.cs">
+    <Compile Include="GUI\FrmQuanLySACH.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FrmQuanLyMatHang.Designer.cs">
-      <DependentUpon>FrmQuanLyMatHang.cs</DependentUpon>
+    <Compile Include="GUI\FrmQuanLySACH.Designer.cs">
+      <DependentUpon>FrmQuanLySACH.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmNhapHang.cs">
       <SubType>Form</SubType>
@@ -132,8 +132,8 @@
     <EmbeddedResource Include="GUI\FrmXuatHang.resx">
       <DependentUpon>FrmXuatHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmQuanLyMatHang.resx">
-      <DependentUpon>FrmQuanLyMatHang.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\FrmQuanLySACH.resx">
+      <DependentUpon>FrmQuanLySACH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmNhapHang.resx">
       <DependentUpon>FrmNhapHang.cs</DependentUpon>
