@@ -82,6 +82,7 @@ namespace QLBanHang.GUI
                 txtTacGia.Text = "";
                 txtGhiChu.Text = "";
                 cbxNhaXuatBan.SelectedIndex = 0;
+                txtGiaBan.Text = "0";
             }
             catch { }
         }
@@ -101,6 +102,7 @@ namespace QLBanHang.GUI
                 txtGhiChu.Text = tg.GHICHU;
                 txtTacGia.Text = tg.TACGIA;
                 cbxNhaXuatBan.SelectedValue = tg.NXBID;
+                txtGiaBan.Text = tg.GiaBan.ToString();
 
                 index1 = index;
                 index = dgvSACH.SelectedRows[0].Index;
@@ -131,6 +133,7 @@ namespace QLBanHang.GUI
             ans.TACGIA = txtTacGia.Text;
             ans.GHICHU = txtGhiChu.Text;
             ans.NXBID = (int) cbxNhaXuatBan.SelectedValue;
+            ans.GiaBan = Int32.Parse(txtGiaBan.Text);
 
             return ans;
         }
@@ -165,6 +168,19 @@ namespace QLBanHang.GUI
             if (txtTenMH.Text == "")
             {
                 MessageBox.Show("Tên đầu sách không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            try
+            {
+                int giaban = Int32.Parse(txtGiaBan.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Giá bán phải là số nguyên",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
                 return false;
             }
 
@@ -290,6 +306,7 @@ namespace QLBanHang.GUI
                     tg.TACGIA = tgs.TACGIA;
                     tg.GHICHU = tgs.GHICHU;
                     tg.NXBID = tgs.NXBID;
+                    tg.GiaBan = tgs.GiaBan;
                     
                     try
                     {

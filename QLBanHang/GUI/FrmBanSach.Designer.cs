@@ -45,7 +45,6 @@
             this.btnThemChiTietBan = new System.Windows.Forms.Button();
             this.groupThongTinChiTietBan = new System.Windows.Forms.GroupBox();
             this.txtThanhTien = new System.Windows.Forms.TextBox();
-            this.txtDonGia = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.txtTacGia = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -75,6 +74,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtDonGia = new System.Windows.Forms.Label();
             this.panelChiTietXuat.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietBan)).BeginInit();
@@ -118,7 +118,7 @@
             // 
             this.dgvChiTietBan.AllowUserToResizeColumns = false;
             this.dgvChiTietBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvChiTietBan.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgvChiTietBan.BackgroundColor = System.Drawing.Color.White;
             this.dgvChiTietBan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvChiTietBan.ColumnHeadersHeight = 30;
             this.dgvChiTietBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -252,8 +252,8 @@
             // groupThongTinChiTietBan
             // 
             this.groupThongTinChiTietBan.BackColor = System.Drawing.Color.White;
-            this.groupThongTinChiTietBan.Controls.Add(this.txtThanhTien);
             this.groupThongTinChiTietBan.Controls.Add(this.txtDonGia);
+            this.groupThongTinChiTietBan.Controls.Add(this.txtThanhTien);
             this.groupThongTinChiTietBan.Controls.Add(this.txtSoLuong);
             this.groupThongTinChiTietBan.Controls.Add(this.txtTacGia);
             this.groupThongTinChiTietBan.Controls.Add(this.label7);
@@ -279,14 +279,6 @@
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.Size = new System.Drawing.Size(190, 23);
             this.txtThanhTien.TabIndex = 14;
-            // 
-            // txtDonGia
-            // 
-            this.txtDonGia.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDonGia.Location = new System.Drawing.Point(242, 154);
-            this.txtDonGia.Name = "txtDonGia";
-            this.txtDonGia.Size = new System.Drawing.Size(190, 23);
-            this.txtDonGia.TabIndex = 13;
             // 
             // txtSoLuong
             // 
@@ -402,7 +394,7 @@
             // 
             this.dgvHoaDonBan.AllowUserToResizeColumns = false;
             this.dgvHoaDonBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvHoaDonBan.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgvHoaDonBan.BackgroundColor = System.Drawing.Color.White;
             this.dgvHoaDonBan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvHoaDonBan.ColumnHeadersHeight = 30;
             this.dgvHoaDonBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -609,6 +601,15 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Ngày : ";
             // 
+            // txtDonGia
+            // 
+            this.txtDonGia.AutoSize = true;
+            this.txtDonGia.Location = new System.Drawing.Point(239, 157);
+            this.txtDonGia.Name = "txtDonGia";
+            this.txtDonGia.Size = new System.Drawing.Size(43, 16);
+            this.txtDonGia.TabIndex = 15;
+            this.txtDonGia.Text = "50000";
+            // 
             // FrmBanSACH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -666,7 +667,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label txtTacGia;
         private System.Windows.Forms.TextBox txtThanhTien;
-        private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.ComboBox cbxNhanVien;
         private System.Windows.Forms.Label label9;
@@ -683,5 +683,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongChiTietNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGiaChiTietNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTienChiTietNhap;
+        private System.Windows.Forms.Label txtDonGia;
     }
 }

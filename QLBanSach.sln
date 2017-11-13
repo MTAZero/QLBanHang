@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLBanHang", "QLBanHang\QLBanHang.csproj", "{29C49AE8-E1B8-43E8-89A0-D630DA936C6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLBanSach", "QLBanHang\QLBanSach.csproj", "{29C49AE8-E1B8-43E8-89A0-D630DA936C6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -57,6 +57,8 @@
             this.TacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTimKiem = new System.Windows.Forms.Panel();
+            this.txtGiaBan = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupThongTin.SuspendLayout();
@@ -68,7 +70,7 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(433, 8);
+            this.btnTimKiem.Location = new System.Drawing.Point(455, 10);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(125, 27);
             this.btnTimKiem.TabIndex = 10;
@@ -79,9 +81,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(23, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 15);
+            this.label1.Size = new System.Drawing.Size(70, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tìm kiếm :";
             // 
@@ -105,7 +108,7 @@
             this.panel3.Controls.Add(this.btnSua);
             this.panel3.Controls.Add(this.btnThem);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 303);
+            this.panel3.Location = new System.Drawing.Point(0, 343);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(382, 102);
             this.panel3.TabIndex = 2;
@@ -155,6 +158,8 @@
             // groupThongTin
             // 
             this.groupThongTin.BackColor = System.Drawing.Color.White;
+            this.groupThongTin.Controls.Add(this.txtGiaBan);
+            this.groupThongTin.Controls.Add(this.label5);
             this.groupThongTin.Controls.Add(this.cbxNhaXuatBan);
             this.groupThongTin.Controls.Add(this.label4);
             this.groupThongTin.Controls.Add(this.txtTacGia);
@@ -169,7 +174,7 @@
             this.groupThongTin.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupThongTin.Location = new System.Drawing.Point(0, 0);
             this.groupThongTin.Name = "groupThongTin";
-            this.groupThongTin.Size = new System.Drawing.Size(382, 303);
+            this.groupThongTin.Size = new System.Drawing.Size(382, 343);
             this.groupThongTin.TabIndex = 1;
             this.groupThongTin.TabStop = false;
             this.groupThongTin.Text = "Chi tiết thông tin mặt hàng";
@@ -192,7 +197,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 254);
+            this.label4.Location = new System.Drawing.Point(12, 251);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 16);
             this.label4.TabIndex = 15;
@@ -269,7 +274,7 @@
             // 
             // txtTimKiem
             // 
-            this.txtTimKiem.Location = new System.Drawing.Point(89, 11);
+            this.txtTimKiem.Location = new System.Drawing.Point(99, 13);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(338, 22);
             this.txtTimKiem.TabIndex = 9;
@@ -304,7 +309,7 @@
             // 
             this.dgvSACH.AllowUserToResizeColumns = false;
             this.dgvSACH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSACH.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgvSACH.BackgroundColor = System.Drawing.Color.White;
             this.dgvSACH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvSACH.ColumnHeadersHeight = 30;
             this.dgvSACH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -322,8 +327,8 @@
             this.dgvSACH.ReadOnly = true;
             this.dgvSACH.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvSACH.RowHeadersWidth = 25;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSACH.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSACH.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSACH.RowTemplate.Height = 30;
             this.dgvSACH.RowTemplate.ReadOnly = true;
             this.dgvSACH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -383,6 +388,23 @@
             this.panelTimKiem.Size = new System.Drawing.Size(1134, 54);
             this.panelTimKiem.TabIndex = 0;
             // 
+            // txtGiaBan
+            // 
+            this.txtGiaBan.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaBan.Location = new System.Drawing.Point(109, 293);
+            this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.Size = new System.Drawing.Size(205, 23);
+            this.txtGiaBan.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 296);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 16);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Giá bán : ";
+            // 
             // FrmQuanLySACH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -437,5 +459,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TacGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNXB;
+        private System.Windows.Forms.TextBox txtGiaBan;
+        private System.Windows.Forms.Label label5;
     }
 }

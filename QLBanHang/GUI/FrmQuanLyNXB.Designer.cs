@@ -43,10 +43,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvNXB = new System.Windows.Forms.DataGridView();
-            this.panelTimKiem = new System.Windows.Forms.Panel();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelTimKiem = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupThongTin.SuspendLayout();
@@ -210,7 +210,7 @@
             // 
             this.dgvNXB.AllowUserToResizeColumns = false;
             this.dgvNXB.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvNXB.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgvNXB.BackgroundColor = System.Drawing.Color.White;
             this.dgvNXB.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvNXB.ColumnHeadersHeight = 30;
             this.dgvNXB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -235,18 +235,6 @@
             this.dgvNXB.TabIndex = 3;
             this.dgvNXB.SelectionChanged += new System.EventHandler(this.dgvNhanVien_SelectionChanged);
             // 
-            // panelTimKiem
-            // 
-            this.panelTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTimKiem.Controls.Add(this.btnTimKiem);
-            this.panelTimKiem.Controls.Add(this.txtTimKiem);
-            this.panelTimKiem.Controls.Add(this.label1);
-            this.panelTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTimKiem.Location = new System.Drawing.Point(0, 0);
-            this.panelTimKiem.Name = "panelTimKiem";
-            this.panelTimKiem.Size = new System.Drawing.Size(1134, 54);
-            this.panelTimKiem.TabIndex = 0;
-            // 
             // ID
             // 
             this.ID.DataPropertyName = "ID";
@@ -269,6 +257,18 @@
             this.TEN.HeaderText = "Tên nhà xuất bản";
             this.TEN.Name = "TEN";
             this.TEN.ReadOnly = true;
+            // 
+            // panelTimKiem
+            // 
+            this.panelTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTimKiem.Controls.Add(this.btnTimKiem);
+            this.panelTimKiem.Controls.Add(this.txtTimKiem);
+            this.panelTimKiem.Controls.Add(this.label1);
+            this.panelTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTimKiem.Location = new System.Drawing.Point(0, 0);
+            this.panelTimKiem.Name = "panelTimKiem";
+            this.panelTimKiem.Size = new System.Drawing.Size(1134, 54);
+            this.panelTimKiem.TabIndex = 0;
             // 
             // FrmQuanLyNXB
             // 

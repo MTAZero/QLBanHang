@@ -120,7 +120,7 @@
             // 
             this.dgvChiTietNhap.AllowUserToResizeColumns = false;
             this.dgvChiTietNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvChiTietNhap.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgvChiTietNhap.BackgroundColor = System.Drawing.Color.White;
             this.dgvChiTietNhap.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvChiTietNhap.ColumnHeadersHeight = 30;
             this.dgvChiTietNhap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -404,7 +404,7 @@
             // 
             this.dgvPhieuNhap.AllowUserToResizeColumns = false;
             this.dgvPhieuNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPhieuNhap.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgvPhieuNhap.BackgroundColor = System.Drawing.Color.White;
             this.dgvPhieuNhap.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvPhieuNhap.ColumnHeadersHeight = 30;
             this.dgvPhieuNhap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

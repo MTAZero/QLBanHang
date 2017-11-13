@@ -27,6 +27,8 @@ namespace QLBanHang.Data
 
         public string GHICHU { get; set; }
 
+        public int GiaBan { get; set; }
+
         public int? NXBID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

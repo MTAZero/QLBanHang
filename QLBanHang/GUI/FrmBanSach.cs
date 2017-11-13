@@ -427,7 +427,6 @@ namespace QLBanHang.GUI
             {
                 cbxSACH.SelectedValue = (int) tg.SACHID;
                 txtSoLuong.Text = tg.SOLUONG.ToString();
-                txtDonGia.Text = tg.GIABAN.ToString();
                 txtThanhTien.Text = tg.THANHTIEN.ToString();
 
                 indexCHITIETXUAT1 = indexCHITIETXUAT;
@@ -442,7 +441,6 @@ namespace QLBanHang.GUI
             {
                 cbxSACH.SelectedIndex = 0;
                 txtSoLuong.Text = "";
-                txtDonGia.Text = "";
                 txtThanhTien.Text = "";
             }
             catch { }
@@ -466,7 +464,7 @@ namespace QLBanHang.GUI
             {
                 CHITIETXUAT tg = getChiTietBanByForm();
                 int k = Int32.Parse(txtSoLuong.Text);
-                int sl = (int) db.KHOes.Where(p => p.SACHID == tg.SACHID).FirstOrDefault().SOLUONG;
+                int sl = (int)db.KHOes.Where(p => p.SACHID == tg.SACHID).FirstOrDefault().SOLUONG;
                 if (k > sl)
                 {
                     MessageBox.Show("Không đủ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -474,17 +472,6 @@ namespace QLBanHang.GUI
                 }
             }
             catch { }
-
-            // đơn giá
-            try
-            {
-                int k = Int32.Parse(txtDonGia.Text);
-            }
-            catch
-            {
-                MessageBox.Show("Đơn giá phải là số nguyên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
 
             return true;
         }
@@ -514,7 +501,7 @@ namespace QLBanHang.GUI
                 int idHOADONBAN;
                 ans.SACHID = (int) cbxSACH.SelectedValue;
                 ans.SOLUONG = Int32.Parse(txtSoLuong.Text);
-                ans.GIABAN = Int32.Parse(txtDonGia.Text);
+                ans.GIABAN = db.SACHes.Where(p => p.ID == ans.SACHID).FirstOrDefault().GiaBan;
                 ans.THANHTIEN = ans.SOLUONG * ans.GIABAN;
 
                 idHOADONBAN = (int)dgvHoaDonBan.SelectedRows[0].Cells["IDPhieuNhap"].Value;
@@ -540,6 +527,7 @@ namespace QLBanHang.GUI
             {
                 int id = (int) cbxSACH.SelectedValue;
                 txtTacGia.Text = db.SACHes.Where(p => p.ID == id).FirstOrDefault().TACGIA;
+                txtDonGia.Text = db.SACHes.Where(p => p.ID == id).FirstOrDefault().GiaBan.ToString("N0");
             }
             catch { }
         }
