@@ -32,6 +32,10 @@ namespace QLBanHang.GUI
             cbxNhaXuatBan.DataSource = db.NXBs.ToList();
             cbxNhaXuatBan.ValueMember = "ID";
             cbxNhaXuatBan.DisplayMember = "TENNXB";
+
+            cbxTheLoai.DataSource = db.THELOAIs.ToList();
+            cbxTheLoai.ValueMember = "ID";
+            cbxTheLoai.DisplayMember = "TEN";
         }
 
         private void LoadDgvNhanVien()
@@ -45,13 +49,14 @@ namespace QLBanHang.GUI
                            STT = ++i,
                            TenMH = p.TEN,
                            TacGia = p.TACGIA,
-                           TenNXB = db.NXBs.Where(z=>z.ID == p.NXBID).FirstOrDefault().TENNXB
+                           TenNXB = db.NXBs.Where(z=>z.ID == p.NXBID).FirstOrDefault().TENNXB,
+                           TheLoai = db.THELOAIs.Where(z=>z.ID == p.THELOAIID).FirstOrDefault().TEN
                        })
                        .ToList();
 
             dgvSACH.DataSource = dbNV
-                                    .Where(p => p.TenMH.Contains(keyword) || p.TacGia.Contains(keyword) || p.TenNXB.Contains(keyword))
-                                    .ToList();
+                                 .Where(p => p.TenMH.Contains(keyword) || p.TacGia.Contains(keyword) || p.TenNXB.Contains(keyword) || p.TheLoai.Contains(keyword))
+                                 .ToList();
 
             // cập nhật index 
             index = index1;
@@ -83,6 +88,7 @@ namespace QLBanHang.GUI
                 txtGhiChu.Text = "";
                 cbxNhaXuatBan.SelectedIndex = 0;
                 txtGiaBan.Text = "0";
+                cbxTheLoai.SelectedIndex = 0;
             }
             catch { }
         }
@@ -102,7 +108,8 @@ namespace QLBanHang.GUI
                 txtGhiChu.Text = tg.GHICHU;
                 txtTacGia.Text = tg.TACGIA;
                 cbxNhaXuatBan.SelectedValue = tg.NXBID;
-                txtGiaBan.Text = tg.GiaBan.ToString();
+                txtGiaBan.Text = tg.GIABAN.ToString();
+                cbxTheLoai.SelectedValue = tg.THELOAIID;
 
                 index1 = index;
                 index = dgvSACH.SelectedRows[0].Index;
@@ -133,7 +140,8 @@ namespace QLBanHang.GUI
             ans.TACGIA = txtTacGia.Text;
             ans.GHICHU = txtGhiChu.Text;
             ans.NXBID = (int) cbxNhaXuatBan.SelectedValue;
-            ans.GiaBan = Int32.Parse(txtGiaBan.Text);
+            ans.GIABAN = Int32.Parse(txtGiaBan.Text);
+            ans.THELOAIID = (int) cbxTheLoai.SelectedValue;
 
             return ans;
         }
@@ -306,7 +314,8 @@ namespace QLBanHang.GUI
                     tg.TACGIA = tgs.TACGIA;
                     tg.GHICHU = tgs.GHICHU;
                     tg.NXBID = tgs.NXBID;
-                    tg.GiaBan = tgs.GiaBan;
+                    tg.GIABAN = tgs.GIABAN;
+                    tg.THELOAIID = tgs.THELOAIID;
                     
                     try
                     {

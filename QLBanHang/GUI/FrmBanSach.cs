@@ -104,8 +104,7 @@ namespace QLBanHang.GUI
                     int cnt = 0;
                     cnt = db.CHITIETXUATs.Where(p => p.HOADONBANID == tg.ID).ToList().Count;
                     if (cnt == 0) tg.TONGTIEN = 0;
-
-                    
+         
                     tg.TONGTIEN = db.CHITIETXUATs.Where(p => p.HOADONBANID == tg.ID).Sum(p => p.THANHTIEN).Value;
                     
                 }
@@ -501,7 +500,7 @@ namespace QLBanHang.GUI
                 int idHOADONBAN;
                 ans.SACHID = (int) cbxSACH.SelectedValue;
                 ans.SOLUONG = Int32.Parse(txtSoLuong.Text);
-                ans.GIABAN = db.SACHes.Where(p => p.ID == ans.SACHID).FirstOrDefault().GiaBan;
+                ans.GIABAN = db.SACHes.Where(p => p.ID == ans.SACHID).FirstOrDefault().GIABAN;
                 ans.THANHTIEN = ans.SOLUONG * ans.GIABAN;
 
                 idHOADONBAN = (int)dgvHoaDonBan.SelectedRows[0].Cells["IDPhieuNhap"].Value;
@@ -527,7 +526,7 @@ namespace QLBanHang.GUI
             {
                 int id = (int) cbxSACH.SelectedValue;
                 txtTacGia.Text = db.SACHes.Where(p => p.ID == id).FirstOrDefault().TACGIA;
-                txtDonGia.Text = db.SACHes.Where(p => p.ID == id).FirstOrDefault().GiaBan.ToString("N0");
+                txtDonGia.Text = ((int) db.SACHes.Where(p => p.ID == id).FirstOrDefault().GIABAN).ToString("N0");
             }
             catch { }
         }

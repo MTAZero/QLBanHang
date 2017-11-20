@@ -20,6 +20,7 @@ namespace QLBanHang.Data
         public virtual DbSet<NXB> NXBs { get; set; }
         public virtual DbSet<PHIEUNHAP> PHIEUNHAPs { get; set; }
         public virtual DbSet<SACH> SACHes { get; set; }
+        public virtual DbSet<THELOAI> THELOAIs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

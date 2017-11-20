@@ -66,6 +66,7 @@
     <Compile Include="Data\PHIEUNHAP.cs" />
     <Compile Include="Data\QLBanSACH_DbContext.cs" />
     <Compile Include="Data\SACH.cs" />
+    <Compile Include="Data\THELOAI.cs" />
     <Compile Include="GUI\FrmDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +96,12 @@
     </Compile>
     <Compile Include="GUI\FrmBanSach.Designer.cs">
       <DependentUpon>FrmBanSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmQuanLyTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmQuanLyTheLoai.Designer.cs">
+      <DependentUpon>FrmQuanLyTheLoai.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmQuanLyNXB.cs">
       <SubType>Form</SubType>
@@ -137,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmBanSach.resx">
       <DependentUpon>FrmBanSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmQuanLyTheLoai.resx">
+      <DependentUpon>FrmQuanLyTheLoai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmQuanLyNXB.resx">
       <DependentUpon>FrmQuanLyNXB.cs</DependentUpon>

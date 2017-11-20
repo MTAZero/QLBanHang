@@ -133,5 +133,15 @@ namespace QLBanHang.GUI
             panelMain.Controls.Add(form);
             form.Show();
         }
+
+        private void btnTheLoai_Click(object sender, EventArgs e)
+        {
+            FrmQuanLyTheLoai form = new FrmQuanLyTheLoai();
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(form);
+            form.Show();
+        }
     }
 }

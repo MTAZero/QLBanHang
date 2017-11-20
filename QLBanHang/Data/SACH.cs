@@ -27,9 +27,11 @@ namespace QLBanHang.Data
 
         public string GHICHU { get; set; }
 
-        public int GiaBan { get; set; }
-
         public int? NXBID { get; set; }
+
+        public int? THELOAIID { get; set; }
+
+        public int? GIABAN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETNHAP> CHITIETNHAPs { get; set; }
@@ -41,5 +43,7 @@ namespace QLBanHang.Data
         public virtual ICollection<KHO> KHOes { get; set; }
 
         public virtual NXB NXB { get; set; }
+
+        public virtual THELOAI THELOAI { get; set; }
     }
 }
