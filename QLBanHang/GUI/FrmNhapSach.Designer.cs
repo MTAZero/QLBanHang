@@ -554,7 +554,7 @@
             this.groupThongTinPhieuNhap.Size = new System.Drawing.Size(542, 241);
             this.groupThongTinPhieuNhap.TabIndex = 2;
             this.groupThongTinPhieuNhap.TabStop = false;
-            this.groupThongTinPhieuNhap.Text = "Thông tin Phiếu Nhập";
+            this.groupThongTinPhieuNhap.Text = "Thông tin phiếu nhập";
             // 
             // cbxNhanVien
             // 

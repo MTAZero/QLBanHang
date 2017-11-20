@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelChiTietXuat = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvChiTietBan = new System.Windows.Forms.DataGridView();
@@ -76,6 +76,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnTraSach = new System.Windows.Forms.Button();
+            this.numSoLuong = new System.Windows.Forms.NumericUpDown();
             this.panelChiTietXuat.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietBan)).BeginInit();
@@ -87,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonBan)).BeginInit();
             this.panel5.SuspendLayout();
             this.groupThongTinHoaDonBan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
             this.SuspendLayout();
             // 
             // panelChiTietXuat
@@ -113,7 +116,7 @@
             this.groupBox1.Size = new System.Drawing.Size(590, 407);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách chi tiết Nhập";
+            this.groupBox1.Text = "Danh sách chi tiết bán";
             // 
             // dgvChiTietBan
             // 
@@ -138,8 +141,8 @@
             this.dgvChiTietBan.ReadOnly = true;
             this.dgvChiTietBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvChiTietBan.RowHeadersWidth = 25;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvChiTietBan.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvChiTietBan.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvChiTietBan.RowTemplate.Height = 30;
             this.dgvChiTietBan.RowTemplate.ReadOnly = true;
             this.dgvChiTietBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -199,6 +202,8 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.numSoLuong);
+            this.panel3.Controls.Add(this.btnTraSach);
             this.panel3.Controls.Add(this.btnXoaChiTietBan);
             this.panel3.Controls.Add(this.btnSuaChiTietBan);
             this.panel3.Controls.Add(this.btnThemChiTietBan);
@@ -270,7 +275,7 @@
             this.groupThongTinChiTietBan.Size = new System.Drawing.Size(590, 240);
             this.groupThongTinChiTietBan.TabIndex = 1;
             this.groupThongTinChiTietBan.TabStop = false;
-            this.groupThongTinChiTietBan.Text = "Thông tin chi tiết Nhập";
+            this.groupThongTinChiTietBan.Text = "Thông tin chi tiết bán";
             // 
             // txtDonGia
             // 
@@ -398,7 +403,7 @@
             this.groupBox3.Size = new System.Drawing.Size(542, 408);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Danh sách phiếu nhập";
+            this.groupBox3.Text = "Danh sách hóa đơn";
             // 
             // dgvHoaDonBan
             // 
@@ -423,8 +428,8 @@
             this.dgvHoaDonBan.ReadOnly = true;
             this.dgvHoaDonBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvHoaDonBan.RowHeadersWidth = 25;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHoaDonBan.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHoaDonBan.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvHoaDonBan.RowTemplate.Height = 30;
             this.dgvHoaDonBan.RowTemplate.ReadOnly = true;
             this.dgvHoaDonBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -567,7 +572,7 @@
             this.groupThongTinHoaDonBan.Size = new System.Drawing.Size(542, 241);
             this.groupThongTinHoaDonBan.TabIndex = 2;
             this.groupThongTinHoaDonBan.TabStop = false;
-            this.groupThongTinHoaDonBan.Text = "Thông tin Phiếu Nhập";
+            this.groupThongTinHoaDonBan.Text = "Thông tin hóa đơn bán";
             // 
             // cbxNhanVien
             // 
@@ -626,6 +631,42 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Ngày : ";
             // 
+            // btnTraSach
+            // 
+            this.btnTraSach.BackColor = System.Drawing.Color.White;
+            this.btnTraSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTraSach.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraSach.ForeColor = System.Drawing.Color.Black;
+            this.btnTraSach.Location = new System.Drawing.Point(418, 5);
+            this.btnTraSach.Name = "btnTraSach";
+            this.btnTraSach.Size = new System.Drawing.Size(103, 35);
+            this.btnTraSach.TabIndex = 13;
+            this.btnTraSach.Text = "Trả sách";
+            this.btnTraSach.UseVisualStyleBackColor = false;
+            this.btnTraSach.Click += new System.EventHandler(this.btnTraSach_Click);
+            // 
+            // numSoLuong
+            // 
+            this.numSoLuong.Location = new System.Drawing.Point(527, 13);
+            this.numSoLuong.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numSoLuong.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numSoLuong.Name = "numSoLuong";
+            this.numSoLuong.Size = new System.Drawing.Size(59, 22);
+            this.numSoLuong.TabIndex = 14;
+            this.numSoLuong.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // FrmBanSACH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -650,6 +691,7 @@
             this.panel5.ResumeLayout(false);
             this.groupThongTinHoaDonBan.ResumeLayout(false);
             this.groupThongTinHoaDonBan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -701,5 +743,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTienChiTietNhap;
         private System.Windows.Forms.Label txtDonGia;
         private System.Windows.Forms.Button btnInHoaDon;
+        private System.Windows.Forms.Button btnTraSach;
+        private System.Windows.Forms.NumericUpDown numSoLuong;
     }
 }

@@ -548,6 +548,7 @@ namespace QLBanHang.GUI
             if (btnThemChiTietNhap.Text == "Thêm")
             {
 
+                // kiểm tra quyền của nhân viên
                 PHIEUNHAP z = getPhieuNhapByID();
                 if (z.ID == 0)
                 {
@@ -627,6 +628,30 @@ namespace QLBanHang.GUI
 
         private void btnSuaChiTietNhap_Click(object sender, EventArgs e)
         {
+            // kiểm tra quyền của nhân viên
+            PHIEUNHAP z = getPhieuNhapByID();
+            if (z.ID == 0)
+            {
+                MessageBox.Show("Chưa có phiếu nhập nào được lựa chọn",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            NHANVIEN nvtg = db.NHANVIENs.Where(p => p.ID == z.NHANVIENID).FirstOrDefault();
+
+            if (nv.QUYEN == 0 && nv.ID != nvtg.ID)
+            {
+                // nếu nhân viên không phải là admin và không phải nhân viên nhập phiếu thì thông báo
+                MessageBox.Show("Bạn không có quyền sửa chi tiết nhập\nChỉ quản trị và nhân viên nhập phiếu mới có quyền sửa chi tiết nhập",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            // kiểm tra xem có chi tiết nhập nào được chọn k
             CHITIETNHAP tg = getChiTietNhapByID();
             if (tg.ID == 0)
             {
@@ -690,6 +715,30 @@ namespace QLBanHang.GUI
         {
             if (btnXoaChiTietNhap.Text == "Xóa")
             {
+                // kiểm tra quyền của nhân viên
+                PHIEUNHAP z = getPhieuNhapByID();
+                if (z.ID == 0)
+                {
+                    MessageBox.Show("Chưa có phiếu nhập nào được lựa chọn",
+                                    "Thông báo",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                    return;
+                }
+
+                NHANVIEN nvtg = db.NHANVIENs.Where(p => p.ID == z.NHANVIENID).FirstOrDefault();
+
+                if (nv.QUYEN == 0 && nv.ID != nvtg.ID)
+                {
+                    // nếu nhân viên không phải là admin và không phải nhân viên nhập phiếu thì thông báo
+                    MessageBox.Show("Bạn không có quyền xóa chi tiết nhập\nChỉ quản trị và nhân viên nhập phiếu mới có quyền xóa chi tiết nhập",
+                                    "Thông báo",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                    return;
+                }
+
+                // kiểm tra xem trong bảng có chi tiết nhập k
                 CHITIETNHAP tg = getChiTietNhapByID();
                 if (tg.ID == 0)
                 {

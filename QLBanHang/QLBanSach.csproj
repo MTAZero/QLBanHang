@@ -186,6 +186,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report\FrmRpInHoaDon.resx">
       <DependentUpon>FrmRpInHoaDon.cs</DependentUpon>
@@ -218,6 +219,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="db.txt" />
+    <None Include="Resources\KhoSach2.jpg" />
+    <None Include="Resources\Mua1.png" />
+    <None Include="Resources\sach1.jpg" />
+    <None Include="Resources\KhoSach.jpg" />
+    <None Include="Resources\Ban3.png" />
+    <None Include="Resources\Ban2.png" />
+    <None Include="Resources\Ban.png" />
+    <None Include="Resources\Mua.png" />
+    <None Include="Resources\nxb.png" />
+    <None Include="Resources\LoaiSach.png" />
+    <None Include="Resources\sach.jpg" />
+    <None Include="Resources\nhanvien2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

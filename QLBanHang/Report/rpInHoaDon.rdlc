@@ -875,10 +875,10 @@
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2.54cm</LeftMargin>
-    <RightMargin>2.54cm</RightMargin>
-    <TopMargin>2.54cm</TopMargin>
-    <BottomMargin>2.54cm</BottomMargin>
+    <LeftMargin>0.75cm</LeftMargin>
+    <RightMargin>0.75cm</RightMargin>
+    <TopMargin>0.75cm</TopMargin>
+    <BottomMargin>0.75cm</BottomMargin>
     <ColumnSpacing>1.27cm</ColumnSpacing>
     <Style />
   </Page>

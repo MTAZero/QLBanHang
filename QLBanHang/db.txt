@@ -92,8 +92,8 @@ GO
 GO
 	-- THÊM DỮ LIỆU MẪU
 	INSERT INTO NHANVIEN(MANV, TEN, NGAYSINH, GIOITINH, SDT, DIACHI, QUYEN, MATKHAU, TAIKHOAN) 
-		VALUES('NV01',N'Phạm Thị Quỳnh', '8-30-1996', 0, '0912345678', N'Tam Hồng',1,'1', 'admin'),
-		('NV02',N'Bùi Xuân Thủy', '9-3-1996', 1, '0912345678', N'Đồng Văn',0,'1','nv02') 
+		VALUES('NV01',N'Tống Thị Hương', '8-30-1996', 0, '0912345678', N'Tam Hồng',1,'1', 'admin'),
+		('NV02',N'Dương Văn Minh', '9-3-1996', 1, '0912345678', N'Đồng Văn',0,'1','nv02') 
 GO
 	INSERT INTO NXB(TENNXB) 
 		VALUES(N'Nhà xuất bản Chính trị Quốc gia'),
