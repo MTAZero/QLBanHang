@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelChiTietXuat = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvChiTietBan = new System.Windows.Forms.DataGridView();
@@ -44,6 +44,7 @@
             this.btnSuaChiTietBan = new System.Windows.Forms.Button();
             this.btnThemChiTietBan = new System.Windows.Forms.Button();
             this.groupThongTinChiTietBan = new System.Windows.Forms.GroupBox();
+            this.txtDonGia = new System.Windows.Forms.Label();
             this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.txtTacGia = new System.Windows.Forms.Label();
@@ -74,7 +75,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtDonGia = new System.Windows.Forms.Label();
             this.panelChiTietXuat.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietBan)).BeginInit();
@@ -137,8 +137,8 @@
             this.dgvChiTietBan.ReadOnly = true;
             this.dgvChiTietBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvChiTietBan.RowHeadersWidth = 25;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvChiTietBan.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvChiTietBan.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvChiTietBan.RowTemplate.Height = 30;
             this.dgvChiTietBan.RowTemplate.ReadOnly = true;
             this.dgvChiTietBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -209,10 +209,10 @@
             // 
             // btnXoaChiTietBan
             // 
-            this.btnXoaChiTietBan.BackColor = System.Drawing.Color.Teal;
+            this.btnXoaChiTietBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnXoaChiTietBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaChiTietBan.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaChiTietBan.ForeColor = System.Drawing.Color.White;
+            this.btnXoaChiTietBan.ForeColor = System.Drawing.Color.Black;
             this.btnXoaChiTietBan.Location = new System.Drawing.Point(221, 5);
             this.btnXoaChiTietBan.Name = "btnXoaChiTietBan";
             this.btnXoaChiTietBan.Size = new System.Drawing.Size(103, 35);
@@ -223,10 +223,10 @@
             // 
             // btnSuaChiTietBan
             // 
-            this.btnSuaChiTietBan.BackColor = System.Drawing.Color.Teal;
+            this.btnSuaChiTietBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnSuaChiTietBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaChiTietBan.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaChiTietBan.ForeColor = System.Drawing.Color.White;
+            this.btnSuaChiTietBan.ForeColor = System.Drawing.Color.Black;
             this.btnSuaChiTietBan.Location = new System.Drawing.Point(112, 5);
             this.btnSuaChiTietBan.Name = "btnSuaChiTietBan";
             this.btnSuaChiTietBan.Size = new System.Drawing.Size(103, 35);
@@ -237,10 +237,10 @@
             // 
             // btnThemChiTietBan
             // 
-            this.btnThemChiTietBan.BackColor = System.Drawing.Color.Teal;
+            this.btnThemChiTietBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnThemChiTietBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemChiTietBan.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemChiTietBan.ForeColor = System.Drawing.Color.White;
+            this.btnThemChiTietBan.ForeColor = System.Drawing.Color.Black;
             this.btnThemChiTietBan.Location = new System.Drawing.Point(3, 5);
             this.btnThemChiTietBan.Name = "btnThemChiTietBan";
             this.btnThemChiTietBan.Size = new System.Drawing.Size(103, 35);
@@ -270,6 +270,15 @@
             this.groupThongTinChiTietBan.TabIndex = 1;
             this.groupThongTinChiTietBan.TabStop = false;
             this.groupThongTinChiTietBan.Text = "Thông tin chi tiết Nhập";
+            // 
+            // txtDonGia
+            // 
+            this.txtDonGia.AutoSize = true;
+            this.txtDonGia.Location = new System.Drawing.Point(239, 157);
+            this.txtDonGia.Name = "txtDonGia";
+            this.txtDonGia.Size = new System.Drawing.Size(43, 16);
+            this.txtDonGia.TabIndex = 15;
+            this.txtDonGia.Text = "50000";
             // 
             // txtThanhTien
             // 
@@ -413,8 +422,8 @@
             this.dgvHoaDonBan.ReadOnly = true;
             this.dgvHoaDonBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvHoaDonBan.RowHeadersWidth = 25;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHoaDonBan.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHoaDonBan.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvHoaDonBan.RowTemplate.Height = 30;
             this.dgvHoaDonBan.RowTemplate.ReadOnly = true;
             this.dgvHoaDonBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -486,10 +495,10 @@
             // 
             // btnXoaHoaDonBan
             // 
-            this.btnXoaHoaDonBan.BackColor = System.Drawing.Color.Teal;
+            this.btnXoaHoaDonBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnXoaHoaDonBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaHoaDonBan.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaHoaDonBan.ForeColor = System.Drawing.Color.White;
+            this.btnXoaHoaDonBan.ForeColor = System.Drawing.Color.Black;
             this.btnXoaHoaDonBan.Location = new System.Drawing.Point(221, 5);
             this.btnXoaHoaDonBan.Name = "btnXoaHoaDonBan";
             this.btnXoaHoaDonBan.Size = new System.Drawing.Size(103, 35);
@@ -500,10 +509,10 @@
             // 
             // btnSuaHoaDonBan
             // 
-            this.btnSuaHoaDonBan.BackColor = System.Drawing.Color.Teal;
+            this.btnSuaHoaDonBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnSuaHoaDonBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaHoaDonBan.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaHoaDonBan.ForeColor = System.Drawing.Color.White;
+            this.btnSuaHoaDonBan.ForeColor = System.Drawing.Color.Black;
             this.btnSuaHoaDonBan.Location = new System.Drawing.Point(112, 5);
             this.btnSuaHoaDonBan.Name = "btnSuaHoaDonBan";
             this.btnSuaHoaDonBan.Size = new System.Drawing.Size(103, 35);
@@ -514,10 +523,10 @@
             // 
             // btnThemHoaDonBan
             // 
-            this.btnThemHoaDonBan.BackColor = System.Drawing.Color.Teal;
+            this.btnThemHoaDonBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnThemHoaDonBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemHoaDonBan.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemHoaDonBan.ForeColor = System.Drawing.Color.White;
+            this.btnThemHoaDonBan.ForeColor = System.Drawing.Color.Black;
             this.btnThemHoaDonBan.Location = new System.Drawing.Point(3, 5);
             this.btnThemHoaDonBan.Name = "btnThemHoaDonBan";
             this.btnThemHoaDonBan.Size = new System.Drawing.Size(103, 35);
@@ -600,15 +609,6 @@
             this.label3.Size = new System.Drawing.Size(49, 16);
             this.label3.TabIndex = 1;
             this.label3.Text = "Ngày : ";
-            // 
-            // txtDonGia
-            // 
-            this.txtDonGia.AutoSize = true;
-            this.txtDonGia.Location = new System.Drawing.Point(239, 157);
-            this.txtDonGia.Name = "txtDonGia";
-            this.txtDonGia.Size = new System.Drawing.Size(43, 16);
-            this.txtDonGia.TabIndex = 15;
-            this.txtDonGia.Text = "50000";
             // 
             // FrmBanSACH
             // 

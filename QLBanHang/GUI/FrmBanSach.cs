@@ -45,6 +45,7 @@ namespace QLBanHang.GUI
             cbxNhanVien.ValueMember = "ID";
             cbxNhanVien.DisplayMember = "TEN";
 
+            cbxNhanVien.SelectedValue = nv.ID;
             dateNgayNhap.Value = DateTime.Now;
 
             groupThongTinHoaDonBan.Enabled = false;
@@ -130,7 +131,7 @@ namespace QLBanHang.GUI
         {
             try
             {
-                cbxNhanVien.SelectedIndex = 0;
+                cbxNhanVien.SelectedValue = (int)nv.ID;
                 dateNgayNhap.Value = DateTime.Now;
                 txtTongTien.Text = "";
             }
@@ -538,6 +539,29 @@ namespace QLBanHang.GUI
         {
             if (btnThemChiTietBan.Text == "Thêm")
             {
+                // kiểm tra quyền nhân viên
+                HOADONBAN z = getHOADONBANByID();
+
+                if (z.ID == 0)
+                {
+                    MessageBox.Show("Chưa có hóa đơn bán nào được chọn",
+                                    "Thông báo",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                    return;
+                }
+
+                NHANVIEN nvtg = db.NHANVIENs.Where(p => p.ID == z.NHANVIENID).FirstOrDefault();
+
+                if (nv.QUYEN == 0 && nv.ID != nvtg.ID)
+                {
+                    // nếu nhân viên không phải là admin và không phải nhân viên nhập phiếu thì thông báo
+                    MessageBox.Show("Bạn không có quyền thêm chi tiết bán\nChỉ quản trị và nhân viên nhập phiếu mới có quyền thêm chi tiết nhập",
+                                    "Thông báo",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                    return;
+                }
 
                 btnThemChiTietBan.Text = "Lưu";
                 btnSuaChiTietBan.Enabled = false;
@@ -578,11 +602,11 @@ namespace QLBanHang.GUI
                         kho.SOLUONG -= tg.SOLUONG;
                         db.SaveChanges();
 
-                        MessageBox.Show("Thêm thông tin Chi tiết nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thêm thông tin Chi tiết bán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Thêm thông tin Chi tiết nhập thất bại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Thêm thông tin Chi tiết bán thất bại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
 
@@ -639,11 +663,11 @@ namespace QLBanHang.GUI
                     try
                     {
                         db.SaveChanges();
-                        MessageBox.Show("Sửa thông tin Chi tiết nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Sửa thông tin Chi tiết bán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Sửa thông tin Chi tiết nhập thất bại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Sửa thông tin Chi tiết bán thất bại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                     
@@ -663,22 +687,22 @@ namespace QLBanHang.GUI
                 CHITIETXUAT tg = getChiTietBanByID();
                 if (tg.ID == 0)
                 {
-                    MessageBox.Show("Chưa có Chi tiết nhập nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Chưa có Chi tiết bán nào được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                DialogResult rs = MessageBox.Show("Bạn có chắc chắn xóa thông tin Chi tiết nhập này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult rs = MessageBox.Show("Bạn có chắc chắn xóa thông tin Chi tiết bán này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (rs == DialogResult.Cancel) return;
 
                 try
                 {
                     db.CHITIETXUATs.Remove(tg);
                     db.SaveChanges();
-                    MessageBox.Show("Xóa Chi tiết nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Xóa Chi tiết bán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch
                 {
-                    MessageBox.Show("Xóa Chi tiết nhập thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Xóa Chi tiết bán thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 LoadDgvCHITIETXUAT();

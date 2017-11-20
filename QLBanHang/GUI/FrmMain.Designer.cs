@@ -30,19 +30,19 @@
     {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtDangXuat = new System.Windows.Forms.LinkLabel();
             this.txtDoiMatKhau = new System.Windows.Forms.LinkLabel();
             this.txtTTNhanVien = new System.Windows.Forms.Label();
             this.PanelMenu = new System.Windows.Forms.Panel();
+            this.btnTheLoai = new System.Windows.Forms.Button();
             this.btnQLKho = new System.Windows.Forms.Button();
             this.btnQLNXB = new System.Windows.Forms.Button();
             this.btnQuanLySACH = new System.Windows.Forms.Button();
             this.btnNhapHang = new System.Windows.Forms.Button();
             this.btnXuatHang = new System.Windows.Forms.Button();
             this.btnQLNhanVien = new System.Windows.Forms.Button();
-            this.btnTheLoai = new System.Windows.Forms.Button();
-            this.panelMain = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.PanelMenu.SuspendLayout();
@@ -57,8 +57,18 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1358, 701);
+            this.panel1.Size = new System.Drawing.Size(1358, 683);
             this.panel1.TabIndex = 1;
+            // 
+            // panelMain
+            // 
+            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(223, 27);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(1133, 654);
+            this.panelMain.TabIndex = 4;
             // 
             // panel2
             // 
@@ -125,8 +135,30 @@
             this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelMenu.Location = new System.Drawing.Point(0, 0);
             this.PanelMenu.Name = "PanelMenu";
-            this.PanelMenu.Size = new System.Drawing.Size(223, 699);
+            this.PanelMenu.Size = new System.Drawing.Size(223, 681);
             this.PanelMenu.TabIndex = 0;
+            // 
+            // btnTheLoai
+            // 
+            this.btnTheLoai.BackColor = System.Drawing.Color.White;
+            this.btnTheLoai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTheLoai.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnTheLoai.FlatAppearance.BorderSize = 2;
+            this.btnTheLoai.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnTheLoai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnTheLoai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTheLoai.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTheLoai.ForeColor = System.Drawing.Color.Black;
+            this.btnTheLoai.Image = ((System.Drawing.Image)(resources.GetObject("btnTheLoai.Image")));
+            this.btnTheLoai.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTheLoai.Location = new System.Drawing.Point(2, 285);
+            this.btnTheLoai.Name = "btnTheLoai";
+            this.btnTheLoai.Size = new System.Drawing.Size(213, 88);
+            this.btnTheLoai.TabIndex = 8;
+            this.btnTheLoai.Text = "DANH MỤC THỂ LOẠI";
+            this.btnTheLoai.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTheLoai.UseVisualStyleBackColor = false;
+            this.btnTheLoai.Click += new System.EventHandler(this.btnTheLoai_Click);
             // 
             // btnQLKho
             // 
@@ -261,49 +293,17 @@
             this.btnQLNhanVien.UseVisualStyleBackColor = false;
             this.btnQLNhanVien.Click += new System.EventHandler(this.btnQLNhanVien_Click);
             // 
-            // btnTheLoai
-            // 
-            this.btnTheLoai.BackColor = System.Drawing.Color.White;
-            this.btnTheLoai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTheLoai.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnTheLoai.FlatAppearance.BorderSize = 2;
-            this.btnTheLoai.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnTheLoai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnTheLoai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTheLoai.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTheLoai.ForeColor = System.Drawing.Color.Black;
-            this.btnTheLoai.Image = ((System.Drawing.Image)(resources.GetObject("btnTheLoai.Image")));
-            this.btnTheLoai.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnTheLoai.Location = new System.Drawing.Point(2, 285);
-            this.btnTheLoai.Name = "btnTheLoai";
-            this.btnTheLoai.Size = new System.Drawing.Size(213, 88);
-            this.btnTheLoai.TabIndex = 8;
-            this.btnTheLoai.Text = "DANH MỤC THỂ LOẠI";
-            this.btnTheLoai.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTheLoai.UseVisualStyleBackColor = false;
-            this.btnTheLoai.Click += new System.EventHandler(this.btnTheLoai_Click);
-            // 
-            // panelMain
-            // 
-            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(223, 27);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1133, 672);
-            this.panelMain.TabIndex = 4;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1358, 701);
+            this.ClientSize = new System.Drawing.Size(1358, 683);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý bán hàng";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

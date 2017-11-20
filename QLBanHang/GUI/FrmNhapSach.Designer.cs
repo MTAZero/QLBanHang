@@ -211,10 +211,10 @@
             // 
             // btnXoaChiTietNhap
             // 
-            this.btnXoaChiTietNhap.BackColor = System.Drawing.Color.Teal;
+            this.btnXoaChiTietNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnXoaChiTietNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaChiTietNhap.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaChiTietNhap.ForeColor = System.Drawing.Color.White;
+            this.btnXoaChiTietNhap.ForeColor = System.Drawing.Color.Black;
             this.btnXoaChiTietNhap.Location = new System.Drawing.Point(221, 5);
             this.btnXoaChiTietNhap.Name = "btnXoaChiTietNhap";
             this.btnXoaChiTietNhap.Size = new System.Drawing.Size(103, 35);
@@ -225,10 +225,10 @@
             // 
             // btnSuaChiTietNhap
             // 
-            this.btnSuaChiTietNhap.BackColor = System.Drawing.Color.Teal;
+            this.btnSuaChiTietNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnSuaChiTietNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaChiTietNhap.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaChiTietNhap.ForeColor = System.Drawing.Color.White;
+            this.btnSuaChiTietNhap.ForeColor = System.Drawing.Color.Black;
             this.btnSuaChiTietNhap.Location = new System.Drawing.Point(112, 5);
             this.btnSuaChiTietNhap.Name = "btnSuaChiTietNhap";
             this.btnSuaChiTietNhap.Size = new System.Drawing.Size(103, 35);
@@ -239,10 +239,10 @@
             // 
             // btnThemChiTietNhap
             // 
-            this.btnThemChiTietNhap.BackColor = System.Drawing.Color.Teal;
+            this.btnThemChiTietNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnThemChiTietNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemChiTietNhap.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemChiTietNhap.ForeColor = System.Drawing.Color.White;
+            this.btnThemChiTietNhap.ForeColor = System.Drawing.Color.Black;
             this.btnThemChiTietNhap.Location = new System.Drawing.Point(3, 5);
             this.btnThemChiTietNhap.Name = "btnThemChiTietNhap";
             this.btnThemChiTietNhap.Size = new System.Drawing.Size(103, 35);
@@ -496,10 +496,10 @@
             // 
             // btnXoaPhieuNhap
             // 
-            this.btnXoaPhieuNhap.BackColor = System.Drawing.Color.Teal;
+            this.btnXoaPhieuNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnXoaPhieuNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaPhieuNhap.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaPhieuNhap.ForeColor = System.Drawing.Color.White;
+            this.btnXoaPhieuNhap.ForeColor = System.Drawing.Color.Black;
             this.btnXoaPhieuNhap.Location = new System.Drawing.Point(221, 5);
             this.btnXoaPhieuNhap.Name = "btnXoaPhieuNhap";
             this.btnXoaPhieuNhap.Size = new System.Drawing.Size(103, 35);
@@ -510,10 +510,10 @@
             // 
             // btnSuaPhieuNhap
             // 
-            this.btnSuaPhieuNhap.BackColor = System.Drawing.Color.Teal;
+            this.btnSuaPhieuNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnSuaPhieuNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaPhieuNhap.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaPhieuNhap.ForeColor = System.Drawing.Color.White;
+            this.btnSuaPhieuNhap.ForeColor = System.Drawing.Color.Black;
             this.btnSuaPhieuNhap.Location = new System.Drawing.Point(112, 5);
             this.btnSuaPhieuNhap.Name = "btnSuaPhieuNhap";
             this.btnSuaPhieuNhap.Size = new System.Drawing.Size(103, 35);
@@ -524,10 +524,10 @@
             // 
             // btnThemPhieuNhap
             // 
-            this.btnThemPhieuNhap.BackColor = System.Drawing.Color.Teal;
+            this.btnThemPhieuNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnThemPhieuNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemPhieuNhap.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemPhieuNhap.ForeColor = System.Drawing.Color.White;
+            this.btnThemPhieuNhap.ForeColor = System.Drawing.Color.Black;
             this.btnThemPhieuNhap.Location = new System.Drawing.Point(3, 5);
             this.btnThemPhieuNhap.Name = "btnThemPhieuNhap";
             this.btnThemPhieuNhap.Size = new System.Drawing.Size(103, 35);

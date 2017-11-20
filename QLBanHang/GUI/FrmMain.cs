@@ -35,6 +35,7 @@ namespace QLBanHang.GUI
                 btnQLNhanVien.Enabled = true;
                 btnQLNXB.Enabled = true;
                 btnQLKho.Enabled = true;
+                btnTheLoai.Enabled = true;
                 btnXuatHang.Enabled = true;
                 btnNhapHang.Enabled = true;
                 btnQuanLySACH.Enabled = true;
@@ -47,6 +48,7 @@ namespace QLBanHang.GUI
                 btnQLNhanVien.Enabled = false;
                 btnQLNXB.Enabled = false;
                 btnQuanLySACH.Enabled = false;
+                btnTheLoai.Enabled = false;
                 btnQLKho.Enabled = true;
                 btnXuatHang.Enabled = true;
                 btnNhapHang.Enabled = true;

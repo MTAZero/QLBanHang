@@ -32,15 +32,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSACH = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TacGIa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTimKiem = new System.Windows.Forms.Panel();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TacGIa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSACH)).BeginInit();
@@ -82,6 +83,7 @@
             this.ID,
             this.STT,
             this.TenMH,
+            this.TheLoai,
             this.TacGIa,
             this.SoLuong});
             this.dgvSACH.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -100,46 +102,6 @@
             this.dgvSACH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSACH.Size = new System.Drawing.Size(1128, 621);
             this.dgvSACH.TabIndex = 3;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // STT
-            // 
-            this.STT.DataPropertyName = "STT";
-            this.STT.FillWeight = 7F;
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            // 
-            // TenMH
-            // 
-            this.TenMH.DataPropertyName = "SACH";
-            this.TenMH.FillWeight = 30F;
-            this.TenMH.HeaderText = "Tên mặt hàng";
-            this.TenMH.Name = "TenMH";
-            this.TenMH.ReadOnly = true;
-            // 
-            // TacGIa
-            // 
-            this.TacGIa.DataPropertyName = "TacGia";
-            this.TacGIa.FillWeight = 15F;
-            this.TacGIa.HeaderText = "Tác giả";
-            this.TacGIa.Name = "TacGIa";
-            this.TacGIa.ReadOnly = true;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.DataPropertyName = "SoLuong";
-            this.SoLuong.FillWeight = 30F;
-            this.SoLuong.HeaderText = "Số lượng";
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
             // 
             // panelTimKiem
             // 
@@ -179,6 +141,54 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tìm kiếm :";
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "STT";
+            this.STT.FillWeight = 7F;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            // 
+            // TenMH
+            // 
+            this.TenMH.DataPropertyName = "SACH";
+            this.TenMH.FillWeight = 30F;
+            this.TenMH.HeaderText = "Tên mặt hàng";
+            this.TenMH.Name = "TenMH";
+            this.TenMH.ReadOnly = true;
+            // 
+            // TheLoai
+            // 
+            this.TheLoai.DataPropertyName = "TheLoai";
+            this.TheLoai.FillWeight = 30F;
+            this.TheLoai.HeaderText = "Thể loại";
+            this.TheLoai.Name = "TheLoai";
+            this.TheLoai.ReadOnly = true;
+            // 
+            // TacGIa
+            // 
+            this.TacGIa.DataPropertyName = "TacGia";
+            this.TacGIa.FillWeight = 30F;
+            this.TacGIa.HeaderText = "Tác giả";
+            this.TacGIa.Name = "TacGIa";
+            this.TacGIa.ReadOnly = true;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.FillWeight = 30F;
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            // 
             // FrmKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,6 +220,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TheLoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn TacGIa;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
     }

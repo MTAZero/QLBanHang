@@ -39,6 +39,7 @@ namespace QLBanHang.GUI
                                       STT = ++i,
                                       SACH = db.SACHes.Where(z => z.ID == p.SACHID).FirstOrDefault().TEN,
                                       TacGia = db.SACHes.Where(z => z.ID == p.SACHID).FirstOrDefault().TACGIA,
+                                      TheLoai = db.THELOAIs.Where(z=>z.ID == db.SACHes.Where(y=>y.ID == p.SACHID).FirstOrDefault().THELOAIID).FirstOrDefault().TEN,
                                       SoLuong = p.SOLUONG
                                   })
                                   .Where(p => p.SACH.Contains(keyword) || p.TacGia.Contains(keyword))

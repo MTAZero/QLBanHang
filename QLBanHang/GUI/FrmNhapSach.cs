@@ -133,7 +133,7 @@ namespace QLBanHang.GUI
         {
             try
             {
-                cbxNhanVien.SelectedIndex = 0;
+                cbxNhanVien.SelectedValue = (int)nv.ID;
                 dateNgayNhap.Value = DateTime.Now;
                 txtDiaDiem.Text = "";
                 txtTongTien.Text = "";
@@ -543,8 +543,32 @@ namespace QLBanHang.GUI
         #region Sự kiện
         private void btnThemChiTietNhap_Click(object sender, EventArgs e)
         {
+            
+
             if (btnThemChiTietNhap.Text == "Thêm")
             {
+
+                PHIEUNHAP z = getPhieuNhapByID();
+                if (z.ID == 0)
+                {
+                    MessageBox.Show("Chưa có phiếu nhập nào được lựa chọn",
+                                    "Thông báo",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                    return;
+                }
+
+                NHANVIEN nvtg = db.NHANVIENs.Where(p => p.ID == z.NHANVIENID).FirstOrDefault();
+
+                if (nv.QUYEN == 0 && nv.ID != nvtg.ID)
+                {
+                    // nếu nhân viên không phải là admin và không phải nhân viên nhập phiếu thì thông báo
+                    MessageBox.Show("Bạn không có quyền thêm chi tiết nhập\nChỉ quản trị và nhân viên nhập phiếu mới có quyền thêm chi tiết nhập",
+                                    "Thông báo",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                    return;
+                }
 
                 btnThemChiTietNhap.Text = "Lưu";
                 btnSuaChiTietNhap.Enabled = false;

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -119,13 +119,13 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.BackColor = System.Drawing.Color.Teal;
+            this.btnXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(5, 51);
+            this.btnXoa.ForeColor = System.Drawing.Color.Black;
+            this.btnXoa.Location = new System.Drawing.Point(4, 51);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(372, 42);
+            this.btnXoa.Size = new System.Drawing.Size(373, 42);
             this.btnXoa.TabIndex = 12;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
@@ -133,11 +133,11 @@
             // 
             // btnSua
             // 
-            this.btnSua.BackColor = System.Drawing.Color.Teal;
+            this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(197, 3);
+            this.btnSua.ForeColor = System.Drawing.Color.Black;
+            this.btnSua.Location = new System.Drawing.Point(197, 5);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(180, 42);
             this.btnSua.TabIndex = 11;
@@ -147,10 +147,10 @@
             // 
             // btnThem
             // 
-            this.btnThem.BackColor = System.Drawing.Color.Teal;
+            this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.ForeColor = System.Drawing.Color.Black;
             this.btnThem.Location = new System.Drawing.Point(3, 5);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(188, 42);
@@ -393,8 +393,8 @@
             this.dgvNhanVien.ReadOnly = true;
             this.dgvNhanVien.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvNhanVien.RowHeadersWidth = 25;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvNhanVien.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvNhanVien.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNhanVien.RowTemplate.Height = 30;
             this.dgvNhanVien.RowTemplate.ReadOnly = true;
             this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

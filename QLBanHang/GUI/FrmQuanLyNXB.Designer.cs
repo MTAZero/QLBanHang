@@ -102,10 +102,10 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.BackColor = System.Drawing.Color.Teal;
+            this.btnXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.ForeColor = System.Drawing.Color.Black;
             this.btnXoa.Location = new System.Drawing.Point(5, 51);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(372, 42);
@@ -116,11 +116,11 @@
             // 
             // btnSua
             // 
-            this.btnSua.BackColor = System.Drawing.Color.Teal;
+            this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(197, 3);
+            this.btnSua.ForeColor = System.Drawing.Color.Black;
+            this.btnSua.Location = new System.Drawing.Point(197, 5);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(180, 42);
             this.btnSua.TabIndex = 11;
@@ -130,11 +130,11 @@
             // 
             // btnThem
             // 
-            this.btnThem.BackColor = System.Drawing.Color.Teal;
+            this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(3, 5);
+            this.btnThem.ForeColor = System.Drawing.Color.Black;
+            this.btnThem.Location = new System.Drawing.Point(5, 5);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(188, 42);
             this.btnThem.TabIndex = 10;
