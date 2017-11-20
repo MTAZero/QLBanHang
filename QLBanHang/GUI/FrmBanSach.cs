@@ -1,4 +1,5 @@
 ﻿using QLBanHang.Data;
+using QLBanHang.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -595,7 +596,18 @@ namespace QLBanHang.GUI
                     try
                     {
                         CHITIETXUAT tg = getChiTietBanByForm();
-                        db.CHITIETXUATs.Add(tg);
+
+                        int cnt = db.CHITIETXUATs.Where(p => p.HOADONBANID == tg.HOADONBANID && p.SACHID == tg.SACHID).ToList().Count;
+                        if ( cnt == 0)
+                            db.CHITIETXUATs.Add(tg);
+                        else
+                        {
+                            CHITIETXUAT z = db.CHITIETXUATs.Where(p => p.HOADONBANID == tg.HOADONBANID && p.SACHID == tg.SACHID).FirstOrDefault();
+                            z.SOLUONG += tg.SOLUONG;
+                            z.THANHTIEN = z.SOLUONG * z.GIABAN;
+                        }
+
+
                         db.SaveChanges();
 
                         KHO kho = db.KHOes.Where(p => p.SACHID == tg.SACHID).FirstOrDefault();
@@ -732,7 +744,25 @@ namespace QLBanHang.GUI
             }
         }
 
+        private void btnInHoaDon_Click(object sender, EventArgs e)
+        {
+            HOADONBAN hd = getHOADONBANByID();
+            if (hd.ID == 0)
+            {
+                MessageBox.Show("Chưa có hóa đơn nào được chọn",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            FrmRpInHoaDon form = new FrmRpInHoaDon(hd);
+            form.ShowDialog();
+        }
+
         #endregion
+
+        
 
         #endregion
 

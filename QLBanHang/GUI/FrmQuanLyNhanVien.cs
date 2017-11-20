@@ -49,7 +49,7 @@ namespace QLBanHang.GUI
                        .ToList();
 
             dgvNhanVien.DataSource = dbNV.Where(p => p.HoTen.Contains(keyword) || p.GioiTinh.Contains(keyword) || p.Quyen.Contains(keyword) || p.NgaySinh.Contains(keyword))
-                                    .ToList();
+                                     .ToList();
 
             // cập nhật index 
             index = index1;

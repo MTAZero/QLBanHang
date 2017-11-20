@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelChiTietXuat = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvChiTietBan = new System.Windows.Forms.DataGridView();
@@ -65,6 +65,7 @@
             this.DiaDiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnInHoaDon = new System.Windows.Forms.Button();
             this.btnXoaHoaDonBan = new System.Windows.Forms.Button();
             this.btnSuaHoaDonBan = new System.Windows.Forms.Button();
             this.btnThemHoaDonBan = new System.Windows.Forms.Button();
@@ -137,8 +138,8 @@
             this.dgvChiTietBan.ReadOnly = true;
             this.dgvChiTietBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvChiTietBan.RowHeadersWidth = 25;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvChiTietBan.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvChiTietBan.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvChiTietBan.RowTemplate.Height = 30;
             this.dgvChiTietBan.RowTemplate.ReadOnly = true;
             this.dgvChiTietBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -422,8 +423,8 @@
             this.dgvHoaDonBan.ReadOnly = true;
             this.dgvHoaDonBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvHoaDonBan.RowHeadersWidth = 25;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHoaDonBan.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHoaDonBan.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHoaDonBan.RowTemplate.Height = 30;
             this.dgvHoaDonBan.RowTemplate.ReadOnly = true;
             this.dgvHoaDonBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -484,6 +485,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.btnInHoaDon);
             this.panel5.Controls.Add(this.btnXoaHoaDonBan);
             this.panel5.Controls.Add(this.btnSuaHoaDonBan);
             this.panel5.Controls.Add(this.btnThemHoaDonBan);
@@ -492,6 +494,20 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(542, 48);
             this.panel5.TabIndex = 5;
+            // 
+            // btnInHoaDon
+            // 
+            this.btnInHoaDon.BackColor = System.Drawing.Color.White;
+            this.btnInHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInHoaDon.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInHoaDon.ForeColor = System.Drawing.Color.Black;
+            this.btnInHoaDon.Location = new System.Drawing.Point(330, 5);
+            this.btnInHoaDon.Name = "btnInHoaDon";
+            this.btnInHoaDon.Size = new System.Drawing.Size(103, 35);
+            this.btnInHoaDon.TabIndex = 13;
+            this.btnInHoaDon.Text = "In hóa đơn";
+            this.btnInHoaDon.UseVisualStyleBackColor = false;
+            this.btnInHoaDon.Click += new System.EventHandler(this.btnInHoaDon_Click);
             // 
             // btnXoaHoaDonBan
             // 
@@ -684,5 +700,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGiaChiTietNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTienChiTietNhap;
         private System.Windows.Forms.Label txtDonGia;
+        private System.Windows.Forms.Button btnInHoaDon;
     }
 }
